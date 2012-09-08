@@ -1,0 +1,40 @@
+---
+layout: post
+title: ! '"rails new" causes segfault using ruby 1.9.3 on Lion'
+tags:
+- osx
+- ruby
+- rvm
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '357054'
+  jabber_published: '1337235464'
+  delicious: a:3:{s:5:"count";i:0;s:9:"post_tags";s:0:"";s:4:"time";i:1344670603;}
+  reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1344755333;}
+---
+My setup: RVM, MacPorts, OSX Lion
+
+..and "rails new" causes a segfault! Stack trace seems to indicate its coming from the bundle install, specifically from net/http. Some googling suggests this is caused by https:// in the gemfile, and can be fixed by modifying it to http://. However since this is during the rails new - thats not possible.
+
+No one solution I found addressed my particular issue, so I'll document what worked for me, it may help you!
+
+1. In xcode, Preferences --&gt; Downloads --&gt; Command Line Tools --&gt; Install
+
+2. Install openssl via RVM:
+
+[sourcecode]
+rvm pkg install openssl
+[/sourcecode]
+
+3. Reinstall ruby 1.9.3, forcing GCC and the newly downloaded OpenSSL. The -C just means "use these configuration options"
+
+[sourcecode]
+rvm reinstall 1.9.3 -C --with-gcc=gcc --with-openssl-dir=~/.rvm/usr
+[/sourcecode]
+
+References:
+
+<a href="https://github.com/rails/rails/issues/4766" title="https://github.com/rails/rails/issues/4766">https://github.com/rails/rails/issues/4766</a>
+<a href="http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion" title="http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion">http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion</a>

@@ -1,0 +1,58 @@
+---
+layout: post
+title: Google's spell check API stopped working - here is the fix
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '357054'
+  jabber_published: '1280175694'
+  reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1345463348;}
+  delicious: a:3:{s:5:"count";i:0;s:9:"post_tags";s:0:"";s:4:"time";i:1344670468;}
+  _wp_old_slug: ''
+---
+Google's undocumented, unpublished, not-for-public-consumption Spell Check API stopped working. How dare they?
+
+Well turns out the fix is simple, after using Charles to debug the HTTP requests of the Google Toolbar spell checker, I narrowed down the difference between my calls and theirs to a missing host header. Added that back in and everything works again.  
+
+Usage:
+(I don't parse the XML, because I'm just passing it to a flash client):
+[sourcecode language="ruby"]
+=&gt; puts Spell.check('does it worka?')
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;spellresult error=&quot;0&quot; clipped=&quot;0&quot; charschecked=&quot;14&quot;&gt;&lt;c o=&quot;8&quot; l=&quot;5&quot; s=&quot;1&quot;&gt;works	work	wok	worker	woke&lt;/c&gt;&lt;/spellresult&gt;
+[/sourcecode]
+
+Source:
+[sourcecode language="ruby"]
+require 'rubygems'
+require 'builder'
+require 'net/http'
+require 'net/https'
+
+module Spell
+
+  HOST_HEADER = 'www.google.com'
+  HOST_POST = 'google.com'
+  PATH = &quot;/tbproxy/spell?lang=en&amp;hl=en&amp;v=2.0f&quot;
+
+  def self.check(text)
+    http = Net::HTTP.new(HOST_POST,443)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    headers = {&quot;Host&quot; =&gt; HOST_HEADER}
+    data = get_xml_payload(text)
+    response_headers, response_data = http.post(PATH, data, headers)
+    response_data
+  end
+
+private 
+
+  def self.get_xml_payload(text)
+    xml = Builder::XmlMarkup.new
+    xml_string =  xml.spellrequest(:textalreadyclipped =&gt; &quot;0&quot;, :ignoredups =&gt; &quot;0&quot;, :ignoredigits =&gt; &quot;1&quot;, :ignoreallcaps =&gt; &quot;0&quot;) do
+      xml.text(text)
+    end
+  end
+end
+[/sourcecode]

@@ -1,0 +1,38 @@
+---
+layout: post
+title: Javascript Pattern for passing additional variables into an event handler
+tags:
+- code
+- javascript
+- jquery
+- pattern
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '357054'
+  reddit: a:2:{s:5:"count";s:1:"0";s:4:"time";s:10:"1317580693";}
+  delicious: a:3:{s:5:"count";s:1:"0";s:9:"post_tags";s:0:"";s:4:"time";s:10:"1317578799";}
+---
+When you need to pass extra variables into your event handler, you can't just pass it in since the event handler has a specific signature (function (e){}).  However there are several options:  Thanks to Javascript Closures, anonymous functions do have access to their original scope and variables, so something like this would work:
+
+[sourcecode language="jscript"]
+var myVar = &quot;Hello!&quot;;
+$(&quot;#element&quot;).click(function(e){
+  alert(myVar);
+});&lt;/code&gt;
+[/sourcecode]
+
+However, this alternate pattern is a bit cleaner and makes it obvious which variables your event handler depends on:
+
+[sourcecode language="jscript"]
+var myVar = &quot;Hello!&quot;;
+$(&quot;#element&quot;).click(clickHandler(myVar));
+function clickHandler(myVar) {
+  return function(e) {
+    alert(myVar);
+  }
+}
+[/sourcecode]
+
+Keep in mind that in this second pattern, clickHandler is actually called at parse time and not when the event fires.  When it gets called, it returns the anonymous function which is what actually gets bound to the event and gets called when the event fires.

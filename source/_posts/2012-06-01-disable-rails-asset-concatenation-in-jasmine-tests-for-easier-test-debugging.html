@@ -1,0 +1,30 @@
+---
+layout: post
+title: Disable rails asset concatenation in jasmine tests for easier test debugging
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  jabber_published: '1338525120'
+  _edit_last: '357054'
+  delicious: a:3:{s:5:"count";s:1:"0";s:9:"post_tags";s:0:"";s:4:"time";s:10:"1339463835";}
+  reddit: a:2:{s:5:"count";s:1:"0";s:4:"time";s:10:"1338850524";}
+---
+If you're using Pivotal's excellent <a href="http://pivotal.github.com/jasmine/">Javasmine</a> javascript testing framework with Rails 3.2 Asset Pipeline, you may have noticed that the line numbers on your stack traces are not useful - they show the concatenated application.js line numbers. 
+
+It may indicate that the error message is on application.js line number 17,403 instead of homepage.js line number 15.  To get jasmine to call the files individually and give you better error messages, add this in config/initializers/jasmine.rb:
+
+[sourcecode lang="ruby"]
+module Jasmine
+  class Config
+    def src_files
+      Rails.application.assets[&quot;application&quot;].dependencies.map do |asset|
+        &quot;assets/&quot; + asset.logical_path
+      end
+    end
+  end
+end
+[/sourcecode]
+
+NOTE: This only works if your application.js requires all your javascript files and doesn't include any javascript itself.

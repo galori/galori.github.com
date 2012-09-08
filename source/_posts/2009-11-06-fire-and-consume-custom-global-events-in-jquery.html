@@ -1,0 +1,36 @@
+---
+layout: post
+title: Fire and consume custom global events in jQuery
+tags:
+- javascript
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '357054'
+  reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1345289657;}
+  delicious: a:3:{s:5:"count";i:0;s:9:"post_tags";s:0:"";s:4:"time";i:1345109755;}
+---
+<strong>UPDATED 3/24/2010: <a href="http://blog.ragingstudios.com/2010/03/25/update-to-fire-and-consume-custom-global-events-in-jquery/">jQuery 1.4 changed things a bit</a></strong>
+
+To bind something to a custom event:
+
+[sourcecode language="jscript"]
+$().bind(&quot;sneeze&quot;,function(){
+  console.log(&quot;bless you!&quot;);
+});
+[/sourcecode]
+
+and to fire that event, from anywhere else?
+
+[sourcecode language="jscript"]
+$.event.trigger(&quot;sneeze&quot;);
+[/sourcecode]
+
+result in the console, is as expected:
+
+[sourcecode language="jscript"]
+bless you
+[/sourcecode]
+
+

@@ -1,0 +1,38 @@
+---
+layout: post
+title: jQuery.facebook plugin for new facebook javascript SDK
+tags: []
+status: draft
+type: post
+published: false
+meta:
+  _edit_last: '357054'
+---
+Facebook announced a slew of new SDKs during <a href="http://developers.facebook.com/docs/reference/javascript/">f8</a> a couple weeks ago, including a new <a href="http://developers.facebook.com/docs/reference/javascript/">javascript SDK</a>. The new SDK provides access to the new Open Graph API and facebook authentication (now OAUTH).
+
+This plugin is a lightweight wrapper that provides a less verbose and more jQuery-like interface to it, plus a few basic utilities.  The plan is to grow this in future versions to provide more features but it already makes things more fun to use.
+
+Basic usage example:
+
+[sourcecode language="jscript"]
+$.facebook.init('123456789'); //your facebook app ID
+
+$.facebook.ready(function(){
+  $.facebook.api('/zuck',function(response){
+    console.log(response.name + &quot; : &quot; + response.gender);
+  });
+});
+[/sourcecode] 
+
+This results in the following (any public profile information is accessible without a logged in user).
+
+[sourcecode language="jscript"]
+Mark Zuckerberg : male
+[/sourcecode] 
+
+Additionally, a page level attribute is added:
+
+[sourcecode language="jscript"]
+$('body').data('facebook-ready');
+[/sourcecode] 
+

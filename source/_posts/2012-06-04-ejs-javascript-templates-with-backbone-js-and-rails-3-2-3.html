@@ -1,0 +1,76 @@
+---
+layout: post
+title: EJS javascript templates with Backbone JS and Rails 3.2.3
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  jabber_published: '1338783024'
+  _edit_last: '357054'
+  reddit: a:2:{s:5:"count";s:1:"0";s:4:"time";s:10:"1339462057";}
+  delicious: a:3:{s:5:"count";s:1:"0";s:9:"post_tags";s:0:"";s:4:"time";s:10:"1339462054";}
+---
+Documentation seems a bit sparse, so here is the low down:
+
+1. add the EJS gem (by Sam Stephenson, of Prototype fame) to your gemfile:
+
+[sourcecode language="ruby"]
+gem 'ejs'
+[/sourcecode]
+
+2. Assuming your backbone code is in app/assets/javsacripts/app and all javascript code is included automatically using asset pipleine's "require tree", add a template file in app/assets/javascripts/templates. For example for my video chat app, I followed the rails pattern of views/&lt;resource&gt;/&lt;action&gt;. I added app/assets/javascripts/templates/callers/show.jst.ejs:
+
+[sourcecode language="html"]
+&lt;div class='caller' id='caller-{{streamId}}' data-stream-id='{{streamId}}'&gt;
+  &lt;div class='name'&gt;{{name}}&lt;/div&gt;
+    &lt;div id='stream-{{streamId}}'&gt;
+    &lt;div id='stream-{{ streamId }}-replace'&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+[/sourcecode]
+
+2. I did have to force templates to be included before my backbone javascript by explicitly specifying it first in app.js:
+
+[sourcecode language="javascript"]
+//=require_tree ./templates
+//=require_tree ./app
+[/sourcecode]
+
+3. (optional) EJS uses ERB syntax of &lt;%= %&gt; by default, but I preferred the {{ }} syntax, so I added this into config/initializers/ejs.rb:
+
+[sourcecode language="ruby"]
+EJS.evaluation_pattern = /{{([\s\S]+?)}}/
+EJS.interpolation_pattern = /{{([\s\S]+?)}}/
+[/sourcecode]
+
+if you don't want to do this, just use &lt;%=variableName%&gt; instead of {{variableName}}
+
+4. The EJS gem makes all templates available as clientside functions in window.JST. Add this at the top of your backbone view:
+
+[sourcecode language="javascript"]
+  app.views.CallerIndexView = Backbone.View.extend({
+    template: JST['templates/callers/show']
+  });
+[/sourcecode]
+
+5. Now you can use it in your backbone view:
+
+[sourcecode language="javascript"]
+app.views.CallerIndexView = Backbone.View.extend({
+
+  template: JST['templates/callers/show'],
+
+  render: function() {
+  .....some code....
+  var html = this.template({name: stream.name, streamId: stream.streamId});
+  this.$('#caller').append(html);
+  .....some code....
+});
+[/sourcecode]
+
+6. If you wanted to just test it out, you could just test it in a browser console like so:
+
+[sourcecode language="javascript"]
+window.JST['templates/callers/show']({name: 'Joe', streamId: 1});
+[/sourcecode]

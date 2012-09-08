@@ -1,0 +1,132 @@
+---
+layout: post
+title: I heart git
+tags:
+- git
+- version control
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '357054'
+  jabber_published: '1307263213'
+  delicious: a:3:{s:5:"count";i:0;s:9:"post_tags";s:0:"";s:4:"time";i:1344932227;}
+  reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1345826909;}
+---
+Therefore, here are some of my favorite, useful git commands:
+<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">
+Diff of a Diff
+</p>
+
+Looking at the diff representing one commit is old news.
+
+
+[sourcecode]
+git show &lt;SHA&gt;
+[/sourcecode]
+
+Comparing a single file between two commits (or branches) is also not uncommon:
+
+[sourcecode]
+git diff branch1 branch2 -- path/to/filename.ext
+[/sourcecode]
+
+However - if the files were pretty far in the two branches to begin with - and you'd just like to compare the CHANGES introduced by two commits (a diff of a diff), one way is this:
+
+[sourcecode]
+diff &lt;(git show SHA)  &lt;(git show SHA)
+[/sourcecode]
+
+<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">git log with diffs</p>
+
+Oft overlooked feature:
+
+[sourcecode]
+git log -u
+[/sourcecode]
+
+Can be useful if you'd like to track the history of a certain file, and view all the changes:
+
+[sourcecode]
+git log -u -- path/to/filename.ext
+[/sourcecode]
+
+<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">git log, tracking past renames</p>
+
+By default - viewing the history of a specific file with git log only goes as far back as when the file was created - or renamed.
+
+If you'd like to track it back past any number of renames / moves:
+
+[sourcecode]
+git log -u --follow -- path/to/filename.ext
+[/sourcecode]
+
+This can get pretty slow for larger repos, which I imagine is why its not on by default.
+
+<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">View a file in a branch, without actually checking it out</p>
+
+If you're working on a file and wish to view that same file in another branch, you can avoid extra stashes &amp; checkouts and just "peek" into that branch:
+
+[sourcecode]
+git show branch2:path/to/filename.ext
+[/sourcecode]
+
+Note the syntax of branch:file without spaces, which is unusual.
+
+<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">Recommit a commit?</p>
+
+You may want to do this if the commit message is really bad (what are some of the worst messages you've seen? A whole other blog post...) and it's already been pushed remotely.
+
+Git doesn't like letting you do this, you can't commit changes to files that haven't been changed. You can't cherry-pick a commit if all the changes are already in place. You could do a revert and then a re-revert - but semantically that might even be worse in the history - it implies there was a problem with the code.
+
+Another approach:  Branch, amend, merge
+
+[sourcecode]
+git checkout master
+git checkout -b tmp_branch
+git commit --amend
+git checkout master
+git merge tmp_branch
+git delete -D tmp_branch
+[/sourcecode]
+
+you'll end up with a duplicate commit, and a merge commit - but it gives you the opportunity to provide more verbose info on that 2nd commit message. In this example the commit in question would be at the tip of master, but any commit in history should work - just branch your tmp_branch off of whichever commit needs amending.
+
+<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">Common Ancestor</p>
+
+[sourcecode]
+git merge-base branch1 branch2
+[/sourcecode]
+
+Shows you the one shared commit where these two branches diverged. In the git "file system", any two commits - no matter on which branch will have a shared ancestors. It's sort of like evolution.
+
+This can be useful if you're in the middle of resolving a merge conflict, and you feel like the 3 pane diff GUI is not providing you with enough information.  Open up a 2nd terminal, find the common ancestor and then diff the file in question between the branch and the common ancestor, to see exactly whats changed.
+
+<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">Commit differences between two branches</p>
+
+I like this syntax because it reads well to me as a developer. Show me commits that are in branch1 that are not in branch2:
+
+[sourcecode]
+git log branch1 ^branch2
+[/sourcecode]
+
+If you or your group does a lot of cherry-picking or rebasing, then this won't always work - because those operatons create a new SHA - and the above depend on the SHA being the same.  Start using merges instead if possible, then the usefulness of the above will become apparent.
+
+You can use similar syntax to determine if a single commit is part of a branch or not:
+
+[sourcecode]
+git log -n1 commit ^branch
+[/sourcecode]
+
+If the commit is part of the branch, it will show you nothing. If it is not part of the branch...it will show you the commit.
+
+<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">Make an exiting branch tracking</p>
+
+If a branch was started locally and was then pushed remotely. You probably found out soon enough that its not set up to track so well - compared to a branch that started remotely. To get it all set up:
+
+[sourcecode]
+git branch --set-upstream foo upstream/foo
+[/sourcecode]
+(Thanks to <a href="http://stackoverflow.com/questions/520650/how-do-you-make-an-existing-git-branch-track-a-remote-branch" title="this" target="_blank">this</a> stackoverflow.com article for this last one)
+
+

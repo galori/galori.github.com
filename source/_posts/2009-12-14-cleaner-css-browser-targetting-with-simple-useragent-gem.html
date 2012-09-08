@@ -1,0 +1,68 @@
+---
+layout: post
+title: Cleaner CSS browser targetting with simple-useragent gem
+tags:
+- css
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '357054'
+  _wp_old_slug: cleaner-css-browser-targetting-for-rails-projects-with-simple-useragent-gem
+  delicious: a:3:{s:5:"count";i:0;s:9:"post_tags";s:0:"";s:4:"time";i:1344754934;}
+  reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1345555643;}
+---
+I just posted the "simple-useragent" gem, which provides the ability to for cleaner browser specific CSS targeting*.  This is for rails projects but the concept can work anywhere.
+
+For example, instead of the targeting IE7 with your CSS with
+
+[sourcecode language="css"]
+/* IE7 */
+*:first-child+html #content {
+  height: 500px;
+}
+[/sourcecode]
+
+You can now do this:
+
+[sourcecode language="css"]
+.ie7 #content {
+  height: 500px;
+}
+[/sourcecode]
+
+To take advantage of this, you just need to add the following to your body tag:
+
+[sourcecode language="ruby" htmlscript="true"]
+&lt;body class='&lt;%=UserAgent::browser(request)%&gt;'&gt;
+[/sourcecode]
+
+* Admittedly targeting CSS to a specific browser is a bad practice that should generally be avoided. For more details about why browser detection in general is a bad idea, see <a href="http://www.quirksmode.org/js/support.html">www.quirksmode.org/js/support.html</a>. However sometimes there is no choice - especially under time constraints.
+
+<hr>
+
+Additionally, simple-useragent makes the following methods available to you:
+
+[sourcecode language="ruby" htmlscript="true"]
+UserAgent::is_desktop?
+UserAgent::is_mobile?
+UserAgent::is_blackberry?
+UserAgent::is_iphone?
+[/sourcecode]
+
+The is_mobile? and is_desktop? methods are using a minimalistic approach, converted from the python script here: http://gist.github.com/88057. The theory is that since there are a lot more mobile user agents than there are desktop user agents (hundreds or even thousands) - we detect the known list of desktop user agents, and if its not one of those we assume that it is mobile. It works surprisingly well in the vast majority of cases. So far I’ve only seen it fail with spoofed or malformed user agents.
+
+To install:
+
+[sourcecode language="bash"]gem install simple-useragent[/sourcecode]
+
+The gem is hosted on gemcutter - if you don't have gemcutter as a source you'll have to add it
+
+[sourcecode language="bash"]gem install gemcutter
+gem tumble [/sourcecode]
+
+<hr>
+
+source at <a href="http://github.com/galori/simple-useragent">http://github.com/galori/simple-useragent</a>
+
+Update:  Thanks to an anonymous commenter on <a href="http://www.rubyflow.com/items/3148">rubyflow</a> for pointing out a jQuery version of this: <a href="http://github.com/alexrabarts/jquery-platformselector">jquery.platformselector</a>.  
