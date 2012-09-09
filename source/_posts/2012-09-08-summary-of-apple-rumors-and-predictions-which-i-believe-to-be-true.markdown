@@ -41,3 +41,14 @@ Retina Display
 --------------
 
   * I expect _all_ Apple products to eventually have [retina](http://en.wikipedia.org/wiki/Retina_display) display - but this may take a few years.
+  
+Sources
+-------
+
+If you'd like to stay up-to-date, here are a few blogs I recommend which do a good job of filtering out the noise and making smart and informed predictions:
+
+* [John Gruber's Daring Fireball](http://daringfireball.net)
+* [Jim Dalrymple's The Loop](http://www.loopinsight.com/)
+* [Marco Arment's marco.org](http://www.marco.org/)
+
+Many sites publish Apple rumors, but a lot of them trade accuracy for page views and will publish [unconfirmed](http://dealbook.nytimes.com/2010/10/19/flush-with-cash-will-apple-go-shopping/) or sometimes even [silly rumors](http://www.forbes.com/sites/erikkain/2012/04/15/what-apple-ceo-tim-cooks-visit-to-valve-means/).
