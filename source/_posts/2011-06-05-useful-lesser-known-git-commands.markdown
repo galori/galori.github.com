@@ -1,6 +1,6 @@
 ---
 layout: post
-title: I heart git
+title: Useful but lesser known git commands
 tags:
 - git
 - version control

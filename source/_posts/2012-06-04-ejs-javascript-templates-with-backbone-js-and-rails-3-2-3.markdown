@@ -13,13 +13,17 @@ meta:
 ---
 Documentation seems a bit sparse, so here is the low down:
 
-1. add the EJS gem (by Sam Stephenson, of Prototype fame) to your gemfile:
+<!-- more -->
+
+
+<ol>
+  <li> add the EJS gem (by Sam Stephenson, of Prototype fame) to your gemfile:
 
 ``` ruby
 gem 'ejs'
 ```
 
-2. Assuming your backbone code is in app/assets/javsacripts/app and all javascript code is included automatically using asset pipleine's "require tree", add a template file in app/assets/javascripts/templates. For example for my video chat app, I followed the rails pattern of views/<resource>/<action>. I added app/assets/javascripts/templates/callers/show.jst.ejs:
+  <li>Assuming your backbone code is in app/assets/javsacripts/app and all javascript code is included automatically using asset pipleine's "require tree", add a template file in app/assets/javascripts/templates. For example for my video chat app, I followed the rails pattern of views/<resource>/<action>. I added app/assets/javascripts/templates/callers/show.jst.ejs:
 
 ``` html
 <div class='caller' id='caller-{{streamId}}' data-stream-id='{{streamId}}'>
@@ -30,14 +34,14 @@ gem 'ejs'
 </div>
 ```
 
-2. I did have to force templates to be included before my backbone javascript by explicitly specifying it first in app.js:
+  <li>I did have to force templates to be included before my backbone javascript by explicitly specifying it first in app.js:
 
 ``` javascript
 //=require_tree ./templates
 //=require_tree ./app
 ```
 
-3. (optional) EJS uses ERB syntax of <%= %> by default, but I preferred the {{ }} syntax, so I added this into config/initializers/ejs.rb:
+  <li>(optional) EJS uses ERB syntax of <%= %> by default, but I preferred the {{ }} syntax, so I added this into config/initializers/ejs.rb:
 
 ``` ruby
 EJS.evaluation_pattern = /{{([\s\S]+?)}}/
@@ -46,7 +50,7 @@ EJS.interpolation_pattern = /{{([\s\S]+?)}}/
 
 if you don't want to do this, just use <%=variableName%> instead of {{variableName}}
 
-4. The EJS gem makes all templates available as clientside functions in window.JST. Add this at the top of your backbone view:
+  <li>The EJS gem makes all templates available as clientside functions in window.JST. Add this at the top of your backbone view:
 
 ``` javascript
   app.views.CallerIndexView = Backbone.View.extend({
@@ -54,7 +58,7 @@ if you don't want to do this, just use <%=variableName%> instead of {{variableNa
   });
 ```
 
-5. Now you can use it in your backbone view:
+  <li>Now you can use it in your backbone view:
 
 ``` javascript
 app.views.CallerIndexView = Backbone.View.extend({
@@ -67,9 +71,11 @@ app.views.CallerIndexView = Backbone.View.extend({
   });
 ```
 
-6. If you wanted to just test it out, you could just test it in a browser console like so:
+<li>If you wanted to just test it out, you could just test it in a browser console like so:
 
 ``` javascript
 template = window.JST['templates/callers/show'];
 template({name: 'Joe', streamId: 1});
 ```
+
+</ol>

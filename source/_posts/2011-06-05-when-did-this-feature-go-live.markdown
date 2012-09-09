@@ -33,4 +33,4 @@ Now you can use the *--contains* switch to find the earliest tag that contained 
    git tag --contains <SHA>
 ```
 
-See [my previous post on git]({% post_url 2011-06-05-i-heart-git %}) for more useful git commands.
+See [my previous post on git]({% post_url 2011-06-05-useful-lesser-known-git-commands %}) for more useful git commands.
