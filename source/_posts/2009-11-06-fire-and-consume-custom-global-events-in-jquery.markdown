@@ -13,7 +13,7 @@ meta:
 ---
 
 * Update 3-4-2010: [jQuery 1.4 changed things a bit]({% post_url 2010-03-25-update-to-fire-and-consume-custom-global-events-in-jquery %})
-* Update 9-8-2012: [Global events with Backbone JS]({% post_url 2012-09-08-global-events-as-a-message-bus-with-backbone-js %})
+* Update 9-8-2012: [Global events with Backbone JS]({% post_url 2012-09-08-global-javascript-events-with-backbone-js %})
 
 To bind something to a custom event:
 

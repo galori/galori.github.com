@@ -11,7 +11,7 @@ meta:
   delicious: a:3:{s:5:"count";i:0;s:9:"post_tags";s:0:"";s:4:"time";i:1345287815;}
   reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1344583018;}
 ---
-Update 9-8-2012: [Global events with Backbone JS]({% post_url 2012-09-08-global-events-as-a-message-bus-with-backbone-js %})
+Update 9-8-2012: [Global events with Backbone JS]({% post_url 2012-09-08-global-javascript-events-with-backbone-js %})
 
 This is an update to [a previous post]({% post_url 2009-11-06-fire-and-consume-custom-global-events-in-jquery %})
 

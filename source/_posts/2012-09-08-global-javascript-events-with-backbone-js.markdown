@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Global events as a message bus with backbone js"
+title: "Global javascript events with Backbone JS"
 date: 2012-09-08 20:45
 comments: true
 categories: javascript backbonejs
