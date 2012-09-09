@@ -8,6 +8,8 @@ categories: javascript backbonejs
 
 In the past I leveraged jQuery's events to create a client side message bus in javascript. Triggering and subscribing to global events is a great way to decouple your javascript code and make it more flexible and maintainable. Enter backbone JS, which has even better built in support for events. An easy way to get started is to bolt on event support to your main global app object:
 
+<!-- more -->
+
 ``` javascript
 _.extend(app,Backbone.Events);
 ```

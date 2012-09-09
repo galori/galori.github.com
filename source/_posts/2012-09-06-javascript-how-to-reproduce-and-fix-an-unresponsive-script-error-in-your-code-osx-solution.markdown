@@ -15,6 +15,8 @@ What it means:
 
 Javasript code is running for longer than 10 seconds. Thats the limit on Firefox 15. Other browsers may vary, googling reveals Internet Explorer's limit is 5 million lines of code (!) and Chrome allows 30 seconds.
 
+<!-- more -->
+
 How to reproduce:
 -----------------
 

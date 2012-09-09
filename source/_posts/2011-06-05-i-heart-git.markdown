@@ -14,66 +14,70 @@ meta:
   reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1345826909;}
 ---
 Therefore, here are some of my favorite, useful git commands:
-<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">
+
 Diff of a Diff
-</p>
+--------------
 
 Looking at the diff representing one commit is old news.
 
 
-[sourcecode]
-git show &lt;SHA&gt;
-[/sourcecode]
+``` bash
+git show <SHA>
+```
 
 Comparing a single file between two commits (or branches) is also not uncommon:
 
-[sourcecode]
+``` bash
 git diff branch1 branch2 -- path/to/filename.ext
-[/sourcecode]
+```
 
 However - if the files were pretty far in the two branches to begin with - and you'd just like to compare the CHANGES introduced by two commits (a diff of a diff), one way is this:
 
-[sourcecode]
-diff &lt;(git show SHA)  &lt;(git show SHA)
-[/sourcecode]
+``` bash
+diff <(git show SHA)  <(git show SHA)
+```
 
-<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">git log with diffs</p>
+git log with diffs
+------------------
 
 Oft overlooked feature:
 
-[sourcecode]
+``` bash
 git log -u
-[/sourcecode]
+```
 
 Can be useful if you'd like to track the history of a certain file, and view all the changes:
 
-[sourcecode]
+``` bash
 git log -u -- path/to/filename.ext
-[/sourcecode]
+```
 
-<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">git log, tracking past renames</p>
+git log, tracking renames
+-------------------------
 
 By default - viewing the history of a specific file with git log only goes as far back as when the file was created - or renamed.
 
 If you'd like to track it back past any number of renames / moves:
 
-[sourcecode]
+``` bash
 git log -u --follow -- path/to/filename.ext
-[/sourcecode]
+```
 
 This can get pretty slow for larger repos, which I imagine is why its not on by default.
 
-<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">View a file in a branch, without actually checking it out</p>
+View a file in a branch, without actually checking it out
+---------------------------------------------------------
 
-If you're working on a file and wish to view that same file in another branch, you can avoid extra stashes &amp; checkouts and just "peek" into that branch:
+If you're working on a file and wish to view that same file in another branch, you can avoid extra stashes & checkouts and just "peek" into that branch:
 
-[sourcecode]
+``` bash
 git show branch2:path/to/filename.ext
-[/sourcecode]
+```
 
 Note the syntax of branch:file without spaces, which is unusual.
 
-<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">Recommit a commit?</p>
+Recommit a commit?
+------------------
 
 You may want to do this if the commit message is really bad (what are some of the worst messages you've seen? A whole other blog post...) and it's already been pushed remotely.
 
@@ -81,52 +85,56 @@ Git doesn't like letting you do this, you can't commit changes to files that hav
 
 Another approach:  Branch, amend, merge
 
-[sourcecode]
+``` bash
 git checkout master
 git checkout -b tmp_branch
 git commit --amend
 git checkout master
 git merge tmp_branch
 git delete -D tmp_branch
-[/sourcecode]
+```
 
 you'll end up with a duplicate commit, and a merge commit - but it gives you the opportunity to provide more verbose info on that 2nd commit message. In this example the commit in question would be at the tip of master, but any commit in history should work - just branch your tmp_branch off of whichever commit needs amending.
 
-<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">Common Ancestor</p>
+Common Ancestor
+---------------
 
-[sourcecode]
+``` bash
 git merge-base branch1 branch2
-[/sourcecode]
+```
 
 Shows you the one shared commit where these two branches diverged. In the git "file system", any two commits - no matter on which branch will have a shared ancestors. It's sort of like evolution.
 
 This can be useful if you're in the middle of resolving a merge conflict, and you feel like the 3 pane diff GUI is not providing you with enough information.  Open up a 2nd terminal, find the common ancestor and then diff the file in question between the branch and the common ancestor, to see exactly whats changed.
 
-<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">Commit differences between two branches</p>
+List of commits that exist in one branch but not in another
+-----------------------------------------------------------
 
 I like this syntax because it reads well to me as a developer. Show me commits that are in branch1 that are not in branch2:
 
-[sourcecode]
+``` bash
 git log branch1 ^branch2
-[/sourcecode]
+```
 
-If you or your group does a lot of cherry-picking or rebasing, then this won't always work - because those operatons create a new SHA - and the above depend on the SHA being the same.  Start using merges instead if possible, then the usefulness of the above will become apparent.
+If you or your group does a lot of cherry-picking or rebasing, then this won't always work - because those operations create a new SHA - and the above depend on the SHA being the same.  Start using merges instead if possible, then the usefulness of the above will become apparent.
 
 You can use similar syntax to determine if a single commit is part of a branch or not:
 
-[sourcecode]
+``` bash
 git log -n1 commit ^branch
-[/sourcecode]
+```
 
 If the commit is part of the branch, it will show you nothing. If it is not part of the branch...it will show you the commit.
 
-<p style="font-weight:bold;font-size:18px;margin:20px 0 10px 20px;">Make an exiting branch tracking</p>
+Make an exiting branch tracking
+-------------------------------
 
 If a branch was started locally and was then pushed remotely. You probably found out soon enough that its not set up to track so well - compared to a branch that started remotely. To get it all set up:
 
-[sourcecode]
+``` bash
 git branch --set-upstream foo upstream/foo
-[/sourcecode]
-(Thanks to <a href="http://stackoverflow.com/questions/520650/how-do-you-make-an-existing-git-branch-track-a-remote-branch" title="this" target="_blank">this</a> stackoverflow.com article for this last one)
+```
+
+(Thanks to [this](http://stackoverflow.com/questions/520650/how-do-you-make-an-existing-git-branch-track-a-remote-branch) stackoverflow.com article for this last one)
 
 

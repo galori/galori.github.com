@@ -12,6 +12,8 @@ meta:
 
 If you're like me and constantly use the same keyboard+trackpad on 4 different OSX computers..you may appreciate this tip. Fastest way to pair to a new computer (*even if its already paired with a different computer)*:
 
+<!-- more -->
+
 1. Make sure the device in pairing mode FIRST*
 2. Now go to System Preferences --> Trackpad --> Set up bluetooth trackpad
 

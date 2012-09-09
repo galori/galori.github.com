@@ -16,22 +16,22 @@ Git responses are usually very straightforward and to the point, but today I got
 
 Immediately after doing a merge, look at that last merge commit
 
-[sourcecode]
+``` bash
 $ git log -n1 
 
 commit 76c4ac19c545fdc9d20c43beb358c47c0d84185a
-&lt;strong&gt;Merge: 2619f49 0f71f1f&lt;/strong&gt;
+Merge: 2619f49 0f71f1f
 Author: someone@somewhere.com
 Date:   Fri Jun 17 17:36:10 2011 -0700
 
 [master] Merge branch 'release'
-[/sourcecode]
+```
 
 Then...tell git to merge the same two SHA's again
 
-[sourcecode]
+``` bash
 $ git merge 2619f49 0f71f1f
 Already up-to-date. Yeeah!
-[/sourcecode]
+```
 
 This is using git v1.7.5.4 command line, on OSX.

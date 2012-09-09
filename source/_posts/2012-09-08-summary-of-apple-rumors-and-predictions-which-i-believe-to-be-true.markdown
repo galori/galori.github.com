@@ -5,7 +5,9 @@ date: 2012-09-08 22:05
 comments: true
 categories: 
 ---
-For all those that don't obsessively follow the Apple news and rumor sites, I'll summarize it for you. I hoping to keep this list updated.
+For all those that don't obsessively follow the Apple news and rumor sites, I'll summarize it for you. I'm hoping to keep this list updated.
+
+<!-- more -->
 
 iPhone
 ------
