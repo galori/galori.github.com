@@ -13,6 +13,13 @@ body > header h2 {
   @include text-shadow(2px 2px 2px rgba(0,0,0,0.8));
 }
 
+body > header h3 {
+  color: #AAA !important;
+  @include text-shadow(2px 2px 2px rgba(0,0,0,0.8));
+  font-size: 15px !important;
+  margin-top: 1em !important;
+}
+
 body > header hgroup {
   background-color: #252525;
   @include border-radius(20px);  
