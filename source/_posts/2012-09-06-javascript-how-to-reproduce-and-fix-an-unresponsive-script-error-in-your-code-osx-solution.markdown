@@ -22,7 +22,7 @@ How to reproduce:
 
 Although I was getting this bug report from several people, I was unable to reproduce it, likely due to the fact that my dev machine is pretty beefy. In general, once I can reproduce a bug, fixing it is the easy part. Without reproducing it - you're Luke Skywalker, swinging a light saber blindfolded, but the force is not with you... :-/
 
-To the rescue is this [script](http://hints.macworld.com/article.php?story=20110131001708255) from nissebanan at hints.macworld.com. To use it, follow the instructions on that page. Next, find out the process ID (pid) of your firefox using Terminal:
+To the rescue is this [script](http://hints.macworld.com/article.php?story=20110131001708255) from user *nissebanan* at hints.macworld.com. To use it, follow the instructions on that page. Next, find out the process ID (pid) of your firefox using Terminal:
 
 ``` bash Find your firefox PID
 $ ps aux | grep firefox
