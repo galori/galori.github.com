@@ -5,7 +5,7 @@ date: 2012-09-13 21:38
 comments: true
 categories: apple iphone rumors
 ---
-Follw up to last week's post: [Summary of Apple Rumors and Predictions Which I Believe to Be True]({% post_url 2012-09-08-summary-of-apple-rumors-and-predictions-which-i-believe-to-be-true %})...
+Follw up to last week's post: [Summary of Apple Rumors and Predictions Which I Believe to Be True]({%post_url 2012-09-08-summary-of-apple-rumors-and-predictions-which-i-believe-to-be-true%})...
 
 How close was I?
 
