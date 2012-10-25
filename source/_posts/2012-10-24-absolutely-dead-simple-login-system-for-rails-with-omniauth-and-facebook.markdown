@@ -5,6 +5,9 @@ date: 2012-10-24 23:54
 comments: true
 categories: 
 ---
+In 6 steps...
+<!-- more -->
+
 1) Add omniauth-facebook to your gemfile
 
 ``` ruby
