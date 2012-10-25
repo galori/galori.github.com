@@ -61,6 +61,14 @@ class ApplicationController < ActionController::Base
 end
 ```
 
+6) Add your facebook app keys in config/initializers/omniauth.rb, replacing ```<api key>``` and ```<api secret>``` with your actual keys:
+
+``` ruby
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :facebook, '<api key>', '<api secret>'
+end
+```
+
 Thats it!
 
 You can replace omniauth-facebook with any other provider (such as omniauth-twitter) and it will work just as well. 
