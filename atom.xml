@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[You've got a lot of Gal]]></title>
+  <link href="http://galori.github.com/atom.xml" rel="self"/>
+  <link href="http://galori.github.com/"/>
+  <updated>2013-06-15T11:05:08-07:00</updated>
+  <id>http://galori.github.com/</id>
+  <author>
+    <name><![CDATA[Gal Steinitz]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Unsubscribe - ALL THE THINGS]]></title>
+    <link href="http://galori.github.com/blog/2013/06/15/newsletters-and-marketing-emails-have-hijacked-our-inboxes/"/>
+    <updated>2013-06-15T10:14:00-07:00</updated>
+    <id>http://galori.github.com/blog/2013/06/15/newsletters-and-marketing-emails-have-hijacked-our-inboxes</id>
+    <content type="html"><![CDATA[<p>How Newsletters and Marketing emails have taken over our inboxes.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Getting_Things_Done">GTD</a> and <a href="http://inboxzero.com/">Inbox Zero</a> help keep me sane, with the enormous amount of <strong>input</strong> (in GTD parlance) that I receive via email.</p>
+
+<!-- more -->
+
+
+<p>GTD separates your email (and other inputs) into essentially three <strong>types</strong> of <strong>things</strong>, and provides guidance as to how to <strong>process</strong> them:</p>
+
+<ol>
+<li>Actionable: Create an entry in your TO DO list(s)</li>
+<li>Reference: Read, or Archive and Read Later</li>
+<li>Neither: Throw away</li>
+</ol>
+
+
+<p>The whole point of such a system is that you <em>really</em> want to make sure you don&#8217;t lose track of anything Actionable. However, if you get a large number of emails, just <strong>processing</strong> itself becomes a big time suck. Therefore it would be a shame if too many things that are for reading, get in the way of the primary goal: managing your actions. <strong>What can we do?</strong></p>
+
+<h1>Unsubscribe - ALL THE THINGS.</h1>
+
+<p>We used to be told that you should <strong>never unsubscribe</strong> from spam because all it accomplishes is validating to &#8220;them&#8221; that your email address is real. However - I think we&#8217;ve <strong>won the war</strong> on spam. Evident by the fact that 99% of the truly evil spam already ends up in my Spam folder.</p>
+
+<p>It may not occur to many people, but really, <strong>you can unsubscribe</strong>. And it works! That marketing email from Gap you&#8217;ve been receiving every week for 3 years since you bought that one t-shirt? <strong>Click on unsubscribe</strong>, they&#8217;ll stop sending it to you. That mailing list for your local JCC you got on by providing your email address when signed up for the gym? Click on unsubscribe, <strong>it&#8217;ll stop</strong>.</p>
+
+<p>Now you may be thinking that there are some things in there you really are interested in reading. I argue to you that email is <strong>too action-oriented</strong> to allow <em>any</em> reading materials to arrive to you through it. Think about it&#8230;when you really want to sit down, relax and read something&#8230;do you open your email? No! You open your RSS reader, or pick up your iPad and open FlipBoard, or The Magazine, or look at Twitter.</p>
+
+<p><strong>What then?</strong> If there is something interesting that you can only get through email, bring it to that 2nd place - <strong>the reading place</strong>. One example: <strong>Bring them to your RSS reader</strong>; Create a rule to automatically put them in a folder, and use Gmail&#8217;s <a href="https://developers.google.com/gmail/gmail_inbox_feed">Inbox Feed</a> feature to create an RSS feed out of them.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Absolutely dead simple login system for Rails with omniauth and facebook]]></title>
+    <link href="http://galori.github.com/blog/2012/10/24/absolutely-dead-simple-login-system-for-rails-with-omniauth-and-facebook/"/>
+    <updated>2012-10-24T23:54:00-07:00</updated>
+    <id>http://galori.github.com/blog/2012/10/24/absolutely-dead-simple-login-system-for-rails-with-omniauth-and-facebook</id>
+    <content type="html"><![CDATA[<p>In 6 steps&#8230;</p>
+
+<!-- more -->
+
+
+<p>1) Add omniauth-facebook to your gemfile</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;omniauth-facebook&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2) Add routes for login and logout</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">match</span> <span class="s1">&#39;/auth/facebook/callback&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;session#create&#39;</span>
+</span><span class='line'><span class="n">match</span> <span class="s1">&#39;/auth/logout&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;session#destroy&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>3) Create the sessions controller</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">SessionController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">create</span>
+</span><span class='line'>    <span class="n">session</span><span class="o">[</span><span class="ss">:current_user</span><span class="o">]</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="n">request</span><span class="o">.</span><span class="n">env</span><span class="o">[</span><span class="s1">&#39;omniauth.auth&#39;</span><span class="o">][</span><span class="ss">:info</span><span class="o">][</span><span class="ss">:name</span><span class="o">]</span><span class="p">}</span>
+</span><span class='line'>    <span class="n">redirect_to</span> <span class="n">root_path</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">destroy</span>
+</span><span class='line'>    <span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="ss">:current_user</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">redirect_to</span> <span class="n">root_path</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>4) Add some links to your layout</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">% if </span><span class="n">current_user</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  Logged in as &lt;%=current_user[:name]%&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sx">%= link_to &#39;logout&#39;,&#39;/auth/logout&#39; %&gt;</span>
+</span><span class='line'><span class="sx">&lt;% else %&gt;</span>
+</span><span class='line'><span class="sx">  &lt;%=</span> <span class="n">link_to</span> <span class="s1">&#39;login with facebook&#39;</span><span class="p">,</span><span class="s1">&#39;/auth/facebook&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">&lt;% end %&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>5) Add a helper to your application controller</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">helper_method</span> <span class="ss">:current_user</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kp">private</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">current_user</span>
+</span><span class='line'>    <span class="n">session</span><span class="o">[</span><span class="ss">:current_user</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>6) Add your facebook app keys in config/initializers/omniauth.rb, replacing <code>&lt;api key&gt;</code> and <code>&lt;api secret&gt;</code> with your actual keys:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">middleware</span><span class="o">.</span><span class="n">use</span> <span class="no">OmniAuth</span><span class="o">::</span><span class="no">Builder</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">provider</span> <span class="ss">:facebook</span><span class="p">,</span> <span class="s1">&#39;&lt;api key&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;api secret&gt;&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Thats it!</p>
+
+<p>You can replace omniauth-facebook with any other provider (such as omniauth-twitter) and it will work just as well.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Google strong-arms Acer? - I don't buy it]]></title>
+    <link href="http://galori.github.com/blog/2012/09/14/google-strong-arms-acer-i-dont-buy-it/"/>
+    <updated>2012-09-14T00:10:00-07:00</updated>
+    <id>http://galori.github.com/blog/2012/09/14/google-strong-arms-acer-i-dont-buy-it</id>
+    <content type="html"><![CDATA[<p>Google strong-arms Acer</p>
+
+<blockquote><p>Alibaba said that Acer “was notified by Google that if the product runs Aliyun OS,
+Google will terminate its Android- related cooperation and other technology
+licensing with our partner….We regret Google’s action.”</p>
+
+<p>Stay classy Google.</p></blockquote>
+
+<p>via <a href="http://www.loopinsight.com/2012/09/13/google-strong-arms-acer/">the loop</a>
+original article: <a href="http://www.nasdaq.com/article/acer-cancels-press-conference-to-launch-new-smartphone-on-alibaba-software-20120913-00197">Press release from Taipei</a></p>
+
+<!-- more -->
+
+
+<p>For some reason, I don&#8217;t buy it. Its not only not classy, its predatory, anticompetitive and bordering on unethical, if its true. My gut is telling me that there is more here, perhaps a mis-translation or a mis-representation by someone. This doesn&#8217;t seem to me like something Google would do.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[iPhone 5 - How close was I?]]></title>
+    <link href="http://galori.github.com/blog/2012/09/13/iphone-5-how-close-was-i/"/>
+    <updated>2012-09-13T21:38:00-07:00</updated>
+    <id>http://galori.github.com/blog/2012/09/13/iphone-5-how-close-was-i</id>
+    <content type="html"><![CDATA[<p>Follw up to last week&#8217;s post: <a href="http://galori.github.com/blog/2012/09/08/summary-of-apple-rumors-and-predictions-which-i-believe-to-be-true/">Summary of Apple Rumors and Predictions Which I Believe to Be True</a>&#8230;</p>
+
+<p>How close was I?</p>
+
+<!-- more -->
+
+
+<p><img src="http://galori.github.com/images/posts/iphone_5.jpg" style="float:right; margin-left: 15px"/></p>
+
+<p>I was pretty close, the only thing I got wrong (and frankly surprised me!) was the device size. I thought the physical device will be the same size as the 4S, just with a larger screen. Instead, the iPhone 5 is 4.87&#8221; tall, compared to 4.5&#8221; for the 4S. So roughly 8% taller.</p>
+
+<p>The width is identical - 2.31&#8221;.</p>
+
+<p>The depth, amazingly, is thinner - the new iPhone is 0.30&#8221;, compared to the 4S which was 0.37&#8221;. 18% thinner. It&#8217;s also lighter at 3.95oz, vs 4.9oz..which comes out to 19% lighter.</p>
+
+<p>To quote Tim Cook&#8230;That is truly amazing.</p>
+
+<p><a href="http://www.apple.com/apple-events/september-2012/">Watch the entire Apple Event</a> announcing the iPhone 5 and the slew of other new products and services announced yesterday, including the new Apple Maps, a new iPod Nano, and some pretty impressive stats as to how Apple is doing. Also check out <a href="http://current.com/s/management.htm">my boss</a> Al Gore sitting in the audience in the front row. He&#8217;ll be hard to miss - they pan to him <em>every</em> single time they showed the audience (I guess the camera man was impressed).</p>
+
+<p>Finally&#8230;is Steve Job&#8217;s presence still felt during these presentations? Without a doubt. Even though each apple exec&#8217;s style is his own - Job&#8217;s presentation style is an unspoken presence in every Apple Event.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Summary of Apple rumors and predictions which I believe to be true]]></title>
+    <link href="http://galori.github.com/blog/2012/09/08/summary-of-apple-rumors-and-predictions-which-i-believe-to-be-true/"/>
+    <updated>2012-09-08T22:05:00-07:00</updated>
+    <id>http://galori.github.com/blog/2012/09/08/summary-of-apple-rumors-and-predictions-which-i-believe-to-be-true</id>
+    <content type="html"><![CDATA[<p>For all those that don&#8217;t obsessively follow the Apple news and rumor sites, I&#8217;ll summarize it for you. I&#8217;m hoping to keep this list updated.</p>
+
+<!-- more -->
+
+
+<h2>iPhone</h2>
+
+<ul>
+<li>Apple will be announcing the iPhone 5 on September 12th (<a href="http://galori.github.com/images/posts/iphone-5-invite.jpeg">See invitation sent to the press</a>)</li>
+<li>It will be available in stores on September 21st (<a href="http://techcrunch.com/2012/08/21/iphone-5-launch-date/">based on Verizon employee&#8217;s blackout schedule</a>)</li>
+<li>It will have a new, smaller dock connector (<a href="http://www.reuters.com/article/2012/07/23/us-apple-connector-idUSBRE86M07320120723">source</a>)</li>
+<li>The device size will be identical to the iPhone 4, but the screen will be slightly taller, making it a 16x9 aspect ratio</li>
+<li>It will support the faster LTE cellphone networks</li>
+<li>Apple is following the <a href="http://en.wikipedia.org/wiki/Intel_Tick-Tock">Intel tick/tock</a> release pattern of alternating major version updgrades and then incremental improvements: iPhone 3 / iPhone 3GS, iPhone 4 / iPhone 4s, iPhone 5. Expect an iPhone 5s next year.</li>
+</ul>
+
+
+<h2>iPad</h2>
+
+<ul>
+<li>Apple will announce a new, smaller (7&#8221;) iPad in October <a href="http://www.loopinsight.com/2012/08/23/iphone-5-and-ipad-mini-events/">source</a></li>
+<li>It will be cheaper than the current iPads.</li>
+</ul>
+
+
+<h2>iOS 6</h2>
+
+<ul>
+<li>Developers already have it - public release before the end of the year.</li>
+<li>It replaces Google Maps with a new Apple Maps app. (Apple bought several mapping startups over the last few years for this)</li>
+<li>It will have Facebook integration</li>
+<li>Facetime over the cell network! (AT&amp;T will be limiting this to customers with shared data plans)</li>
+<li>New &#8220;Passbook&#8221; app for paperless flight tickets, concert and movie tickets, etc., but <a href="http://www.loopinsight.com/2012/08/28/nfc-on-the-new-iphone/">no NFC</a>.</li>
+</ul>
+
+
+<h2>Mac OSX</h2>
+
+<ul>
+<li>Apple will be releasing a new version every year going forward, also following the tick/tock pattern. Major new version every other year, and incremental upgrades in between: Leopard / Snow Leopard, Lion / Mountain Lion. Expect a new cat next year.</li>
+</ul>
+
+
+<h2>Retina Display</h2>
+
+<ul>
+<li>I expect <em>all</em> Apple products to eventually have <a href="http://en.wikipedia.org/wiki/Retina_display">retina</a> display - but this may take a few years.</li>
+</ul>
+
+
+<h2>Sources</h2>
+
+<p>If you&#8217;d like to stay up-to-date, here are a few blogs I recommend which do a good job of filtering out the noise and making smart and informed predictions:</p>
+
+<ul>
+<li><a href="http://daringfireball.net">John Gruber&#8217;s Daring Fireball</a></li>
+<li><a href="http://www.loopinsight.com/">Jim Dalrymple&#8217;s The Loop</a></li>
+<li><a href="http://www.marco.org/">Marco Arment&#8217;s marco.org</a></li>
+</ul>
+
+
+<p>Many sites publish Apple rumors, but a lot of them trade accuracy for page views and will publish <a href="http://dealbook.nytimes.com/2010/10/19/flush-with-cash-will-apple-go-shopping/">unconfirmed</a> or sometimes even <a href="http://www.forbes.com/sites/erikkain/2012/04/15/what-apple-ceo-tim-cooks-visit-to-valve-means/">silly rumors</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Global javascript events with Backbone JS]]></title>
+    <link href="http://galori.github.com/blog/2012/09/08/global-javascript-events-with-backbone-js/"/>
+    <updated>2012-09-08T20:45:00-07:00</updated>
+    <id>http://galori.github.com/blog/2012/09/08/global-javascript-events-with-backbone-js</id>
+    <content type="html"><![CDATA[<p>In the past I leveraged jQuery&#8217;s events to create a client side message bus in javascript. Triggering and subscribing to global events is a great way to decouple your javascript code and make it more flexible and maintainable. Enter backbone JS, which has even better built in support for events. An easy way to get started is to bolt on event support to your main global app object:</p>
+
+<!-- more -->
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">_</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="nx">Backbone</span><span class="p">.</span><span class="nx">Events</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you can trigger and subscribe to arbitrary events on your app object. For example if the user can select a twitter stream and your page has various components that change accordingly based on the selected stream: When the stream is selected, trigger the event:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;stream-selected&#39;</span><span class="p">,</span><span class="nx">streamName</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Other parts of the code can listen to this event and do something:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;stream-selected&#39;</span><span class="p">,</span><span class="nx">handleStreamSelected</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">handleStreamSelected</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">streamName</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">// do something</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I used this pattern extensively for this <a href="http://events.current.com">Social Dashboard</a> project.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[From wordpress to octopress]]></title>
+    <link href="http://galori.github.com/blog/2012/09/07/from-wordpress-to-octopress/"/>
+    <updated>2012-09-07T23:10:00-07:00</updated>
+    <id>http://galori.github.com/blog/2012/09/07/from-wordpress-to-octopress</id>
+    <content type="html"><![CDATA[<p>Just moved my blog from wordpress.com to <a href="http://octopress.org/">Octopress</a>. Octopress runs atop <a href="http://jekyllrb.com/">jekyll</a> to generate static files and can deploy to pretty much any hosting provider - but has special tools for hosting on <a href="http://pages.github.com/">github pages</a> - where this blog is now hosted. First I looked at Jekyll on its own, but seems like it required too much manual configuration - whereas Octopress makes all the choices for you. You just need to make changes.</p>
+
+<p>Blog posts are created by editing a text file locally using Textmate 1 in <a href="http://daringfireball.net/projects/markdown/basics">markdown</a>, generating the blog and deploying. The blog&#8217;s filename implies the posting date, for example this posts file name is</p>
+
+<pre><code>sources/_posts/2012-09-07-from-wordpress-to-octopress.markdown
+</code></pre>
+
+<p>and you also include what they call a YAML UpfrontMatter to the top of every post to include additional metadata. For example for this post:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="nn">---</span>
+</span><span class='line'><span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">posta</span>
+</span><span class='line'><span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="s">&quot;From</span><span class="nv"> </span><span class="s">wordpress</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">octopress&quot;</span>
+</span><span class='line'><span class="l-Scalar-Plain">date</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2012-09-07 23:10</span>
+</span><span class='line'><span class="l-Scalar-Plain">comments</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+</span><span class='line'><span class="l-Scalar-Plain">categories</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="nn">---</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So far I&#8217;m really happy with it. If you&#8217;d like to give it a whirl yourself, All the info you need is at <a href="http://octopress.org/">Octopress</a>. It&#8217;s got a very vibrant community, which is always a good thing.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Javascript: "Unresponsive script" error]]></title>
+    <link href="http://galori.github.com/blog/2012/09/06/javascript-how-to-reproduce-and-fix-an-unresponsive-script-error-in-your-code-osx-solution/"/>
+    <updated>2012-09-06T00:00:00-07:00</updated>
+    <id>http://galori.github.com/blog/2012/09/06/javascript-how-to-reproduce-and-fix-an-unresponsive-script-error-in-your-code-osx-solution</id>
+    <content type="html"><![CDATA[<h2>What it means:</h2>
+
+<p>Javasript code is running for longer than 10 seconds. Thats the limit on Firefox 15. Other browsers may vary, googling reveals Internet Explorer&#8217;s limit is 5 million lines of code (!) and Chrome allows 30 seconds.</p>
+
+<!-- more -->
+
+
+<h2>How to reproduce:</h2>
+
+<p>Although I was getting this bug report from several people, I was unable to reproduce it, likely due to the fact that my dev machine is pretty beefy. In general, once I can reproduce a bug, fixing it is the easy part. Without reproducing it - you&#8217;re Luke Skywalker, swinging a light saber blindfolded, but the force is not with you&#8230; :-/</p>
+
+<p>To the rescue is this <a href="http://hints.macworld.com/article.php?story=20110131001708255">script</a> from user <em>nissebanan</em> at hints.macworld.com. To use it, follow the instructions on that page. Next, find out the process ID (pid) of your firefox using Terminal:</p>
+
+<figure class='code'><figcaption><span>Find your firefox PID</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>ps aux | grep firefox
+</span><span class='line'>gal 25829 7.4 3.3 3605600 140336 ?? S 11:57PM 0:55.51 /Applications/Firefox.app/Contents/MacOS/firefox -psn_0_38671583
+</span><span class='line'>gal 25954 1.5 0.0 2434892 540 s000 S+ 12:04AM 0:00.01 grep firefox
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><em>25829</em> is the PID.</p>
+
+<p>Next, run nissebanan&#8217;s script - when it prompts you, provide the PID, and values for sleep and for CPU time. I used 9 seconds of sleep for every 1 second of CPU. This is almost &#8220;unfair&#8221; since 10s of sleep would trigger this error without giving any code a chance to run - so you have to keep it under 10. Once the script is running - you are essentially starving your Firefox of CPU&#8230;you now should be able to reproduce the error.</p>
+
+<h2>Finding the culprit</h2>
+
+<p>There is probably a better way to benchmark your code at this point - but I just went with simple: Start sticking console.log&#8217;s at the beginning and end of each method, and watch the console. When the error pops up - you&#8217;ll see which method was the last one to start and never finished - thats your culprit!</p>
+
+<h2>Fixing it</h2>
+
+<p>If you can optimize your code and have it run faster, do that!</p>
+
+<p>However, a quick (and sometimes the only) fix is to break up the code and have it run asynchronously. Typically - by wrapping a block of code with <code>setTimeout(function{},0)</code>. This will return control to the browser and allow it to &#8220;breath&#8221;, and resets the script timeout counter.</p>
+
+<p>For example, if the offending code loops over 1000 objects and does something to each object, you can defer the loop&#8217;s body asynchronously:</p>
+
+<figure class='code'><figcaption><span>Code that triggers the Unresponsive Script error. ary is 1000 objects:</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">_</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">ary</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">doSomething</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>if the above code takes 10ms per object, you&#8217;ll hit this error. The fix:</p>
+
+<figure class='code'><figcaption><span>Code that doesn&#8217;t trigger the error</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">_</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">ary</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">doSomething</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">},</span><span class="mi">0</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>Any caveats?</h1>
+
+<p>One thing to watch out for&#8230;if you have code <em>after</em> the loop, this change would cause it to actually execute before the async code. If thats a problem, you&#8217;ll need a little bit more restructuring. You also may want to check out the <a href="http://mess.genezys.net/jquery/jquery.async.php">jQuery.async</a> which can make some of this easier.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fastest way to pair Apple bluetooth keyboard or trackpad]]></title>
+    <link href="http://galori.github.com/blog/2012/08/25/fastest-way-to-pair-apple-bluetooth-keyboard-or-trackpad/"/>
+    <updated>2012-08-25T00:00:00-07:00</updated>
+    <id>http://galori.github.com/blog/2012/08/25/fastest-way-to-pair-apple-bluetooth-keyboard-or-trackpad</id>
+    <content type="html"><![CDATA[<p>If you&#8217;re like me and constantly use the same keyboard+trackpad on 4 different OSX computers..you may appreciate this tip. Fastest way to pair to a new computer (<em>even if its already paired with a different computer)</em>:</p>
+
+<!-- more -->
+
+
+<ol>
+<li>Make sure the device in pairing mode FIRST*</li>
+<li>Now go to System Preferences &#8211;> Trackpad &#8211;> Set up bluetooth trackpad</li>
+</ol>
+
+
+<p>You&#8217;ll notice the device is recognized immediately. Don&#8217;t let go of the device pairing button until the big white &#8220;Trackpad Connected&#8221; overlay is shown.</p>
+
+<p>Of course replace #2 with Keyboard if you&#8217;re pairing a keyboard.</p>
+
+<p>*To put the device in pairing mode:</p>
+
+<ol>
+<li>Long press on the power button on the side of the device until the device powers down (light goes on, then goes off)</li></li>
+<li>2nd long press on the power button, until the device powers up and goes into pairing mode (light goes on, then starts blinking)</li></li>
+<li>Don&#8217;t let go of the button until big white &#8220;Trackpad Connected&#8221; (or &#8220;Keyboard Connected&#8221;) overlay shows up.</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EJS javascript templates with Backbone JS and Rails 3.2.3]]></title>
+    <link href="http://galori.github.com/blog/2012/06/04/ejs-javascript-templates-with-backbone-js-and-rails-3-2-3/"/>
+    <updated>2012-06-04T00:00:00-07:00</updated>
+    <id>http://galori.github.com/blog/2012/06/04/ejs-javascript-templates-with-backbone-js-and-rails-3-2-3</id>
+    <content type="html"><![CDATA[<p>Documentation seems a bit sparse, so here is the low down:</p>
+
+<!-- more -->
+
+
+
+
+<ol>
+  <li> add the EJS gem (by Sam Stephenson, of Prototype fame) to your gemfile:
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;ejs&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+  <li>Assuming your backbone code is in app/assets/javsacripts/app and all javascript code is included automatically using asset pipleine&#8217;s &#8220;require tree&#8221;, add a template file in app/assets/javascripts/templates. For example for my video chat app, I followed the rails pattern of views/<resource>/<action>. I added app/assets/javascripts/templates/callers/show.jst.ejs:
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&#39;caller&#39;</span> <span class="na">id=</span><span class="s">&#39;caller-&#39;</span> <span class="na">data-stream-id=</span><span class="s">&#39;&#39;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&#39;name&#39;</span><span class="nt">&gt;</span><span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&#39;stream-&#39;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&#39;stream--replace&#39;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+  <li>I did have to force templates to be included before my backbone javascript by explicitly specifying it first in app.js:
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">//=require_tree ./templates</span>
+</span><span class='line'><span class="c1">//=require_tree ./app</span>
+</span></code></pre></td></tr></table></div></figure>
+
+  <li>(optional) EJS uses ERB syntax of <%= %> by default, but I preferred the  syntax, so I added this into config/initializers/ejs.rb:
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">EJS</span><span class="o">.</span><span class="n">evaluation_pattern</span> <span class="o">=</span> <span class="sr">//</span>
+</span><span class='line'><span class="no">EJS</span><span class="o">.</span><span class="n">interpolation_pattern</span> <span class="o">=</span> <span class="sr">//</span>
+</span></code></pre></td></tr></table></div></figure>
+
+if you don&#8217;t want to do this, just use <%=variableName%> instead of 
+
+  <li>The EJS gem makes all templates available as clientside functions in window.JST. Add this at the top of your backbone view:
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>  <span class="nx">app</span><span class="p">.</span><span class="nx">views</span><span class="p">.</span><span class="nx">CallerIndexView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">template</span><span class="o">:</span> <span class="nx">JST</span><span class="p">[</span><span class="s1">&#39;templates/callers/show&#39;</span><span class="p">]</span>
+</span><span class='line'>  <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+  <li>Now you can use it in your backbone view:
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">views</span><span class="p">.</span><span class="nx">CallerIndexView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">template</span><span class="o">:</span> <span class="nx">JST</span><span class="p">[</span><span class="s1">&#39;templates/callers/show&#39;</span><span class="p">],</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">html</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">template</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="nx">stream</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">streamId</span><span class="o">:</span> <span class="nx">stream</span><span class="p">.</span><span class="nx">streamId</span><span class="p">});</span>
+</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#caller&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<li>If you wanted to just test it out, you could just test it in a browser console like so:
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">template</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">JST</span><span class="p">[</span><span class="s1">&#39;templates/callers/show&#39;</span><span class="p">];</span>
+</span><span class='line'><span class="nx">template</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Joe&#39;</span><span class="p">,</span> <span class="nx">streamId</span><span class="o">:</span> <span class="mi">1</span><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Jasmine Debugging: Actual line numbers in error messages]]></title>
+    <link href="http://galori.github.com/blog/2012/06/01/jasmine-debugging-actual-line-numbers-in-error-messages/"/>
+    <updated>2012-06-01T00:00:00-07:00</updated>
+    <id>http://galori.github.com/blog/2012/06/01/jasmine-debugging-actual-line-numbers-in-error-messages</id>
+    <content type="html"><![CDATA[<p>If you&#8217;re using Pivotal Labs&#8217; excellent <a href="http://pivotal.github.com/jasmine/">Jasmine</a> javascript BDD testing framework you may run into this. With Rails 3 Asset Pipeline, jasmine concatenates your js files into a single file - and therefore the line numbers on your stack traces are not useful (they will show the concatenated line numbers).</p>
+
+<p>For example, you may see an error from the concatenated application.js line #17,403 instead of home.js line #15.  To get jasmine to reference the javascript files individually and thereby provide more informative error messages, add this in config/initializers/jasmine.rb:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">Jasmine</span>
+</span><span class='line'>  <span class="k">class</span> <span class="nc">Config</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">src_files</span>
+</span><span class='line'>      <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">assets</span><span class="o">[</span><span class="s2">&quot;application&quot;</span><span class="o">].</span><span class="n">dependencies</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">asset</span><span class="o">|</span>
+</span><span class='line'>        <span class="s2">&quot;assets/&quot;</span> <span class="o">+</span> <span class="n">asset</span><span class="o">.</span><span class="n">logical_path</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>NOTE: This only works if your application.js requires all your javascript files and doesn&#8217;t include any javascript itself.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA["rails new" causes segfault using ruby 1.9.3 on Lion]]></title>
+    <link href="http://galori.github.com/blog/2012/05/17/ruby-1-9-3-segfault-on-lion/"/>
+    <updated>2012-05-17T00:00:00-07:00</updated>
+    <id>http://galori.github.com/blog/2012/05/17/ruby-1-9-3-segfault-on-lion</id>
+    <content type="html"><![CDATA[My setup: RVM, MacPorts, OSX Lion
+
+..and &#8220;rails new&#8221; causes a segfault! Stack trace seems to indicate its coming from the bundle install, specifically from net/http. Some googling suggests this is caused by https:// in the gemfile, and can be fixed by modifying it to http://. However since this is during the rails new - thats not possible.
+
+No one solution I found addressed my particular issue, so I&#8217;ll document what worked for me, it may help you!
+
+1. In xcode, Preferences &#8211;&gt; Downloads &#8211;&gt; Command Line Tools &#8211;&gt; Install
+
+2. Install openssl via RVM:
+
+[sourcecode]
+rvm pkg install openssl
+[/sourcecode]
+
+3. Reinstall ruby 1.9.3, forcing GCC and the newly downloaded OpenSSL. The -C just means &#8220;use these configuration options&#8221;
+
+[sourcecode]
+rvm reinstall 1.9.3 -C &#8211;with-gcc=gcc &#8211;with-openssl-dir=~/.rvm/usr
+[/sourcecode]
+
+References:
+
+<a href="https://github.com/rails/rails/issues/4766" title="https://github.com/rails/rails/issues/4766">https://github.com/rails/rails/issues/4766</a>
+<a href="http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion" title="http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion">http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion</a>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Easter Egg? Cause git to say: "Already up-to-date. Yeeah!"]]></title>
+    <link href="http://galori.github.com/blog/2011/06/18/easter-egg-cause-git-to-say-already-up-to-date-yeeah/"/>
+    <updated>2011-06-18T00:00:00-07:00</updated>
+    <id>http://galori.github.com/blog/2011/06/18/easter-egg-cause-git-to-say-already-up-to-date-yeeah</id>
+    <content type="html"><![CDATA[<p>Git responses are usually very straightforward and to the point, but today I got git to say <strong>&#8220;Yeah!&#8221;</strong> by telling it to merge something it just merged. To get your git to be a little silly too:</p>
+
+<p>Immediately after doing a merge, look at that last merge commit</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git log -n1
+</span><span class='line'>
+</span><span class='line'>commit 76c4ac19c545fdc9d20c43beb358c47c0d84185a
+</span><span class='line'>Merge: 2619f49 0f71f1f
+</span><span class='line'>Author: someone@somewhere.com
+</span><span class='line'>Date:   Fri Jun 17 17:36:10 2011 -0700
+</span><span class='line'>
+</span><span class='line'><span class="o">[</span>master<span class="o">]</span> Merge branch <span class="s1">&#39;release&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then&#8230;tell git to merge the same two SHA&#8217;s again</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git merge 2619f49 0f71f1f
+</span><span class='line'>Already up-to-date. Yeeah!
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is using git v1.7.5.4 command line, on OSX.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[When did this feature go live? (starring git)]]></title>
+    <link href="http://galori.github.com/blog/2011/06/05/when-did-this-feature-go-live/"/>
+    <updated>2011-06-05T00:00:00-07:00</updated>
+    <id>http://galori.github.com/blog/2011/06/05/when-did-this-feature-go-live</id>
+    <content type="html"><![CDATA[<p>It can be very useful to be able to answer this question accurately.</p>
+
+<p>To do this, add code to your deploy script that tags every production deploy with git. Example:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  timestamp = Time.now.strftime('%Y-%m-%d/at/%H.%M')
+</span><span class='line'>  tag_name = "deploy/#{timestamp}"
+</span><span class='line'>  `git tag #{tag_name}; git push origin #{tag_name}`</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, if the question ever comes up when a particular feature went live, you can determine this down to the minute. Find a commit that was part of this feature. For example, a new header design:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   git log --grep="header"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you can use the <em>&#8211;contains</em> switch to find the earliest tag that contained this particular commit:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   git tag --contains &lt;SHA&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>See <a href="http://galori.github.com/blog/2011/06/05/useful-lesser-known-git-commands/">my previous post on git</a> for more useful git commands.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Useful but lesser known git commands]]></title>
+    <link href="http://galori.github.com/blog/2011/06/05/useful-lesser-known-git-commands/"/>
+    <updated>2011-06-05T00:00:00-07:00</updated>
+    <id>http://galori.github.com/blog/2011/06/05/useful-lesser-known-git-commands</id>
+    <content type="html"><![CDATA[<p>Therefore, here are some of my favorite, useful git commands:</p>
+
+<h2>Diff of a Diff</h2>
+
+<p>Looking at the diff representing one commit is old news.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git show &lt;SHA&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Comparing a single file between two commits (or branches) is also not uncommon:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git diff branch1 branch2 -- path/to/filename.ext
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>However - if the files were pretty far in the two branches to begin with - and you&#8217;d just like to compare the CHANGES introduced by two commits (a diff of a diff), one way is this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>diff &lt;<span class="o">(</span>git show SHA<span class="o">)</span>  &lt;<span class="o">(</span>git show SHA<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>git log with diffs</h2>
+
+<p>Oft overlooked feature:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log -u
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Can be useful if you&#8217;d like to track the history of a certain file, and view all the changes:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log -u -- path/to/filename.ext
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>git log, tracking renames</h2>
+
+<p>By default - viewing the history of a specific file with git log only goes as far back as when the file was created - or renamed.</p>
+
+<p>If you&#8217;d like to track it back past any number of renames / moves:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log -u --follow -- path/to/filename.ext
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This can get pretty slow for larger repos, which I imagine is why its not on by default.</p>
+
+<h2>View a file in a branch, without actually checking it out</h2>
+
+<p>If you&#8217;re working on a file and wish to view that same file in another branch, you can avoid extra stashes &amp; checkouts and just &#8220;peek&#8221; into that branch:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git show branch2:path/to/filename.ext
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note the syntax of branch:file without spaces, which is unusual.</p>
+
+<h2>Recommit a commit?</h2>
+
+<p>You may want to do this if the commit message is really bad (what are some of the worst messages you&#8217;ve seen? A whole other blog post&#8230;) and it&#8217;s already been pushed remotely.</p>
+
+<p>Git doesn&#8217;t like letting you do this, you can&#8217;t commit changes to files that haven&#8217;t been changed. You can&#8217;t cherry-pick a commit if all the changes are already in place. You could do a revert and then a re-revert - but semantically that might even be worse in the history - it implies there was a problem with the code.</p>
+
+<p>Another approach:  Branch, amend, merge</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git checkout master
+</span><span class='line'>git checkout -b tmp_branch
+</span><span class='line'>git commit --amend
+</span><span class='line'>git checkout master
+</span><span class='line'>git merge tmp_branch
+</span><span class='line'>git delete -D tmp_branch
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>you&#8217;ll end up with a duplicate commit, and a merge commit - but it gives you the opportunity to provide more verbose info on that 2nd commit message. In this example the commit in question would be at the tip of master, but any commit in history should work - just branch your tmp_branch off of whichever commit needs amending.</p>
+
+<h2>Common Ancestor</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git merge-base branch1 branch2
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Shows you the one shared commit where these two branches diverged. In the git &#8220;file system&#8221;, any two commits - no matter on which branch will have a shared ancestors. It&#8217;s sort of like evolution.</p>
+
+<p>This can be useful if you&#8217;re in the middle of resolving a merge conflict, and you feel like the 3 pane diff GUI is not providing you with enough information.  Open up a 2nd terminal, find the common ancestor and then diff the file in question between the branch and the common ancestor, to see exactly whats changed.</p>
+
+<h2>List of commits that exist in one branch but not in another</h2>
+
+<p>I like this syntax because it reads well to me as a developer. Show me commits that are in branch1 that are not in branch2:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log branch1 ^branch2
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you or your group does a lot of cherry-picking or rebasing, then this won&#8217;t always work - because those operations create a new SHA - and the above depend on the SHA being the same.  Start using merges instead if possible, then the usefulness of the above will become apparent.</p>
+
+<p>You can use similar syntax to determine if a single commit is part of a branch or not:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log -n1 commit ^branch
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If the commit is part of the branch, it will show you nothing. If it is not part of the branch&#8230;it will show you the commit.</p>
+
+<h2>Make an exiting branch tracking</h2>
+
+<p>If a branch was started locally and was then pushed remotely. You probably found out soon enough that its not set up to track so well - compared to a branch that started remotely. To get it all set up:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git branch --set-upstream foo upstream/foo
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>(Thanks to <a href="http://stackoverflow.com/questions/520650/how-do-you-make-an-existing-git-branch-track-a-remote-branch">this</a> stackoverflow.com article for this last one)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Google's spell check API stopped working - here is the fix]]></title>
+    <link href="http://galori.github.com/blog/2010/07/26/googles-spell-check-api-stopped-working-here-is-the-fix/"/>
+    <updated>2010-07-26T00:00:00-07:00</updated>
+    <id>http://galori.github.com/blog/2010/07/26/googles-spell-check-api-stopped-working-here-is-the-fix</id>
+    <content type="html"><![CDATA[Google&#8217;s undocumented, unpublished, not-for-public-consumption Spell Check API stopped working. How dare they?
+
+Well turns out the fix is simple, after using Charles to debug the HTTP requests of the Google Toolbar spell checker, I narrowed down the difference between my calls and theirs to a missing host header. Added that back in and everything works again.  
+
+Usage:
+(I don&#8217;t parse the XML, because I&#8217;m just passing it to a flash client):
+[sourcecode language=&#8221;ruby&#8221;]
+=&gt; puts Spell.check(&#8216;does it worka?&#8217;)
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;spellresult error=&quot;0&quot; clipped=&quot;0&quot; charschecked=&quot;14&quot;&gt;&lt;c o=&quot;8&quot; l=&quot;5&quot; s=&quot;1&quot;&gt;works	work	wok	worker	woke&lt;/c&gt;&lt;/spellresult&gt;
+[/sourcecode]
+
+Source:
+[sourcecode language=&#8221;ruby&#8221;]
+require &#8216;rubygems&#8217;
+require &#8216;builder&#8217;
+require &#8216;net/http&#8217;
+require &#8216;net/https&#8217;
+
+module Spell
+
+  HOST_HEADER = &#8216;www.google.com&#8217;
+  HOST_POST = &#8216;google.com&#8217;
+  PATH = &quot;/tbproxy/spell?lang=en&amp;hl=en&amp;v=2.0f&quot;
+
+  def self.check(text)
+    http = Net::HTTP.new(HOST_POST,443)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    headers = {&quot;Host&quot; =&gt; HOST_HEADER}
+    data = get_xml_payload(text)
+    response_headers, response_data = http.post(PATH, data, headers)
+    response_data
+  end
+
+private 
+
+  def self.get_xml_payload(text)
+    xml = Builder::XmlMarkup.new
+    xml_string =  xml.spellrequest(:textalreadyclipped =&gt; &quot;0&quot;, :ignoredups =&gt; &quot;0&quot;, :ignoredigits =&gt; &quot;1&quot;, :ignoreallcaps =&gt; &quot;0&quot;) do
+      xml.text(text)
+    end
+  end
+end
+[/sourcecode]
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[array#only for ruby]]></title>
+    <link href="http://galori.github.com/blog/2010/06/07/array-only-for-ruby/"/>
+    <updated>2010-06-07T00:00:00-07:00</updated>
+    <id>http://galori.github.com/blog/2010/06/07/array-only-for-ruby</id>
+    <content type="html"><![CDATA[How many times do you use <strong>some_array.first</strong> as a way to get at the one and only member of that array?
+
+It always bugged me that this can be error prone - if the array has more than one component you&#8217;ll never know about it, and the .first method isn&#8217;t semantically describing what you are doing - grabbing the one and only member.
+
+If you add this somewhere in lib/initializiers, you get the .only method
+
+[sourcecode language=&#8221;ruby&#8221;]
+class Array
+  def only
+    raise &quot;called Array#only with array of length #{self.length}&quot; if self.length&gt;1
+    self.first
+  end
+end
+[/sourcecode]
+
+which provides a more semantic description of what you&#8217;re trying to do:
+
+[sourcecode language=&#8221;ruby&#8221;]
+&gt;&gt; [].only
+=&gt; nil
+&gt;&gt; [1].only
+=&gt; 1
+&gt;&gt; [1,2,3].only
+RuntimeError: called Array#only with array of length 3
+[/sourcecode]
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Update to "Fire and consume custom global events in jQuery"]]></title>
+    <link href="http://galori.github.com/blog/2010/03/25/update-to-fire-and-consume-custom-global-events-in-jquery/"/>
+    <updated>2010-03-25T00:00:00-07:00</updated>
+    <id>http://galori.github.com/blog/2010/03/25/update-to-fire-and-consume-custom-global-events-in-jquery</id>
+    <content type="html"><![CDATA[<p>Update 9-8-2012: <a href="http://galori.github.com/blog/2012/09/08/global-javascript-events-with-backbone-js/">Global events with Backbone JS</a></p>
+
+<p>This is an update to <a href="http://galori.github.com/blog/2009/11/06/fire-and-consume-custom-global-events-in-jquery/">a previous post</a></p>
+
+<p>jQuery 1.4 is out, and the undocumented syntax I described for triggering and responding to global events has changed. You can still use the same pattern. When firing a global event, bind to any element on the DOM, such as &#8216;body&#8217; or document:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;sneeze&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){})</span>
+</span><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s2">&quot;sneeze&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is a great way to decouple code and when used like a messaging system, can really clean up your code.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SQL Quiz]]></title>
+    <link href="http://galori.github.com/blog/2010/03/25/sql-quiz/"/>
+    <updated>2010-03-25T00:00:00-07:00</updated>
+    <id>http://galori.github.com/blog/2010/03/25/sql-quiz</id>
+    <content type="html"><![CDATA[I enjoyed this interactive <a href="http://perfectionkills.com/javascript-quiz/">javascript quiz</a> from perfectionkills.com, and thought it would be fun to create an interactive SQL quiz.
+<p>&nbsp;</p>
+You can head on over directly to <a href="http://pages.ragingstudios.com/quiz.html" target="_blank">my SQL quiz</a> or preview the questions here.
+<p>&nbsp;</p>
+Given the following two tables:
+
+[sourcecode language=&#8221;text&#8221;]
+select * from a;                select * from b;        
++&#8212;&#8212;+&#8212;&#8212;-+                +&#8212;&#8212;+&#8212;&#8212;-+&#8212;&#8212;+        
+| id   | label |                | id   | label | a_id |        
++&#8212;&#8212;+&#8212;&#8212;-+                +&#8212;&#8212;+&#8212;&#8212;-+&#8212;&#8212;+        
+|    1 | Alpha |                |    1 | I     |    1 |        
+|    2 | Beta  |                |    2 | II    |    1 |        
+|    3 | Gamma |                |    3 | III   |    2 |        
++&#8212;&#8212;+&#8212;&#8212;-+                +&#8212;&#8212;+&#8212;&#8212;-+&#8212;&#8212;+        
+[/sourcecode]
+          
+What would be the result of each of the following SQL statements&#8230;..
+
+(continued)
+
+Head over to the  <a href="http://galori.github.com/quiz.html">interactive SQL quiz</a> to match the queries with the results.
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Cleaner CSS browser targetting with simple-useragent gem]]></title>
+    <link href="http://galori.github.com/blog/2009/12/14/cleaner-css-browser-targetting-with-simple-useragent-gem/"/>
+    <updated>2009-12-14T00:00:00-08:00</updated>
+    <id>http://galori.github.com/blog/2009/12/14/cleaner-css-browser-targetting-with-simple-useragent-gem</id>
+    <content type="html"><![CDATA[I just posted the &#8220;simple-useragent&#8221; gem, which provides the ability to for cleaner browser specific CSS targeting*.  This is for rails projects but the concept can work anywhere.
+
+For example, instead of the targeting IE7 with your CSS with
+
+[sourcecode language=&#8221;css&#8221;]
+/* IE7 */
+*:first-child+html #content {
+  height: 500px;
+}
+[/sourcecode]
+
+You can now do this:
+
+[sourcecode language=&#8221;css&#8221;]
+.ie7 #content {
+  height: 500px;
+}
+[/sourcecode]
+
+To take advantage of this, you just need to add the following to your body tag:
+
+[sourcecode language=&#8221;ruby&#8221; htmlscript=&#8221;true&#8221;]
+&lt;body class=&#8217;&lt;%=UserAgent::browser(request)%&gt;&#8217;&gt;
+[/sourcecode]
+
+* Admittedly targeting CSS to a specific browser is a bad practice that should generally be avoided. For more details about why browser detection in general is a bad idea, see <a href="http://www.quirksmode.org/js/support.html">www.quirksmode.org/js/support.html</a>. However sometimes there is no choice - especially under time constraints.
+
+<hr>
+
+Additionally, simple-useragent makes the following methods available to you:
+
+[sourcecode language=&#8221;ruby&#8221; htmlscript=&#8221;true&#8221;]
+UserAgent::is_desktop?
+UserAgent::is_mobile?
+UserAgent::is_blackberry?
+UserAgent::is_iphone?
+[/sourcecode]
+
+The is_mobile? and is_desktop? methods are using a minimalistic approach, converted from the python script here: http://gist.github.com/88057. The theory is that since there are a lot more mobile user agents than there are desktop user agents (hundreds or even thousands) - we detect the known list of desktop user agents, and if its not one of those we assume that it is mobile. It works surprisingly well in the vast majority of cases. So far I’ve only seen it fail with spoofed or malformed user agents.
+
+To install:
+
+[sourcecode language=&#8221;bash&#8221;]gem install simple-useragent[/sourcecode]
+
+The gem is hosted on gemcutter - if you don&#8217;t have gemcutter as a source you&#8217;ll have to add it
+
+[sourcecode language=&#8221;bash&#8221;]gem install gemcutter
+gem tumble [/sourcecode]
+
+<hr>
+
+source at <a href="http://github.com/galori/simple-useragent">http://github.com/galori/simple-useragent</a>
+
+Update:  Thanks to an anonymous commenter on <a href="http://www.rubyflow.com/items/3148">rubyflow</a> for pointing out a jQuery version of this: <a href="http://github.com/alexrabarts/jquery-platformselector">jquery.platformselector</a>.  
+]]></content>
+  </entry>
+  
+</feed>

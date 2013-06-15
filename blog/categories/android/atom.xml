@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: android | You've got a lot of Gal]]></title>
+  <link href="http://galori.github.com/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://galori.github.com/"/>
+  <updated>2013-06-15T11:05:08-07:00</updated>
+  <id>http://galori.github.com/</id>
+  <author>
+    <name><![CDATA[Gal Steinitz]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Google strong-arms Acer? - I don't buy it]]></title>
+    <link href="http://galori.github.com/blog/2012/09/14/google-strong-arms-acer-i-dont-buy-it/"/>
+    <updated>2012-09-14T00:10:00-07:00</updated>
+    <id>http://galori.github.com/blog/2012/09/14/google-strong-arms-acer-i-dont-buy-it</id>
+    <content type="html"><![CDATA[<p>Google strong-arms Acer</p>
+
+<blockquote><p>Alibaba said that Acer “was notified by Google that if the product runs Aliyun OS,
+Google will terminate its Android- related cooperation and other technology
+licensing with our partner….We regret Google’s action.”</p>
+
+<p>Stay classy Google.</p></blockquote>
+
+<p>via <a href="http://www.loopinsight.com/2012/09/13/google-strong-arms-acer/">the loop</a>
+original article: <a href="http://www.nasdaq.com/article/acer-cancels-press-conference-to-launch-new-smartphone-on-alibaba-software-20120913-00197">Press release from Taipei</a></p>
+
+<!-- more -->
+
+
+<p>For some reason, I don't buy it. Its not only not classy, its predatory, anticompetitive and bordering on unethical, if its true. My gut is telling me that there is more here, perhaps a mis-translation or a mis-representation by someone. This doesn't seem to me like something Google would do.</p>
+]]></content>
+  </entry>
+  
+</feed>
