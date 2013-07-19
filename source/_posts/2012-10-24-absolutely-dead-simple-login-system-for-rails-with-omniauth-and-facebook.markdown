@@ -3,7 +3,7 @@ layout: post
 title: "Absolutely dead simple login system for Rails with omniauth and facebook"
 date: 2012-10-24 23:54
 comments: true
-categories: 
+categories: rails facebook omniauth
 ---
 In 6 steps...
 <!-- more -->
@@ -74,4 +74,4 @@ end
 
 Thats it!
 
-You can replace omniauth-facebook with any other provider (such as omniauth-twitter) and it will work just as well. 
+You can replace omniauth-facebook with any other provider (such as omniauth-twitter) and it will work just as well.

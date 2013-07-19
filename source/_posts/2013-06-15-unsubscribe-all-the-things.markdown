@@ -3,7 +3,7 @@ layout: post
 title: "Unsubscribe - ALL THE THINGS"
 date: 2013-06-15 10:14
 comments: true
-categories:
+categories: inbox-zero email
 ---
 How Newsletters and Marketing emails have taken over our inboxes.
 
