@@ -112,18 +112,22 @@
         <loc>
             http://galori.github.com/blog/2012/10/24/absolutely-dead-simple-login-system-for-rails-with-omniauth-and-facebook/
         </loc>
-        <lastmod>2013-06-15T10:11:00-07:00</lastmod>
+        <lastmod>2013-07-19T15:00:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://galori.github.com/blog/2013/06/15/unsubscribe-all-the-things/</loc>
-        <lastmod>2013-06-15T11:02:25-07:00</lastmod>
+        <lastmod>2013-07-19T15:00:07-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://galori.github.com/blog/2013/07/19/remember-firebug-lite/</loc>
+        <lastmod>2013-07-19T14:59:43-07:00</lastmod>
     </url>
     <url>
         <loc>http://galori.github.com/blog/archives/</loc>
-        <lastmod>2013-06-15T11:02:25-07:00</lastmod>
+        <lastmod>2013-07-19T15:00:07-07:00</lastmod>
     </url>
     <url>
         <loc>http://galori.github.com/</loc>
-        <lastmod>2013-06-15T11:02:25-07:00</lastmod>
+        <lastmod>2013-07-19T15:00:07-07:00</lastmod>
     </url>
 </urlset>

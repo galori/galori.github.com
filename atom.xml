@@ -4,7 +4,7 @@
   <title><![CDATA[You've got a lot of Gal]]></title>
   <link href="http://galori.github.com/atom.xml" rel="self"/>
   <link href="http://galori.github.com/"/>
-  <updated>2013-06-15T11:08:16-07:00</updated>
+  <updated>2013-07-19T15:01:15-07:00</updated>
   <id>http://galori.github.com/</id>
   <author>
     <name><![CDATA[Gal Steinitz]]></name>
@@ -12,6 +12,55 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Remember Firebug Lite?]]></title>
+    <link href="http://galori.github.com/blog/2013/07/19/remember-firebug-lite/"/>
+    <updated>2013-07-19T14:37:00-07:00</updated>
+    <id>http://galori.github.com/blog/2013/07/19/remember-firebug-lite</id>
+    <content type="html"><![CDATA[<p><strong>Interested in contributing to an open source project but don&#8217;t know where to start?</strong></p>
+
+<p>I&#8217;ve recently taken over maintaining the Firebug Lite open source project, after it has been abandoned &amp; dormant for 2 years. I have a great fondness for this little bookmarklet that wont stop giving, it has saved me countless times over the years.</p>
+
+<p>I believe it still has some great potential and uses, especially for mobile devices; and of course its always a life saver for older browsers.</p>
+
+<p>If you are interested in pitching in, you could help with Firebug Lit&#8217;es web page, the build process, the issues list or the codebase itself.</p>
+
+<!-- more -->
+
+
+<p><em>Firebug Lite&#8217;s web site</em></p>
+
+<ul>
+<li>Overhauling the &#8220;Install Firebug Lite&#8221; page, including adding an iPad / mobile installation instructions page for the bookmarklet, but also overall simplifying it the whole page. (Also its got mad Javascript errors right now - probably doesn&#8217;t need 90% of the javascript on that page.)</li>
+<li>Migrating all open issues from Google Code to Github (there are some scripts for this). I already migrate the code.</li>
+<li>Cleaning up the issues list - are they still relevant, reproduce-able, are they solvable? Perhaps even comment and communicate with the submitter.</li>
+<li>Adding Google Analytics event tracking code and server side tracking so we can understand how people are using the bookmarklet.</li>
+</ul>
+
+
+<p><em>Build related</em></p>
+
+<ul>
+<li>Some &#8220;forensic analysis&#8221; to reconstruct the build process. I found some remnants of what may have been an ANT script&#8230;but the actual script is nowhere to be found (Just like the guy that used to maintain this project). Mainly involves concatenting and then minifying many javascript files and then pushing them to the web site. (Rake, anyone?)</li>
+</ul>
+
+
+<p><em>Dev Related</em></p>
+
+<ul>
+<li>Once we figure out the build process&#8230;I do have a patch ready to go for one of the outstanding bugs - lets do a new point release! The community will rejoice! (Or at least the 1 guy that submitted it)</li>
+<li>Attempt to tackle any of the open issues</li>
+<li>Make it work sanely on an iphone/android phone</li>
+<li>The top voted issue is actually a security limitation; Where the CSS can not be read if it is being served from a different hostname. More and more common these days with CDN&#8217;s, etc. Firebug Lite without the CSS rules is kind of useless! A proposed workaround is the classic cross domain ajax fallback - use a server side proxy. Could work - just needs to be implemented.</li>
+<li>This project is based on the regular Firebug plugin extension and its libraries. We should try to bring in some of the newer featuers that make sense.</li>
+<li>We would kind-of have free reign to modernize this project to keep it relevant. Another idea I had was to provide an automatic proxy for mobile devices, so you would just visit http://getfirebug.com/lite/www.yoursite.com it would just serve your site with the firebug javascript injected - no clunky installing of bookmarks needed.</li>
+</ul>
+
+
+<p>Anyway, if you&#8217;re interested, reply here, or post to the Firebug Working Group google group, or you can email me at gal (at) steinitz (dot) com.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Unsubscribe - ALL THE THINGS]]></title>
@@ -974,68 +1023,6 @@ What would be the result of each of the following SQL statements&#8230;..
 (continued)
 
 Head over to the  <a href="http://galori.github.com/quiz.html">interactive SQL quiz</a> to match the queries with the results.
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Cleaner CSS browser targetting with simple-useragent gem]]></title>
-    <link href="http://galori.github.com/blog/2009/12/14/cleaner-css-browser-targetting-with-simple-useragent-gem/"/>
-    <updated>2009-12-14T00:00:00-08:00</updated>
-    <id>http://galori.github.com/blog/2009/12/14/cleaner-css-browser-targetting-with-simple-useragent-gem</id>
-    <content type="html"><![CDATA[I just posted the &#8220;simple-useragent&#8221; gem, which provides the ability to for cleaner browser specific CSS targeting*.  This is for rails projects but the concept can work anywhere.
-
-For example, instead of the targeting IE7 with your CSS with
-
-[sourcecode language=&#8221;css&#8221;]
-/* IE7 */
-*:first-child+html #content {
-  height: 500px;
-}
-[/sourcecode]
-
-You can now do this:
-
-[sourcecode language=&#8221;css&#8221;]
-.ie7 #content {
-  height: 500px;
-}
-[/sourcecode]
-
-To take advantage of this, you just need to add the following to your body tag:
-
-[sourcecode language=&#8221;ruby&#8221; htmlscript=&#8221;true&#8221;]
-&lt;body class=&#8217;&lt;%=UserAgent::browser(request)%&gt;&#8217;&gt;
-[/sourcecode]
-
-* Admittedly targeting CSS to a specific browser is a bad practice that should generally be avoided. For more details about why browser detection in general is a bad idea, see <a href="http://www.quirksmode.org/js/support.html">www.quirksmode.org/js/support.html</a>. However sometimes there is no choice - especially under time constraints.
-
-<hr>
-
-Additionally, simple-useragent makes the following methods available to you:
-
-[sourcecode language=&#8221;ruby&#8221; htmlscript=&#8221;true&#8221;]
-UserAgent::is_desktop?
-UserAgent::is_mobile?
-UserAgent::is_blackberry?
-UserAgent::is_iphone?
-[/sourcecode]
-
-The is_mobile? and is_desktop? methods are using a minimalistic approach, converted from the python script here: http://gist.github.com/88057. The theory is that since there are a lot more mobile user agents than there are desktop user agents (hundreds or even thousands) - we detect the known list of desktop user agents, and if its not one of those we assume that it is mobile. It works surprisingly well in the vast majority of cases. So far I’ve only seen it fail with spoofed or malformed user agents.
-
-To install:
-
-[sourcecode language=&#8221;bash&#8221;]gem install simple-useragent[/sourcecode]
-
-The gem is hosted on gemcutter - if you don&#8217;t have gemcutter as a source you&#8217;ll have to add it
-
-[sourcecode language=&#8221;bash&#8221;]gem install gemcutter
-gem tumble [/sourcecode]
-
-<hr>
-
-source at <a href="http://github.com/galori/simple-useragent">http://github.com/galori/simple-useragent</a>
-
-Update:  Thanks to an anonymous commenter on <a href="http://www.rubyflow.com/items/3148">rubyflow</a> for pointing out a jQuery version of this: <a href="http://github.com/alexrabarts/jquery-platformselector">jquery.platformselector</a>.  
 ]]></content>
   </entry>
   

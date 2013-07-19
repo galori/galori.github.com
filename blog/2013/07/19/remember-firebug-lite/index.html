@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>iPhone 5 - How close was I? - You've got a lot of Gal</title>
+  <title>Remember Firebug Lite? - You've got a lot of Gal</title>
   <meta name="author" content="Gal Steinitz">
 
   
-  <meta name="description" content="Follw up to last week&#8217;s post: Summary of Apple Rumors and Predictions Which I Believe to Be True&#8230; How close was I? I was pretty close, &hellip;">
+  <meta name="description" content="Interested in contributing to an open source project but don&#8217;t know where to start? I&#8217;ve recently taken over maintaining the Firebug Lite &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://galori.github.com/blog/2012/09/13/iphone-5-how-close-was-i/">
+  <link rel="canonical" href="http://galori.github.com/blog/2013/07/19/remember-firebug-lite/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">iPhone 5 - How Close Was I?</h1>
+      <h1 class="entry-title">Remember Firebug Lite?</h1>
     
     
       <p class="meta">
@@ -96,33 +96,54 @@
   
 
 
-<time datetime="2012-09-13T21:38:00-07:00" pubdate data-updated="true">Sep 13<span>th</span>, 2012</time>
+<time datetime="2013-07-19T14:37:00-07:00" pubdate data-updated="true">Jul 19<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Follw up to last week&#8217;s post: <a href="/blog/2012/09/08/summary-of-apple-rumors-and-predictions-which-i-believe-to-be-true/">Summary of Apple Rumors and Predictions Which I Believe to Be True</a>&#8230;</p>
+<div class="entry-content"><p><strong>Interested in contributing to an open source project but don&#8217;t know where to start?</strong></p>
 
-<p>How close was I?</p>
+<p>I&#8217;ve recently taken over maintaining the Firebug Lite open source project, after it has been abandoned &amp; dormant for 2 years. I have a great fondness for this little bookmarklet that wont stop giving, it has saved me countless times over the years.</p>
+
+<p>I believe it still has some great potential and uses, especially for mobile devices; and of course its always a life saver for older browsers.</p>
+
+<p>If you are interested in pitching in, you could help with Firebug Lit&#8217;es web page, the build process, the issues list or the codebase itself.</p>
 
 <!-- more -->
 
 
-<p><img src="/images/posts/iphone_5.jpg" style="float:right; margin-left: 15px"/></p>
+<p><em>Firebug Lite&#8217;s web site</em></p>
 
-<p>I was pretty close, the only thing I got wrong (and frankly surprised me!) was the device size. I thought the physical device will be the same size as the 4S, just with a larger screen. Instead, the iPhone 5 is 4.87&#8221; tall, compared to 4.5&#8221; for the 4S. So roughly 8% taller.</p>
+<ul>
+<li>Overhauling the &#8220;Install Firebug Lite&#8221; page, including adding an iPad / mobile installation instructions page for the bookmarklet, but also overall simplifying it the whole page. (Also its got mad Javascript errors right now - probably doesn&#8217;t need 90% of the javascript on that page.)</li>
+<li>Migrating all open issues from Google Code to Github (there are some scripts for this). I already migrate the code.</li>
+<li>Cleaning up the issues list - are they still relevant, reproduce-able, are they solvable? Perhaps even comment and communicate with the submitter.</li>
+<li>Adding Google Analytics event tracking code and server side tracking so we can understand how people are using the bookmarklet.</li>
+</ul>
 
-<p>The width is identical - 2.31&#8221;.</p>
 
-<p>The depth, amazingly, is thinner - the new iPhone is 0.30&#8221;, compared to the 4S which was 0.37&#8221;. 18% thinner. It&#8217;s also lighter at 3.95oz, vs 4.9oz..which comes out to 19% lighter.</p>
+<p><em>Build related</em></p>
 
-<p>To quote Tim Cook&#8230;That is truly amazing.</p>
+<ul>
+<li>Some &#8220;forensic analysis&#8221; to reconstruct the build process. I found some remnants of what may have been an ANT script&#8230;but the actual script is nowhere to be found (Just like the guy that used to maintain this project). Mainly involves concatenting and then minifying many javascript files and then pushing them to the web site. (Rake, anyone?)</li>
+</ul>
 
-<p><a href="http://www.apple.com/apple-events/september-2012/">Watch the entire Apple Event</a> announcing the iPhone 5 and the slew of other new products and services announced yesterday, including the new Apple Maps, a new iPod Nano, and some pretty impressive stats as to how Apple is doing. Also check out <a href="http://current.com/s/management.htm">my boss</a> Al Gore sitting in the audience in the front row. He&#8217;ll be hard to miss - they pan to him <em>every</em> single time they showed the audience (I guess the camera man was impressed).</p>
 
-<p>Finally&#8230;is Steve Job&#8217;s presence still felt during these presentations? Without a doubt. Even though each apple exec&#8217;s style is his own - Job&#8217;s presentation style is an unspoken presence in every Apple Event.</p>
+<p><em>Dev Related</em></p>
+
+<ul>
+<li>Once we figure out the build process&#8230;I do have a patch ready to go for one of the outstanding bugs - lets do a new point release! The community will rejoice! (Or at least the 1 guy that submitted it)</li>
+<li>Attempt to tackle any of the open issues</li>
+<li>Make it work sanely on an iphone/android phone</li>
+<li>The top voted issue is actually a security limitation; Where the CSS can not be read if it is being served from a different hostname. More and more common these days with CDN&#8217;s, etc. Firebug Lite without the CSS rules is kind of useless! A proposed workaround is the classic cross domain ajax fallback - use a server side proxy. Could work - just needs to be implemented.</li>
+<li>This project is based on the regular Firebug plugin extension and its libraries. We should try to bring in some of the newer featuers that make sense.</li>
+<li>We would kind-of have free reign to modernize this project to keep it relevant. Another idea I had was to provide an automatic proxy for mobile devices, so you would just visit http://getfirebug.com/lite/www.yoursite.com it would just serve your site with the firebug javascript injected - no clunky installing of bookmarks needed.</li>
+</ul>
+
+
+<p>Anyway, if you&#8217;re interested, reply here, or post to the Firebug Working Group google group, or you can email me at gal (at) steinitz (dot) com.</p>
 </div>
 
 
@@ -145,12 +166,12 @@
   
 
 
-<time datetime="2012-09-13T21:38:00-07:00" pubdate data-updated="true">Sep 13<span>th</span>, 2012</time>
+<time datetime="2013-07-19T14:37:00-07:00" pubdate data-updated="true">Jul 19<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/apple/'>apple</a>, <a class='category' href='/blog/categories/iphone/'>iphone</a>, <a class='category' href='/blog/categories/rumors/'>rumors</a>
+    <a class='category' href='/blog/categories/firebuglite/'>firebuglite</a>, <a class='category' href='/blog/categories/javascript/'>javascript</a>
   
 </span>
 
@@ -159,7 +180,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://galori.github.com/blog/2012/09/13/iphone-5-how-close-was-i/" data-via="galori" data-counturl="http://galori.github.com/blog/2012/09/13/iphone-5-how-close-was-i/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://galori.github.com/blog/2013/07/19/remember-firebug-lite/" data-via="galori" data-counturl="http://galori.github.com/blog/2013/07/19/remember-firebug-lite/" >Tweet</a>
   
   
   
@@ -168,10 +189,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/09/08/summary-of-apple-rumors-and-predictions-which-i-believe-to-be-true/" title="Previous Post: Summary of Apple rumors and predictions which I believe to be true">&laquo; Summary of Apple rumors and predictions which I believe to be true</a>
+        <a class="basic-alignment left" href="/blog/2013/06/15/unsubscribe-all-the-things/" title="Previous Post: Unsubscribe - ALL THE THINGS">&laquo; Unsubscribe - ALL THE THINGS</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/09/14/google-strong-arms-acer-i-dont-buy-it/" title="Next Post: Google strong-arms Acer? - I don't buy it">Google strong-arms Acer? - I don't buy it &raquo;</a>
       
     </p>
   </footer>
@@ -290,8 +309,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://galori.github.com/blog/2012/09/13/iphone-5-how-close-was-i/';
-        var disqus_url = 'http://galori.github.com/blog/2012/09/13/iphone-5-how-close-was-i/';
+        var disqus_identifier = 'http://galori.github.com/blog/2013/07/19/remember-firebug-lite/';
+        var disqus_url = 'http://galori.github.com/blog/2013/07/19/remember-firebug-lite/';
         var disqus_script = 'embed.js';
       
     (function () {

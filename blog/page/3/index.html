@@ -9,11 +9,7 @@
   <meta name="author" content="Gal Steinitz">
 
   
-  <meta name="description" content="Update 3-4-2010: jQuery 1.4 changed things a bit
-Update 9-8-2012: Global events with Backbone JS To bind something to a custom event: 1
-2
-3
-$().bind &hellip;">
+  <meta name="description" content="I just posted the &#8220;simple-useragent&#8221; gem, which provides the ability to for cleaner browser specific CSS targeting*. This is for rails &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -55,7 +51,7 @@ $().bind &hellip;">
   
     <h2>Yet another blog about Ruby, Rails, Javascript, Apple, Malteses and Shih-Tzus by Gal Steinitz</h2>
   
-  <h3>This site is completely static. It was last generated with Octopress and Jekyll on Jun 15, 2013 and hosted on github pages.</h3>
+  <h3>This site is completely static. It was last generated with Octopress and Jekyll on Jul 19, 2013 and hosted on github pages.</h3>
 </hgroup>
 
 </header>
@@ -81,6 +77,95 @@ $().bind &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/12/14/cleaner-css-browser-targetting-with-simple-useragent-gem/">Cleaner CSS Browser Targetting With Simple-useragent Gem</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-12-14T00:00:00-08:00" pubdate data-updated="true">Dec 14<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">I just posted the &#8220;simple-useragent&#8221; gem, which provides the ability to for cleaner browser specific CSS targeting*.  This is for rails projects but the concept can work anywhere.
+
+For example, instead of the targeting IE7 with your CSS with
+
+[sourcecode language=&#8221;css&#8221;]
+/* IE7 */
+*:first-child+html #content {
+  height: 500px;
+}
+[/sourcecode]
+
+You can now do this:
+
+[sourcecode language=&#8221;css&#8221;]
+.ie7 #content {
+  height: 500px;
+}
+[/sourcecode]
+
+To take advantage of this, you just need to add the following to your body tag:
+
+[sourcecode language=&#8221;ruby&#8221; htmlscript=&#8221;true&#8221;]
+&lt;body class=&#8217;&lt;%=UserAgent::browser(request)%&gt;&#8217;&gt;
+[/sourcecode]
+
+* Admittedly targeting CSS to a specific browser is a bad practice that should generally be avoided. For more details about why browser detection in general is a bad idea, see <a href="http://www.quirksmode.org/js/support.html">www.quirksmode.org/js/support.html</a>. However sometimes there is no choice - especially under time constraints.
+
+<hr>
+
+Additionally, simple-useragent makes the following methods available to you:
+
+[sourcecode language=&#8221;ruby&#8221; htmlscript=&#8221;true&#8221;]
+UserAgent::is_desktop?
+UserAgent::is_mobile?
+UserAgent::is_blackberry?
+UserAgent::is_iphone?
+[/sourcecode]
+
+The is_mobile? and is_desktop? methods are using a minimalistic approach, converted from the python script here: http://gist.github.com/88057. The theory is that since there are a lot more mobile user agents than there are desktop user agents (hundreds or even thousands) - we detect the known list of desktop user agents, and if its not one of those we assume that it is mobile. It works surprisingly well in the vast majority of cases. So far I’ve only seen it fail with spoofed or malformed user agents.
+
+To install:
+
+[sourcecode language=&#8221;bash&#8221;]gem install simple-useragent[/sourcecode]
+
+The gem is hosted on gemcutter - if you don&#8217;t have gemcutter as a source you&#8217;ll have to add it
+
+[sourcecode language=&#8221;bash&#8221;]gem install gemcutter
+gem tumble [/sourcecode]
+
+<hr>
+
+source at <a href="http://github.com/galori/simple-useragent">http://github.com/galori/simple-useragent</a>
+
+Update:  Thanks to an anonymous commenter on <a href="http://www.rubyflow.com/items/3148">rubyflow</a> for pointing out a jQuery version of this: <a href="http://github.com/alexrabarts/jquery-platformselector">jquery.platformselector</a>.  
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -259,6 +344,10 @@ Keep in mind that in this second pattern, clickHandler is actually called at par
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/07/19/remember-firebug-lite/">Remember Firebug Lite?</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/06/15/unsubscribe-all-the-things/">Unsubscribe - ALL THE THINGS</a>
       </li>
     
@@ -272,10 +361,6 @@ Keep in mind that in this second pattern, clickHandler is actually called at par
     
       <li class="post">
         <a href="/blog/2012/09/13/iphone-5-how-close-was-i/">iPhone 5 - How close was I?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/09/08/summary-of-apple-rumors-and-predictions-which-i-believe-to-be-true/">Summary of Apple rumors and predictions which I believe to be true</a>
       </li>
     
   </ul>
