@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: chrome | You've got a lot of Gal]]></title>
+  <link href="http://galori.github.com/blog/categories/chrome/atom.xml" rel="self"/>
+  <link href="http://galori.github.com/"/>
+  <updated>2013-07-21T16:43:48-07:00</updated>
+  <id>http://galori.github.com/</id>
+  <author>
+    <name><![CDATA[Gal Steinitz]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Proceed Anyway button gone from chrome for certificate errors? (Easter Egg)]]></title>
+    <link href="http://galori.github.com/blog/2013/07/21/proceed-anyway-button-gone-from-chrome-for-certificate-errors/"/>
+    <updated>2013-07-21T16:39:00-07:00</updated>
+    <id>http://galori.github.com/blog/2013/07/21/proceed-anyway-button-gone-from-chrome-for-certificate-errors</id>
+    <content type="html"><![CDATA[<h1>"This site's security certificate is not trusted"!</h1>
+
+<p>Apparently Chrome did away with the "Proceed Anyway" button, and now it just gives you the option for "Back to Safety". It took a bit of googling but I discovered that if you type the letters for the word "proceed", then it will let you view the site anyway.</p>
+
+<p>As far as I can tell, there is no other way - no advanced preferences or anything similar.</p>
+]]></content>
+  </entry>
+  
+</feed>

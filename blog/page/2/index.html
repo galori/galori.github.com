@@ -9,7 +9,7 @@
   <meta name="author" content="Gal Steinitz">
 
   
-  <meta name="description" content="If you&#8217;re like me and constantly use the same keyboard+trackpad on 4 different OSX computers..you may appreciate this tip. Fastest way to pair &hellip;">
+  <meta name="description" content="What it means: Javasript code is running for longer than 10 seconds. Thats the limit on Firefox 15. Other browsers may vary, googling reveals &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/09/06/javascript-how-to-reproduce-and-fix-an-unresponsive-script-error-in-your-code-osx-solution/">Javascript: &#8220;Unresponsive Script&#8221; Error</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-06T00:00:00-07:00" pubdate data-updated="true">Sep 6<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>What it means:</h2>
+
+<p>Javasript code is running for longer than 10 seconds. Thats the limit on Firefox 15. Other browsers may vary, googling reveals Internet Explorer&#8217;s limit is 5 million lines of code (!) and Chrome allows 30 seconds.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/09/06/javascript-how-to-reproduce-and-fix-an-unresponsive-script-error-in-your-code-osx-solution/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -713,55 +756,6 @@ RuntimeError: called Array#only with array of length 3
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/03/25/update-to-fire-and-consume-custom-global-events-in-jquery/">Update to &#8220;Fire and Consume Custom Global Events in jQuery&#8221;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-03-25T00:00:00-07:00" pubdate data-updated="true">Mar 25<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Update 9-8-2012: <a href="/blog/2012/09/08/global-javascript-events-with-backbone-js/">Global events with Backbone JS</a></p>
-
-<p>This is an update to <a href="/blog/2009/11/06/fire-and-consume-custom-global-events-in-jquery/">a previous post</a></p>
-
-<p>jQuery 1.4 is out, and the undocumented syntax I described for triggering and responding to global events has changed. You can still use the same pattern. When firing a global event, bind to any element on the DOM, such as &#8216;body&#8217; or document:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;sneeze&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){})</span>
-</span><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s2">&quot;sneeze&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This is a great way to decouple code and when used like a messaging system, can really clean up your code.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -789,6 +783,10 @@ RuntimeError: called Array#only with array of length 3
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/07/21/proceed-anyway-button-gone-from-chrome-for-certificate-errors/">Proceed Anyway button gone from chrome for certificate errors? (Easter Egg)</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/07/21/caught-my-eye-july-20th/">Caught my eye - Links for July 20th</a>
       </li>
     
@@ -802,10 +800,6 @@ RuntimeError: called Array#only with array of length 3
     
       <li class="post">
         <a href="/blog/2012/10/24/absolutely-dead-simple-login-system-for-rails-with-omniauth-and-facebook/">Absolutely dead simple login system for Rails with omniauth and facebook</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/09/14/google-strong-arms-acer-i-dont-buy-it/">Google strong-arms Acer? - I don&#8217;t buy it</a>
       </li>
     
   </ul>

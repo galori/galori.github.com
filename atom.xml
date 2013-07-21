@@ -4,7 +4,7 @@
   <title><![CDATA[You've got a lot of Gal]]></title>
   <link href="http://galori.github.com/atom.xml" rel="self"/>
   <link href="http://galori.github.com/"/>
-  <updated>2013-07-21T00:44:19-07:00</updated>
+  <updated>2013-07-21T16:43:48-07:00</updated>
   <id>http://galori.github.com/</id>
   <author>
     <name><![CDATA[Gal Steinitz]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Proceed Anyway button gone from chrome for certificate errors? (Easter Egg)]]></title>
+    <link href="http://galori.github.com/blog/2013/07/21/proceed-anyway-button-gone-from-chrome-for-certificate-errors/"/>
+    <updated>2013-07-21T16:39:00-07:00</updated>
+    <id>http://galori.github.com/blog/2013/07/21/proceed-anyway-button-gone-from-chrome-for-certificate-errors</id>
+    <content type="html"><![CDATA[<h1>&#8220;This site&#8217;s security certificate is not trusted&#8221;!</h1>
+
+<p>Apparently Chrome did away with the &#8220;Proceed Anyway&#8221; button, and now it just gives you the option for &#8220;Back to Safety&#8221;. It took a bit of googling but I discovered that if you type the letters for the word &#8220;proceed&#8221;, then it will let you view the site anyway.</p>
+
+<p>As far as I can tell, there is no other way - no advanced preferences or anything similar.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Caught my eye - Links for July 20th]]></title>
@@ -1019,28 +1032,6 @@ which provides a more semantic description of what you&#8217;re trying to do:
 &gt;&gt; [1,2,3].only
 RuntimeError: called Array#only with array of length 3
 [/sourcecode]
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Update to "Fire and consume custom global events in jQuery"]]></title>
-    <link href="http://galori.github.com/blog/2010/03/25/update-to-fire-and-consume-custom-global-events-in-jquery/"/>
-    <updated>2010-03-25T00:00:00-07:00</updated>
-    <id>http://galori.github.com/blog/2010/03/25/update-to-fire-and-consume-custom-global-events-in-jquery</id>
-    <content type="html"><![CDATA[<p>Update 9-8-2012: <a href="http://galori.github.com/blog/2012/09/08/global-javascript-events-with-backbone-js/">Global events with Backbone JS</a></p>
-
-<p>This is an update to <a href="http://galori.github.com/blog/2009/11/06/fire-and-consume-custom-global-events-in-jquery/">a previous post</a></p>
-
-<p>jQuery 1.4 is out, and the undocumented syntax I described for triggering and responding to global events has changed. You can still use the same pattern. When firing a global event, bind to any element on the DOM, such as &#8216;body&#8217; or document:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;sneeze&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){})</span>
-</span><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s2">&quot;sneeze&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This is a great way to decouple code and when used like a messaging system, can really clean up your code.</p>
 ]]></content>
   </entry>
   
