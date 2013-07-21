@@ -6,6 +6,8 @@ comments: true
 categories: links caught-my-eye
 ---
 
+HTML 5 crossword puzzle, CSS transitions to go with your Twitter Bootstrap, Faster Heroku Deploys, Execs at Panasonic jailed for 1 year, Nate Silver leaves the NY Times and 2200 sq foot home in Detroit for $1.
+
 <!--more-->
 
 HTML 5 Crossword Puzzle
