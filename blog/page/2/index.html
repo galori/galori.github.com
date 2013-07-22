@@ -9,7 +9,7 @@
   <meta name="author" content="Gal Steinitz">
 
   
-  <meta name="description" content="What it means: Javasript code is running for longer than 10 seconds. Thats the limit on Firefox 15. Other browsers may vary, googling reveals &hellip;">
+  <meta name="description" content="Just moved my blog from wordpress.com to Octopress. Octopress runs atop jekyll to generate static files and can deploy to pretty much any hosting &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,68 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/09/07/from-wordpress-to-octopress/">From Wordpress to Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-07T23:10:00-07:00" pubdate data-updated="true">Sep 7<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Just moved my blog from wordpress.com to <a href="http://octopress.org/">Octopress</a>. Octopress runs atop <a href="http://jekyllrb.com/">jekyll</a> to generate static files and can deploy to pretty much any hosting provider - but has special tools for hosting on <a href="http://pages.github.com/">github pages</a> - where this blog is now hosted. First I looked at Jekyll on its own, but seems like it required too much manual configuration - whereas Octopress makes all the choices for you. You just need to make changes.</p>
+
+<p>Blog posts are created by editing a text file locally using Textmate 1 in <a href="http://daringfireball.net/projects/markdown/basics">markdown</a>, generating the blog and deploying. The blog&#8217;s filename implies the posting date, for example this posts file name is</p>
+
+<pre><code>sources/_posts/2012-09-07-from-wordpress-to-octopress.markdown
+</code></pre>
+
+<p>and you also include what they call a YAML UpfrontMatter to the top of every post to include additional metadata. For example for this post:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="nn">---</span>
+</span><span class='line'><span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">posta</span>
+</span><span class='line'><span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="s">&quot;From</span><span class="nv"> </span><span class="s">wordpress</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">octopress&quot;</span>
+</span><span class='line'><span class="l-Scalar-Plain">date</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2012-09-07 23:10</span>
+</span><span class='line'><span class="l-Scalar-Plain">comments</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+</span><span class='line'><span class="l-Scalar-Plain">categories</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="nn">---</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So far I&#8217;m really happy with it. If you&#8217;d like to give it a whirl yourself, All the info you need is at <a href="http://octopress.org/">Octopress</a>. It&#8217;s got a very vibrant community, which is always a good thing.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -696,66 +758,6 @@ end
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/06/07/array-only-for-ruby/">Array#only for Ruby</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-06-07T00:00:00-07:00" pubdate data-updated="true">Jun 7<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">How many times do you use <strong>some_array.first</strong> as a way to get at the one and only member of that array?
-
-It always bugged me that this can be error prone - if the array has more than one component you&#8217;ll never know about it, and the .first method isn&#8217;t semantically describing what you are doing - grabbing the one and only member.
-
-If you add this somewhere in lib/initializiers, you get the .only method
-
-[sourcecode language=&#8221;ruby&#8221;]
-class Array
-  def only
-    raise &quot;called Array#only with array of length #{self.length}&quot; if self.length&gt;1
-    self.first
-  end
-end
-[/sourcecode]
-
-which provides a more semantic description of what you&#8217;re trying to do:
-
-[sourcecode language=&#8221;ruby&#8221;]
-&gt;&gt; [].only
-=&gt; nil
-&gt;&gt; [1].only
-=&gt; 1
-&gt;&gt; [1,2,3].only
-RuntimeError: called Array#only with array of length 3
-[/sourcecode]
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -783,6 +785,10 @@ RuntimeError: called Array#only with array of length 3
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/07/21/why-w3schools-is-bad-for-the-internet/">Why w3schools is bad for the internet</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/07/21/proceed-anyway-button-gone-from-chrome-for-certificate-errors/">Proceed Anyway button gone from chrome for certificate errors? (Easter Egg)</a>
       </li>
     
@@ -796,10 +802,6 @@ RuntimeError: called Array#only with array of length 3
     
       <li class="post">
         <a href="/blog/2013/06/15/unsubscribe-all-the-things/">Unsubscribe - ALL THE THINGS</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/24/absolutely-dead-simple-login-system-for-rails-with-omniauth-and-facebook/">Absolutely dead simple login system for Rails with omniauth and facebook</a>
       </li>
     
   </ul>

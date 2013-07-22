@@ -9,7 +9,7 @@
   <meta name="author" content="Gal Steinitz">
 
   
-  <meta name="description" content="Update 9-8-2012: Global events with Backbone JS This is an update to a previous post jQuery 1.4 is out, and the undocumented syntax I described for &hellip;">
+  <meta name="description" content="How many times do you use some_array.first as a way to get at the one and only member of that array? It always bugged me that this can be error prone &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,66 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/06/07/array-only-for-ruby/">Array#only for Ruby</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-07T00:00:00-07:00" pubdate data-updated="true">Jun 7<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">How many times do you use <strong>some_array.first</strong> as a way to get at the one and only member of that array?
+
+It always bugged me that this can be error prone - if the array has more than one component you&#8217;ll never know about it, and the .first method isn&#8217;t semantically describing what you are doing - grabbing the one and only member.
+
+If you add this somewhere in lib/initializiers, you get the .only method
+
+[sourcecode language=&#8221;ruby&#8221;]
+class Array
+  def only
+    raise &quot;called Array#only with array of length #{self.length}&quot; if self.length&gt;1
+    self.first
+  end
+end
+[/sourcecode]
+
+which provides a more semantic description of what you&#8217;re trying to do:
+
+[sourcecode language=&#8221;ruby&#8221;]
+&gt;&gt; [].only
+=&gt; nil
+&gt;&gt; [1].only
+=&gt; 1
+&gt;&gt; [1,2,3].only
+RuntimeError: called Array#only with array of length 3
+[/sourcecode]
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -460,6 +520,10 @@ Keep in mind that in this second pattern, clickHandler is actually called at par
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/07/21/why-w3schools-is-bad-for-the-internet/">Why w3schools is bad for the internet</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/07/21/proceed-anyway-button-gone-from-chrome-for-certificate-errors/">Proceed Anyway button gone from chrome for certificate errors? (Easter Egg)</a>
       </li>
     
@@ -473,10 +537,6 @@ Keep in mind that in this second pattern, clickHandler is actually called at par
     
       <li class="post">
         <a href="/blog/2013/06/15/unsubscribe-all-the-things/">Unsubscribe - ALL THE THINGS</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/24/absolutely-dead-simple-login-system-for-rails-with-omniauth-and-facebook/">Absolutely dead simple login system for Rails with omniauth and facebook</a>
       </li>
     
   </ul>

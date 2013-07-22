@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mozilla | You've got a lot of Gal]]></title>
+  <link href="http://galori.github.com/blog/categories/mozilla/atom.xml" rel="self"/>
+  <link href="http://galori.github.com/"/>
+  <updated>2013-07-21T23:41:16-07:00</updated>
+  <id>http://galori.github.com/</id>
+  <author>
+    <name><![CDATA[Gal Steinitz]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Why w3schools is bad for the internet]]></title>
+    <link href="http://galori.github.com/blog/2013/07/21/why-w3schools-is-bad-for-the-internet/"/>
+    <updated>2013-07-21T23:07:00-07:00</updated>
+    <id>http://galori.github.com/blog/2013/07/21/why-w3schools-is-bad-for-the-internet</id>
+    <content type="html"><![CDATA[<p>This is quite an old topic, but I've never posted about it and do agree strongly with it.</p>
+
+<p>W3Schools.com is not great. It has outdated information. It does not allow the community to submit corrections. It is not affiliated with the W3C but the name makes it seems like it does, and it has not dis-affiliated itself even after repeated requests from the W3C to do so. It provides outdated, misleading or just plain wrong information to new developers.</p>
+
+<!--more-->
+
+
+<p>Worst of all, it has some great rankings in search engines just by virtue of the fact that it has been around for so long.</p>
+
+<p>There was a concerted grassroots SEO effort by the web development community to dethrone it from its top ranking a few years ago, but it was not successful. See <a href="http://www.youtube.com/watch?v=23Yxji-tEfc">Chris Williams talk from JSConf EU 2010</a>.</p>
+
+<p>However, that doesn't mean we can't do anything about it!</p>
+
+<p>What you can do:</p>
+
+<ul>
+<li>If you search for any reference material, add "MDN" to your search query to cause the Mozilla Developer Network pages to bubble to the top. For example, instead of "block element", search for "block element mdn". See the <a href="https://developer.mozilla.org/en-US/">MDN</a></li>
+<li>If you see someone else linking to W3Schools, tell them! Send them to w3fools.com</li>
+<li>Links to MDN from your web site to help their rankings. (This was the goal of the PromoteJS campaign, its still a great idea).</li>
+</ul>
+
+
+<p>For more info, check out the <a href="https://developer.mozilla.org/en-US/">W3Fools.com</a> site, also dedicated to this topic.</p>
+]]></content>
+  </entry>
+  
+</feed>

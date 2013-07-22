@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>"rails new" causes segfault using ruby 1.9.3 on Lion - You've got a lot of Gal</title>
+  <title>Category: w3schools - You've got a lot of Gal</title>
   <meta name="author" content="Gal Steinitz">
 
   
-  <meta name="description" content="My setup: RVM, MacPorts, OSX Lion ..and &#8220;rails new&#8221; causes a segfault! Stack trace seems to indicate its coming from the bundle install, &hellip;">
+  <meta name="description" content="Category: w3schools">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://galori.github.com/blog/2012/05/17/ruby-1-9-3-segfault-on-lion/">
+  <link rel="canonical" href="http://galori.github.comblog/categories/w3schools/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -76,103 +76,35 @@
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      <h1 class="entry-title">"Rails New" Causes Segfault Using Ruby 1.9.3 on Lion</h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-17T00:00:00-07:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
-        
-      </p>
+    <h1 class="entry-title">Category: W3schools</h1>
     
   </header>
+  
+  <div id="blog-archives" class="category">
 
 
-<div class="entry-content">My setup: RVM, MacPorts, OSX Lion
 
-..and &#8220;rails new&#8221; causes a segfault! Stack trace seems to indicate its coming from the bundle install, specifically from net/http. Some googling suggests this is caused by https:// in the gemfile, and can be fixed by modifying it to http://. However since this is during the rails new - thats not possible.
+  
+  <h2>2013</h2>
 
-No one solution I found addressed my particular issue, so I&#8217;ll document what worked for me, it may help you!
+<article>
+  
+<h1><a href="/blog/2013/07/21/why-w3schools-is-bad-for-the-internet/">Why w3schools is bad for the internet</a></h1>
+<time datetime="2013-07-21T23:07:00-07:00" pubdate><span class='month'>Jul</span> <span class='day'>21</span> <span class='year'>2013</span></time>
 
-1. In xcode, Preferences &#8211;&gt; Downloads &#8211;&gt; Command Line Tools &#8211;&gt; Install
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/javascript/'>javascript</a>, <a class='category' href='/blog/categories/mozilla/'>mozilla</a>, <a class='category' href='/blog/categories/w3schools/'>w3schools</a></span>
+</footer>
 
-2. Install openssl via RVM:
 
-[sourcecode]
-rvm pkg install openssl
-[/sourcecode]
+</article>
 
-3. Reinstall ruby 1.9.3, forcing GCC and the newly downloaded OpenSSL. The -C just means &#8220;use these configuration options&#8221;
-
-[sourcecode]
-rvm reinstall 1.9.3 -C &#8211;with-gcc=gcc &#8211;with-openssl-dir=~/.rvm/usr
-[/sourcecode]
-
-References:
-
-<a href="https://github.com/rails/rails/issues/4766" title="https://github.com/rails/rails/issues/4766">https://github.com/rails/rails/issues/4766</a>
-<a href="http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion" title="http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion">http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion</a>
 </div>
 
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">Gal Steinitz</span></span>
-
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-17T00:00:00-07:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
-      
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://galori.github.com/blog/2012/05/17/ruby-1-9-3-segfault-on-lion/" data-via="galori" data-counturl="http://galori.github.com/blog/2012/05/17/ruby-1-9-3-segfault-on-lion/" >Tweet</a>
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2011/06/18/easter-egg-cause-git-to-say-already-up-to-date-yeeah/" title="Previous Post: Easter Egg? Cause git to say: "Already up-to-date. Yeeah!"">&laquo; Easter Egg? Cause git to say: "Already up-to-date. Yeeah!"</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2012/06/01/jasmine-debugging-actual-line-numbers-in-error-messages/" title="Next Post: Jasmine Debugging: Actual line numbers in error messages">Jasmine Debugging: Actual line numbers in error messages &raquo;</a>
-      
-    </p>
-  </footer>
 </article>
 
 </div>

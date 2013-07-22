@@ -4,7 +4,7 @@
   <title><![CDATA[You've got a lot of Gal]]></title>
   <link href="http://galori.github.com/atom.xml" rel="self"/>
   <link href="http://galori.github.com/"/>
-  <updated>2013-07-21T16:43:48-07:00</updated>
+  <updated>2013-07-21T23:41:16-07:00</updated>
   <id>http://galori.github.com/</id>
   <author>
     <name><![CDATA[Gal Steinitz]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Why w3schools is bad for the internet]]></title>
+    <link href="http://galori.github.com/blog/2013/07/21/why-w3schools-is-bad-for-the-internet/"/>
+    <updated>2013-07-21T23:07:00-07:00</updated>
+    <id>http://galori.github.com/blog/2013/07/21/why-w3schools-is-bad-for-the-internet</id>
+    <content type="html"><![CDATA[<p>This is quite an old topic, but I&#8217;ve never posted about it and do agree strongly with it.</p>
+
+<p>W3Schools.com is not great. It has outdated information. It does not allow the community to submit corrections. It is not affiliated with the W3C but the name makes it seems like it does, and it has not dis-affiliated itself even after repeated requests from the W3C to do so. It provides outdated, misleading or just plain wrong information to new developers.</p>
+
+<!--more-->
+
+
+<p>Worst of all, it has some great rankings in search engines just by virtue of the fact that it has been around for so long.</p>
+
+<p>There was a concerted grassroots SEO effort by the web development community to dethrone it from its top ranking a few years ago, but it was not successful. See <a href="http://www.youtube.com/watch?v=23Yxji-tEfc">Chris Williams talk from JSConf EU 2010</a>.</p>
+
+<p>However, that doesn&#8217;t mean we can&#8217;t do anything about it!</p>
+
+<p>What you can do:</p>
+
+<ul>
+<li>If you search for any reference material, add &#8220;MDN&#8221; to your search query to cause the Mozilla Developer Network pages to bubble to the top. For example, instead of &#8220;block element&#8221;, search for &#8220;block element mdn&#8221;. See the <a href="https://developer.mozilla.org/en-US/">MDN</a></li>
+<li>If you see someone else linking to W3Schools, tell them! Send them to w3fools.com</li>
+<li>Links to MDN from your web site to help their rankings. (This was the goal of the PromoteJS campaign, its still a great idea).</li>
+</ul>
+
+
+<p>For more info, check out the <a href="https://developer.mozilla.org/en-US/">W3Fools.com</a> site, also dedicated to this topic.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Proceed Anyway button gone from chrome for certificate errors? (Easter Egg)]]></title>
@@ -998,39 +1029,6 @@ private
     end
   end
 end
-[/sourcecode]
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[array#only for ruby]]></title>
-    <link href="http://galori.github.com/blog/2010/06/07/array-only-for-ruby/"/>
-    <updated>2010-06-07T00:00:00-07:00</updated>
-    <id>http://galori.github.com/blog/2010/06/07/array-only-for-ruby</id>
-    <content type="html"><![CDATA[How many times do you use <strong>some_array.first</strong> as a way to get at the one and only member of that array?
-
-It always bugged me that this can be error prone - if the array has more than one component you&#8217;ll never know about it, and the .first method isn&#8217;t semantically describing what you are doing - grabbing the one and only member.
-
-If you add this somewhere in lib/initializiers, you get the .only method
-
-[sourcecode language=&#8221;ruby&#8221;]
-class Array
-  def only
-    raise &quot;called Array#only with array of length #{self.length}&quot; if self.length&gt;1
-    self.first
-  end
-end
-[/sourcecode]
-
-which provides a more semantic description of what you&#8217;re trying to do:
-
-[sourcecode language=&#8221;ruby&#8221;]
-&gt;&gt; [].only
-=&gt; nil
-&gt;&gt; [1].only
-=&gt; 1
-&gt;&gt; [1,2,3].only
-RuntimeError: called Array#only with array of length 3
 [/sourcecode]
 ]]></content>
   </entry>
