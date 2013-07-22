@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>From wordpress to octopress - You've got a lot of Gal</title>
+  <title>Firebug Lite on an iPad - You've got a lot of Gal</title>
   <meta name="author" content="Gal Steinitz">
 
   
-  <meta name="description" content="Just moved my blog from wordpress.com to Octopress. Octopress runs atop jekyll to generate static files and can deploy to pretty much any hosting &hellip;">
+  <meta name="description" content="Firebug Lite works really well on an iPad. If you want a quick way to inspect any web page, here is how you install the Firebug Lite bookmarklet on &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://galori.github.com/blog/2012/09/07/from-wordpress-to-octopress/">
+  <link rel="canonical" href="http://galori.github.com/blog/2013/07/22/firebug-lite-on-an-ipad/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">From Wordpress to Octopress</h1>
+      <h1 class="entry-title">Firebug Lite on an iPad</h1>
     
     
       <p class="meta">
@@ -96,40 +96,31 @@
   
 
 
-<time datetime="2012-09-07T23:10:00-07:00" pubdate data-updated="true">Sep 7<span>th</span>, 2012</time>
+<time datetime="2013-07-22T16:42:00-07:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Just moved my blog from wordpress.com to <a href="http://octopress.org/">Octopress</a>. Octopress runs atop <a href="http://jekyllrb.com/">jekyll</a> to generate static files and can deploy to pretty much any hosting provider - but has special tools for hosting on <a href="http://pages.github.com/">github pages</a> - where this blog is now hosted. First I looked at Jekyll on its own, but seems like it required too much manual configuration - whereas Octopress makes all the choices for you. You just need to make changes.</p>
+<div class="entry-content"><p>Firebug Lite works really well on an iPad. If you want a quick way to inspect any web page, here is how you install the Firebug Lite bookmarklet on mobile Safari on an iPad. (Or for that matter, any other mobile device)</p>
 
-<p>Blog posts are created by editing a text file locally using Textmate 1 in <a href="http://daringfireball.net/projects/markdown/basics">markdown</a>, generating the blog and deploying. The blog&#8217;s filename implies the posting date, for example this posts file name is</p>
-
-<pre><code>sources/_posts/2012-09-07-from-wordpress-to-octopress.markdown
-</code></pre>
-
-<p>and you also include what they call a YAML UpfrontMatter to the top of every post to include additional metadata. For example for this post:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="nn">---</span>
-</span><span class='line'><span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">posta</span>
-</span><span class='line'><span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="s">&quot;From</span><span class="nv"> </span><span class="s">wordpress</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">octopress&quot;</span>
-</span><span class='line'><span class="l-Scalar-Plain">date</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2012-09-07 23:10</span>
-</span><span class='line'><span class="l-Scalar-Plain">comments</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
-</span><span class='line'><span class="l-Scalar-Plain">categories</span><span class="p-Indicator">:</span>
-</span><span class='line'><span class="nn">---</span>
-</span></code></pre></td></tr></table></div></figure>
+<!--more-->
 
 
-<p>So far I&#8217;m really happy with it. If you&#8217;d like to give it a whirl yourself, All the info you need is at <a href="http://octopress.org/">Octopress</a>. It&#8217;s got a very vibrant community, which is always a good thing.</p>
+<ol>
+<li>Bookmark this page. (Yes, THIS page. Thats the only way to create a new bookmark. Don&#8217;t worry we&#8217;re going to change it in the next step)</li></li>
+<li>Copy the bookmarklet javascript code in the text area below:
+<textarea style='width: 665px; height: 43px; display: block;'>
+javascript:(function(){ var fb = document.createElement(&#8216;script&#8217;);
+fb.type = &#8216;text/javascript&#8217;; fb.src = &#8216;https://getfirebug.com/firebug-lite.js#startOpened&#8217;;
+document.getElementsByTagName(&#8216;body&#8217;)[0].appendChild(fb); })();
+</textarea></li>
+<li>Go back to your bookmarks, tap the “Edit&#8221; button, and select the bookmark you created in Step 2. Tap the url field for that bookmark to edit it. Tap and hold and select all of the old url. Delete. Tap and hold and paste in the javascript.</li>
+</ol>
+
+
+<p><img src="/images/firebug_lite_ipad.png" style="border: none; box-shadow: none;"></p>
 </div>
 
 
@@ -152,12 +143,12 @@
   
 
 
-<time datetime="2012-09-07T23:10:00-07:00" pubdate data-updated="true">Sep 7<span>th</span>, 2012</time>
+<time datetime="2013-07-22T16:42:00-07:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/blog/'>blog</a>
+    <a class='category' href='/blog/categories/firebug/'>firebug</a>, <a class='category' href='/blog/categories/ipad/'>ipad</a>, <a class='category' href='/blog/categories/javascript/'>javascript</a>
   
 </span>
 
@@ -166,7 +157,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://galori.github.com/blog/2012/09/07/from-wordpress-to-octopress/" data-via="galori" data-counturl="http://galori.github.com/blog/2012/09/07/from-wordpress-to-octopress/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://galori.github.com/blog/2013/07/22/firebug-lite-on-an-ipad/" data-via="galori" data-counturl="http://galori.github.com/blog/2013/07/22/firebug-lite-on-an-ipad/" >Tweet</a>
   
   
   
@@ -175,10 +166,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/09/06/javascript-how-to-reproduce-and-fix-an-unresponsive-script-error-in-your-code-osx-solution/" title="Previous Post: Javascript: "Unresponsive script" error">&laquo; Javascript: "Unresponsive script" error</a>
+        <a class="basic-alignment left" href="/blog/2013/07/21/why-w3schools-is-bad-for-the-internet/" title="Previous Post: Why w3schools is bad for the internet">&laquo; Why w3schools is bad for the internet</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/09/08/global-javascript-events-with-backbone-js/" title="Next Post: Global javascript events with Backbone JS">Global javascript events with Backbone JS &raquo;</a>
       
     </p>
   </footer>
@@ -307,8 +296,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://galori.github.com/blog/2012/09/07/from-wordpress-to-octopress/';
-        var disqus_url = 'http://galori.github.com/blog/2012/09/07/from-wordpress-to-octopress/';
+        var disqus_identifier = 'http://galori.github.com/blog/2013/07/22/firebug-lite-on-an-ipad/';
+        var disqus_url = 'http://galori.github.com/blog/2013/07/22/firebug-lite-on-an-ipad/';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -4,7 +4,7 @@
   <title><![CDATA[You've got a lot of Gal]]></title>
   <link href="http://galori.github.com/atom.xml" rel="self"/>
   <link href="http://galori.github.com/"/>
-  <updated>2013-07-21T23:41:16-07:00</updated>
+  <updated>2013-07-22T16:48:49-07:00</updated>
   <id>http://galori.github.com/</id>
   <author>
     <name><![CDATA[Gal Steinitz]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Firebug Lite on an iPad]]></title>
+    <link href="http://galori.github.com/blog/2013/07/22/firebug-lite-on-an-ipad/"/>
+    <updated>2013-07-22T16:42:00-07:00</updated>
+    <id>http://galori.github.com/blog/2013/07/22/firebug-lite-on-an-ipad</id>
+    <content type="html"><![CDATA[<p>Firebug Lite works really well on an iPad. If you want a quick way to inspect any web page, here is how you install the Firebug Lite bookmarklet on mobile Safari on an iPad. (Or for that matter, any other mobile device)</p>
+
+<!--more-->
+
+
+<ol>
+<li>Bookmark this page. (Yes, THIS page. Thats the only way to create a new bookmark. Don&#8217;t worry we&#8217;re going to change it in the next step)</li></li>
+<li>Copy the bookmarklet javascript code in the text area below:
+<textarea style='width: 665px; height: 43px; display: block;'>
+javascript:(function(){ var fb = document.createElement(&#8216;script&#8217;);
+fb.type = &#8216;text/javascript&#8217;; fb.src = &#8216;https://getfirebug.com/firebug-lite.js#startOpened&#8217;;
+document.getElementsByTagName(&#8216;body&#8217;)[0].appendChild(fb); })();
+</textarea></li>
+<li>Go back to your bookmarks, tap the “Edit&#8221; button, and select the bookmark you created in Step 2. Tap the url field for that bookmark to edit it. Tap and hold and select all of the old url. Delete. Tap and hold and paste in the javascript.</li>
+</ol>
+
+
+<p><img src="http://galori.github.com/images/firebug_lite_ipad.png" style="border: none; box-shadow: none;"></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Why w3schools is bad for the internet]]></title>
@@ -978,58 +1004,6 @@ References:
 
 
 <p>(Thanks to <a href="http://stackoverflow.com/questions/520650/how-do-you-make-an-existing-git-branch-track-a-remote-branch">this</a> stackoverflow.com article for this last one)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Google's spell check API stopped working - here is the fix]]></title>
-    <link href="http://galori.github.com/blog/2010/07/26/googles-spell-check-api-stopped-working-here-is-the-fix/"/>
-    <updated>2010-07-26T00:00:00-07:00</updated>
-    <id>http://galori.github.com/blog/2010/07/26/googles-spell-check-api-stopped-working-here-is-the-fix</id>
-    <content type="html"><![CDATA[Google&#8217;s undocumented, unpublished, not-for-public-consumption Spell Check API stopped working. How dare they?
-
-Well turns out the fix is simple, after using Charles to debug the HTTP requests of the Google Toolbar spell checker, I narrowed down the difference between my calls and theirs to a missing host header. Added that back in and everything works again.  
-
-Usage:
-(I don&#8217;t parse the XML, because I&#8217;m just passing it to a flash client):
-[sourcecode language=&#8221;ruby&#8221;]
-=&gt; puts Spell.check(&#8216;does it worka?&#8217;)
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;spellresult error=&quot;0&quot; clipped=&quot;0&quot; charschecked=&quot;14&quot;&gt;&lt;c o=&quot;8&quot; l=&quot;5&quot; s=&quot;1&quot;&gt;works	work	wok	worker	woke&lt;/c&gt;&lt;/spellresult&gt;
-[/sourcecode]
-
-Source:
-[sourcecode language=&#8221;ruby&#8221;]
-require &#8216;rubygems&#8217;
-require &#8216;builder&#8217;
-require &#8216;net/http&#8217;
-require &#8216;net/https&#8217;
-
-module Spell
-
-  HOST_HEADER = &#8216;www.google.com&#8217;
-  HOST_POST = &#8216;google.com&#8217;
-  PATH = &quot;/tbproxy/spell?lang=en&amp;hl=en&amp;v=2.0f&quot;
-
-  def self.check(text)
-    http = Net::HTTP.new(HOST_POST,443)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    headers = {&quot;Host&quot; =&gt; HOST_HEADER}
-    data = get_xml_payload(text)
-    response_headers, response_data = http.post(PATH, data, headers)
-    response_data
-  end
-
-private 
-
-  def self.get_xml_payload(text)
-    xml = Builder::XmlMarkup.new
-    xml_string =  xml.spellrequest(:textalreadyclipped =&gt; &quot;0&quot;, :ignoredups =&gt; &quot;0&quot;, :ignoredigits =&gt; &quot;1&quot;, :ignoreallcaps =&gt; &quot;0&quot;) do
-      xml.text(text)
-    end
-  end
-end
-[/sourcecode]
 ]]></content>
   </entry>
   
