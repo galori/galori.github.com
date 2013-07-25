@@ -6,6 +6,10 @@ comments: true
 categories: javascript firebuglite
 ---
 
+**update:** Thanks Joel Moss for linking to this. If you're here, also be sure to check out, [Firebug Lite on an iPad](http://gal.steinitz.com/blog/2013/07/22/firebug-lite-on-an-ipad/)
+<center>
+<a href="http://gal.steinitz.com/blog/2013/07/22/firebug-lite-on-an-ipad/"><img src="/images/firebug_lite_ipad.png" width="300px"></a>
+</center>
 **Interested in contributing to an open source project but don't know where to start?**
 
 I've recently taken over maintaining the Firebug Lite open source project, after it has been abandoned & dormant for 2 years. I have a great fondness for this little bookmarklet that wont stop giving, it has saved me countless times over the years.
