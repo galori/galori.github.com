@@ -4,7 +4,7 @@
   <title><![CDATA[Category: firebuglite | You've got a lot of Gal]]></title>
   <link href="http://galori.github.com/blog/categories/firebuglite/atom.xml" rel="self"/>
   <link href="http://galori.github.com/"/>
-  <updated>2013-07-22T16:48:49-07:00</updated>
+  <updated>2013-07-24T23:30:03-07:00</updated>
   <id>http://galori.github.com/</id>
   <author>
     <name><![CDATA[Gal Steinitz]]></name>
@@ -18,7 +18,14 @@
     <link href="http://galori.github.com/blog/2013/07/19/remember-firebug-lite/"/>
     <updated>2013-07-19T14:37:00-07:00</updated>
     <id>http://galori.github.com/blog/2013/07/19/remember-firebug-lite</id>
-    <content type="html"><![CDATA[<p><strong>Interested in contributing to an open source project but don't know where to start?</strong></p>
+    <content type="html"><![CDATA[<p><strong>update:</strong> Thanks Joel Moss for linking to this. If you're here, also be sure to check out, <a href="http://gal.steinitz.com/blog/2013/07/22/firebug-lite-on-an-ipad/">Firebug Lite on an iPad</a></p>
+
+<center>
+<a href="http://gal.steinitz.com/blog/2013/07/22/firebug-lite-on-an-ipad/"><img src="http://galori.github.com/images/firebug_lite_ipad.png" width="300px"></a>
+</center>
+
+
+<p><strong>Interested in contributing to an open source project but don't know where to start?</strong></p>
 
 <p>I've recently taken over maintaining the Firebug Lite open source project, after it has been abandoned &amp; dormant for 2 years. I have a great fondness for this little bookmarklet that wont stop giving, it has saved me countless times over the years.</p>
 
