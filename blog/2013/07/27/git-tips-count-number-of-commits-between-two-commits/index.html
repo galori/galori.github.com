@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Caught my eye - Links for July 20th - You've got a lot of Gal</title>
+  <title>Git tips: Count # of commits between two commits - You've got a lot of Gal</title>
   <meta name="author" content="Gal Steinitz">
 
   
-  <meta name="description" content="HTML 5 crossword puzzle, CSS transitions to go with your Twitter Bootstrap, Faster Heroku Deploys, Execs at Panasonic jailed for 1 year, Nate Silver &hellip;">
+  <meta name="description" content="Get # of commits between 2 commits (a.k.a between to SHA&#8217;s): 1
+git log [first]..[second] --pretty=oneline | wc -l [first] and [second] can be &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://galori.github.com/blog/2013/07/21/caught-my-eye-july-20th/">
+  <link rel="canonical" href="http://galori.github.com/blog/2013/07/27/git-tips-count-number-of-commits-between-two-commits/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -80,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">Caught My Eye - Links for July 20th</h1>
+      <h1 class="entry-title">Git Tips: Count # of Commits Between Two Commits</h1>
     
     
       <p class="meta">
@@ -96,53 +97,23 @@
   
 
 
-<time datetime="2013-07-21T00:03:00-07:00" pubdate data-updated="true">Jul 21<span>st</span>, 2013</time>
+<time datetime="2013-07-27T21:30:00-07:00" pubdate data-updated="true">Jul 27<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>HTML 5 crossword puzzle, CSS transitions to go with your Twitter Bootstrap, Faster Heroku Deploys, Execs at Panasonic jailed for 1 year, Nate Silver leaves the NY Times and 2200 sq foot home in Detroit for $1.</p>
+<div class="entry-content"><p>Get # of commits between 2 commits (a.k.a between to SHA&#8217;s):</p>
 
-<!--more-->
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log <span class="o">[</span>first<span class="o">]</span>..<span class="o">[</span>second<span class="o">]</span> --pretty<span class="o">=</span>oneline | wc -l
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h1>HTML 5 Crossword Puzzle</h1>
+<p>[first] and [second] can be SHA&#8217;s, branches or tags.</p>
 
-<p>HTML 5 Features you can use now <a href="https://mod.it/8UmnmJ11">crossword puzzle</a><br/>
-Reminds me that its time to brush up on <a href="http://caniuse.com/">caniuse.com</a><br/>
-(via <a href="http://labnotes.org/">labnotes.org</a>)</p>
-
-<h1>CSS transitions for your Twitter Bootstrap</h1>
-
-<p>CSS Effects for some standard elements like scrollable lists, nav items, etc. Seems like its built to work on top of Twitter Bootstrap although its not explictly mentioned. Its these little things that can change a web site from &#8220;Polished&#8221; to &#8220;Super Polished&#8221;. <br/>
-<a href="http://h5bp.github.io/Effeckt.css/dist/">Effeckt.css</a><br/>
-(via <a href="http://afreshcup.com/home/2013/7/19/double-shot-1164.html">A Fresh Cup</a>)</p>
-
-<h1>Speed up your Heroku deploys using memcache for assets</h1>
-
-<p>I&#8217;ve noticed my Heroku deploys seem to have slowed down over the last few months. I don&#8217;t think its my apps. Here is a tip from Alex MacCaw explaining how to use memcache to cache the compiled assets that don&#8217;t change from a previous deploy.
-<a href="http://blog.alexmaccaw.com/faster-deploys">Faster Heroku Deploys</a>
-(via the <a href="http://ruby5.envylabs.com/">Ruby 5 Podcast</a>)</p>
-
-<h1>12 Execs at Panasonic other companies jailed for up to a year for price Fixing</h1>
-
-<p>Pricing for notebook battery cells, among others. Makes me wonder if they were so deep in it, and so focused on being aggressive, successfull business people to the point where they lost sight of the ethics, and were able to pretend they weren&#8217;t doing something wrong. I&#8217;ve definitely seen this type of person up close - the job, the company, ahead of everything and everyone else.<br/>
-<a href="http://www.justice.gov/opa/pr/2013/July/13-at-808.html">Panasonic and Its Subsidiary Sanyo Agree to Plead Guilty in Separate Price-Fixing Conspiracies Involving Automotive Parts and Battery Cells</a><br/>
-(via <a href="http://yro.slashdot.org/story/13/07/21/0459250/jail-time-for-price-fixing-car-parts">Slashdot</a>)</p>
-
-<h1>Nate Silver to leave NY Times and join ESPN</h1>
-
-<p>He&#8217;s definitely smart and fairly unique, but why haven&#8217;t more people and organizations emulated him?
-<a href="http://www.nytimes.com/2013/07/20/business/media/nate-silver-blogger-for-new-york-times-is-to-join-espn-staff.html?_r=0">Nate Silver of FiveThirtyEight Blog Is to Join ESPN Staff</a><br/>
-(via <a href="http://daringfireball.net/">daringfireball.net</a>)</p>
-
-<h1>2200 sq foot home in Detroit listed for $1</h1>
-
-<p>Meanwhile every last house fore sale in San Francisco generates a bidding war and goes for above asking.<br/>
-<a href="http://www.zillow.com/homedetails/4700-Saint-Clair-St-Detroit-MI-48214/88410305_zpid/">Zillow listing</a><br/>
-(<a href="https://twitter.com/fivethirtyeight/status/357991237350985729">via Nate Silver&#8217;s twitter</a>)</p>
+<p>(via <a href="https://twitter.com/GitHints/status/220223510491037696">gitTip Twitter account</a>)</p>
 </div>
 
 
@@ -165,12 +136,12 @@ Reminds me that its time to brush up on <a href="http://caniuse.com/">caniuse.co
   
 
 
-<time datetime="2013-07-21T00:03:00-07:00" pubdate data-updated="true">Jul 21<span>st</span>, 2013</time>
+<time datetime="2013-07-27T21:30:00-07:00" pubdate data-updated="true">Jul 27<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/caught-my-eye/'>caught-my-eye</a>, <a class='category' href='/blog/categories/links/'>links</a>
+    <a class='category' href='/blog/categories/git/'>git</a>
   
 </span>
 
@@ -179,7 +150,7 @@ Reminds me that its time to brush up on <a href="http://caniuse.com/">caniuse.co
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://galori.github.com/blog/2013/07/21/caught-my-eye-july-20th/" data-via="galori" data-counturl="http://galori.github.com/blog/2013/07/21/caught-my-eye-july-20th/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://galori.github.com/blog/2013/07/27/git-tips-count-number-of-commits-between-two-commits/" data-via="galori" data-counturl="http://galori.github.com/blog/2013/07/27/git-tips-count-number-of-commits-between-two-commits/" >Tweet</a>
   
   
   
@@ -188,10 +159,10 @@ Reminds me that its time to brush up on <a href="http://caniuse.com/">caniuse.co
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/07/19/remember-firebug-lite/" title="Previous Post: Remember Firebug Lite?">&laquo; Remember Firebug Lite?</a>
+        <a class="basic-alignment left" href="/blog/2013/07/22/firebug-lite-on-an-ipad/" title="Previous Post: Firebug Lite on an iPad">&laquo; Firebug Lite on an iPad</a>
       
       
-        <a class="basic-alignment right" href="/blog/2013/07/21/proceed-anyway-button-gone-from-chrome-for-certificate-errors/" title="Next Post: Proceed Anyway button gone from chrome for certificate errors? (Easter Egg)">Proceed Anyway button gone from chrome for certificate errors? (Easter Egg) &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2013/07/27/svn-full-text-search-for-a-specific-string-in-a-commit/" title="Next Post: SVN: Full text search for a specific string in a commit">SVN: Full text search for a specific string in a commit &raquo;</a>
       
     </p>
   </footer>
@@ -320,8 +291,8 @@ Reminds me that its time to brush up on <a href="http://caniuse.com/">caniuse.co
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://galori.github.com/blog/2013/07/21/caught-my-eye-july-20th/';
-        var disqus_url = 'http://galori.github.com/blog/2013/07/21/caught-my-eye-july-20th/';
+        var disqus_identifier = 'http://galori.github.com/blog/2013/07/27/git-tips-count-number-of-commits-between-two-commits/';
+        var disqus_url = 'http://galori.github.com/blog/2013/07/27/git-tips-count-number-of-commits-between-two-commits/';
         var disqus_script = 'embed.js';
       
     (function () {

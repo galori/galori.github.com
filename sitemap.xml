@@ -141,11 +141,23 @@
         <lastmod>2013-07-22T16:49:34-07:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://galori.github.com/blog/2013/07/27/git-tips-count-number-of-commits-between-two-commits/
+        </loc>
+        <lastmod>2013-07-27T21:33:45-07:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://galori.github.com/blog/2013/07/27/svn-full-text-search-for-a-specific-string-in-a-commit/
+        </loc>
+        <lastmod>2013-07-27T22:05:17-07:00</lastmod>
+    </url>
+    <url>
         <loc>http://galori.github.com/blog/archives/</loc>
-        <lastmod>2013-07-24T23:29:27-07:00</lastmod>
+        <lastmod>2013-07-27T22:05:17-07:00</lastmod>
     </url>
     <url>
         <loc>http://galori.github.com/</loc>
-        <lastmod>2013-07-24T23:29:27-07:00</lastmod>
+        <lastmod>2013-07-27T22:05:17-07:00</lastmod>
     </url>
 </urlset>

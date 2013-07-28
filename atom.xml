@@ -4,7 +4,7 @@
   <title><![CDATA[You've got a lot of Gal]]></title>
   <link href="http://galori.github.com/atom.xml" rel="self"/>
   <link href="http://galori.github.com/"/>
-  <updated>2013-07-24T23:30:03-07:00</updated>
+  <updated>2013-07-27T22:05:59-07:00</updated>
   <id>http://galori.github.com/</id>
   <author>
     <name><![CDATA[Gal Steinitz]]></name>
@@ -12,6 +12,54 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[SVN: Full text search for a specific string in a commit]]></title>
+    <link href="http://galori.github.com/blog/2013/07/27/svn-full-text-search-for-a-specific-string-in-a-commit/"/>
+    <updated>2013-07-27T21:33:00-07:00</updated>
+    <id>http://galori.github.com/blog/2013/07/27/svn-full-text-search-for-a-specific-string-in-a-commit</id>
+    <content type="html"><![CDATA[<p>As a long time git user, I expected it to be easy to do a full text search in SVN for a specific string in all commits. Apparently, it is not! However&#8230;fret not git users! Since we&#8217;re all so much more used to using Git, you might as well use the git-svn gateway for the project.</p>
+
+<!--more-->
+
+
+<p>This will allow you to use all the git commands you&#8217;re used to, while actually pushing to an svn remote. It&#8217;s bidirectional, and you can keep working this way indefinitely - while the rest of your team mates will continue to use SVN and will not be the wiser! Whats more - you now have the advantage of a distributed source control system, while not actually using one. You can commit your code locally to your hearts content and only push it to the remote when you&#8217;re ready.</p>
+
+<p>First, clone the repo into a new folder:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git svn clone http://path/to/your/svn/repo
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Next, use the built in git -S option to do a full text search. This will show you every commit where this string was added or removed from any file. The -u option makes it so that the full diff of each commit is displayed, and not just the commit message.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log -S<span class="s2">&quot;the-string-you-want-to-find&quot;</span> -u
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The real answer? Start actually using git! <a href="https://git.wiki.kernel.org/index.php/GitSvnCrashCourse">Git Crash Course for SVN Users</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git tips: Count # of commits between two commits]]></title>
+    <link href="http://galori.github.com/blog/2013/07/27/git-tips-count-number-of-commits-between-two-commits/"/>
+    <updated>2013-07-27T21:30:00-07:00</updated>
+    <id>http://galori.github.com/blog/2013/07/27/git-tips-count-number-of-commits-between-two-commits</id>
+    <content type="html"><![CDATA[<p>Get # of commits between 2 commits (a.k.a between to SHA&#8217;s):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log <span class="o">[</span>first<span class="o">]</span>..<span class="o">[</span>second<span class="o">]</span> --pretty<span class="o">=</span>oneline | wc -l
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>[first] and [second] can be SHA&#8217;s, branches or tags.</p>
+
+<p>(via <a href="https://twitter.com/GitHints/status/220223510491037696">gitTip Twitter account</a>)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Firebug Lite on an iPad]]></title>
@@ -835,178 +883,6 @@ References:
 
 
 <p>This is using git v1.7.5.4 command line, on OSX.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[When did this feature go live? (starring git)]]></title>
-    <link href="http://galori.github.com/blog/2011/06/05/when-did-this-feature-go-live/"/>
-    <updated>2011-06-05T00:00:00-07:00</updated>
-    <id>http://galori.github.com/blog/2011/06/05/when-did-this-feature-go-live</id>
-    <content type="html"><![CDATA[<p>It can be very useful to be able to answer this question accurately.</p>
-
-<p>To do this, add code to your deploy script that tags every production deploy with git. Example:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  timestamp = Time.now.strftime('%Y-%m-%d/at/%H.%M')
-</span><span class='line'>  tag_name = "deploy/#{timestamp}"
-</span><span class='line'>  `git tag #{tag_name}; git push origin #{tag_name}`</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now, if the question ever comes up when a particular feature went live, you can determine this down to the minute. Find a commit that was part of this feature. For example, a new header design:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>   git log --grep="header"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now you can use the <em>&#8211;contains</em> switch to find the earliest tag that contained this particular commit:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>   git tag --contains &lt;SHA&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>See <a href="http://galori.github.com/blog/2011/06/05/useful-lesser-known-git-commands/">my previous post on git</a> for more useful git commands.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Useful but lesser known git commands]]></title>
-    <link href="http://galori.github.com/blog/2011/06/05/useful-lesser-known-git-commands/"/>
-    <updated>2011-06-05T00:00:00-07:00</updated>
-    <id>http://galori.github.com/blog/2011/06/05/useful-lesser-known-git-commands</id>
-    <content type="html"><![CDATA[<p>Therefore, here are some of my favorite, useful git commands:</p>
-
-<h2>Diff of a Diff</h2>
-
-<p>Looking at the diff representing one commit is old news.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git show &lt;SHA&gt;
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Comparing a single file between two commits (or branches) is also not uncommon:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git diff branch1 branch2 -- path/to/filename.ext
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>However - if the files were pretty far in the two branches to begin with - and you&#8217;d just like to compare the CHANGES introduced by two commits (a diff of a diff), one way is this:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>diff &lt;<span class="o">(</span>git show SHA<span class="o">)</span>  &lt;<span class="o">(</span>git show SHA<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>git log with diffs</h2>
-
-<p>Oft overlooked feature:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log -u
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Can be useful if you&#8217;d like to track the history of a certain file, and view all the changes:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log -u -- path/to/filename.ext
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>git log, tracking renames</h2>
-
-<p>By default - viewing the history of a specific file with git log only goes as far back as when the file was created - or renamed.</p>
-
-<p>If you&#8217;d like to track it back past any number of renames / moves:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log -u --follow -- path/to/filename.ext
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This can get pretty slow for larger repos, which I imagine is why its not on by default.</p>
-
-<h2>View a file in a branch, without actually checking it out</h2>
-
-<p>If you&#8217;re working on a file and wish to view that same file in another branch, you can avoid extra stashes &amp; checkouts and just &#8220;peek&#8221; into that branch:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git show branch2:path/to/filename.ext
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Note the syntax of branch:file without spaces, which is unusual.</p>
-
-<h2>Recommit a commit?</h2>
-
-<p>You may want to do this if the commit message is really bad (what are some of the worst messages you&#8217;ve seen? A whole other blog post&#8230;) and it&#8217;s already been pushed remotely.</p>
-
-<p>Git doesn&#8217;t like letting you do this, you can&#8217;t commit changes to files that haven&#8217;t been changed. You can&#8217;t cherry-pick a commit if all the changes are already in place. You could do a revert and then a re-revert - but semantically that might even be worse in the history - it implies there was a problem with the code.</p>
-
-<p>Another approach:  Branch, amend, merge</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git checkout master
-</span><span class='line'>git checkout -b tmp_branch
-</span><span class='line'>git commit --amend
-</span><span class='line'>git checkout master
-</span><span class='line'>git merge tmp_branch
-</span><span class='line'>git delete -D tmp_branch
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>you&#8217;ll end up with a duplicate commit, and a merge commit - but it gives you the opportunity to provide more verbose info on that 2nd commit message. In this example the commit in question would be at the tip of master, but any commit in history should work - just branch your tmp_branch off of whichever commit needs amending.</p>
-
-<h2>Common Ancestor</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git merge-base branch1 branch2
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Shows you the one shared commit where these two branches diverged. In the git &#8220;file system&#8221;, any two commits - no matter on which branch will have a shared ancestors. It&#8217;s sort of like evolution.</p>
-
-<p>This can be useful if you&#8217;re in the middle of resolving a merge conflict, and you feel like the 3 pane diff GUI is not providing you with enough information.  Open up a 2nd terminal, find the common ancestor and then diff the file in question between the branch and the common ancestor, to see exactly whats changed.</p>
-
-<h2>List of commits that exist in one branch but not in another</h2>
-
-<p>I like this syntax because it reads well to me as a developer. Show me commits that are in branch1 that are not in branch2:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log branch1 ^branch2
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If you or your group does a lot of cherry-picking or rebasing, then this won&#8217;t always work - because those operations create a new SHA - and the above depend on the SHA being the same.  Start using merges instead if possible, then the usefulness of the above will become apparent.</p>
-
-<p>You can use similar syntax to determine if a single commit is part of a branch or not:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log -n1 commit ^branch
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If the commit is part of the branch, it will show you nothing. If it is not part of the branch&#8230;it will show you the commit.</p>
-
-<h2>Make an exiting branch tracking</h2>
-
-<p>If a branch was started locally and was then pushed remotely. You probably found out soon enough that its not set up to track so well - compared to a branch that started remotely. To get it all set up:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git branch --set-upstream foo upstream/foo
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>(Thanks to <a href="http://stackoverflow.com/questions/520650/how-do-you-make-an-existing-git-branch-track-a-remote-branch">this</a> stackoverflow.com article for this last one)</p>
 ]]></content>
   </entry>
   
