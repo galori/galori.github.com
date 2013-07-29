@@ -9,7 +9,7 @@
   <meta name="author" content="Gal Steinitz">
 
   
-  <meta name="description" content="It can be very useful to be able to answer this question accurately. To do this, add code to your deploy script that tags every production deploy &hellip;">
+  <meta name="description" content="Git responses are usually very straightforward and to the point, but today I got git to say &#8220;Yeah!&#8221; by telling it to merge something it &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -51,7 +51,7 @@
   
     <h2>Yet another blog about Ruby, Rails, Javascript, Apple, Malteses and Shih-Tzus by Gal Steinitz</h2>
   
-  <h3>This site is completely static. It was last generated with Octopress and Jekyll on Jul 27, 2013 and hosted on github pages.</h3>
+  <h3>This site is completely static. It was last generated with Octopress and Jekyll on Jul 29, 2013 and hosted on github pages.</h3>
 </hgroup>
 
 </header>
@@ -77,6 +77,74 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/06/18/easter-egg-cause-git-to-say-already-up-to-date-yeeah/">Easter Egg? Cause Git to Say: &#8220;Already Up-to-date. Yeeah!&#8221;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-18T00:00:00-07:00" pubdate data-updated="true">Jun 18<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Git responses are usually very straightforward and to the point, but today I got git to say <strong>&#8220;Yeah!&#8221;</strong> by telling it to merge something it just merged. To get your git to be a little silly too:</p>
+
+<p>Immediately after doing a merge, look at that last merge commit</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git log -n1
+</span><span class='line'>
+</span><span class='line'>commit 76c4ac19c545fdc9d20c43beb358c47c0d84185a
+</span><span class='line'>Merge: 2619f49 0f71f1f
+</span><span class='line'>Author: someone@somewhere.com
+</span><span class='line'>Date:   Fri Jun 17 17:36:10 2011 -0700
+</span><span class='line'>
+</span><span class='line'><span class="o">[</span>master<span class="o">]</span> Merge branch <span class="s1">&#39;release&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then&#8230;tell git to merge the same two SHA&#8217;s again</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git merge 2619f49 0f71f1f
+</span><span class='line'>Already up-to-date. Yeeah!
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is using git v1.7.5.4 command line, on OSX.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -743,64 +811,9 @@ Courtesy of <a href="http://xkcd.com/327/">xkcd</a>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/10/24/javascript-pattern-for-passing-additional-variables-into-an-event-handler/">Javascript Pattern for Passing Additional Variables Into an Event Handler</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-10-24T00:00:00-07:00" pubdate data-updated="true">Oct 24<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">When you need to pass extra variables into your event handler, you can&#8217;t just pass it in since the event handler has a specific signature (function (e){}).  However there are several options:  Thanks to Javascript Closures, anonymous functions do have access to their original scope and variables, so something like this would work:
-
-[sourcecode language=&#8221;jscript&#8221;]
-var myVar = &quot;Hello!&quot;;
-$(&quot;#element&quot;).click(function(e){
-  alert(myVar);
-});&lt;/code&gt;
-[/sourcecode]
-
-However, this alternate pattern is a bit cleaner and makes it obvious which variables your event handler depends on:
-
-[sourcecode language=&#8221;jscript&#8221;]
-var myVar = &quot;Hello!&quot;;
-$(&quot;#element&quot;).click(clickHandler(myVar));
-function clickHandler(myVar) {
-  return function(e) {
-    alert(myVar);
-  }
-}
-[/sourcecode]
-
-Keep in mind that in this second pattern, clickHandler is actually called at parse time and not when the event fires.  When it gets called, it returns the anonymous function which is what actually gets bound to the event and gets called when the event fires.
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/4/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -825,6 +838,10 @@ Keep in mind that in this second pattern, clickHandler is actually called at par
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/07/29/one-line-http-server-in-ruby-or-python/">One line HTTP server in Ruby or Python</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/07/27/svn-full-text-search-for-a-specific-string-in-a-commit/">SVN: Full text search for a specific string in a commit</a>
       </li>
     
@@ -838,10 +855,6 @@ Keep in mind that in this second pattern, clickHandler is actually called at par
     
       <li class="post">
         <a href="/blog/2013/07/21/why-w3schools-is-bad-for-the-internet/">Why w3schools is bad for the internet</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/21/proceed-anyway-button-gone-from-chrome-for-certificate-errors/">Proceed Anyway button gone from chrome for certificate errors? (Easter Egg)</a>
       </li>
     
   </ul>

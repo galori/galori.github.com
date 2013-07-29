@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: webserver | You've got a lot of Gal]]></title>
+  <link href="http://galori.github.com/blog/categories/webserver/atom.xml" rel="self"/>
+  <link href="http://galori.github.com/"/>
+  <updated>2013-07-29T16:57:08-07:00</updated>
+  <id>http://galori.github.com/</id>
+  <author>
+    <name><![CDATA[Gal Steinitz]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[One line HTTP server in Ruby or Python]]></title>
+    <link href="http://galori.github.com/blog/2013/07/29/one-line-http-server-in-ruby-or-python/"/>
+    <updated>2013-07-29T16:53:00-07:00</updated>
+    <id>http://galori.github.com/blog/2013/07/29/one-line-http-server-in-ruby-or-python</id>
+    <content type="html"><![CDATA[<p>If you need to quickly spin up a web server to just serve static files from your file system, here are two ways to do it:</p>
+
+<h1>Ruby</h1>
+
+<p><code>ruby
+ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port =&gt; 3000, :DocumentRoot =&gt; Dir.pwd).start'
+</code></p>
+
+<h1>Python</h1>
+
+<p><code>python
+python -m SimpleHTTPServer
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

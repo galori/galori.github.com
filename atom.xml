@@ -4,7 +4,7 @@
   <title><![CDATA[You've got a lot of Gal]]></title>
   <link href="http://galori.github.com/atom.xml" rel="self"/>
   <link href="http://galori.github.com/"/>
-  <updated>2013-07-27T22:05:59-07:00</updated>
+  <updated>2013-07-29T16:57:08-07:00</updated>
   <id>http://galori.github.com/</id>
   <author>
     <name><![CDATA[Gal Steinitz]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[One line HTTP server in Ruby or Python]]></title>
+    <link href="http://galori.github.com/blog/2013/07/29/one-line-http-server-in-ruby-or-python/"/>
+    <updated>2013-07-29T16:53:00-07:00</updated>
+    <id>http://galori.github.com/blog/2013/07/29/one-line-http-server-in-ruby-or-python</id>
+    <content type="html"><![CDATA[<p>If you need to quickly spin up a web server to just serve static files from your file system, here are two ways to do it:</p>
+
+<h1>Ruby</h1>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ruby</span> <span class="o">-</span><span class="n">rwebrick</span> <span class="o">-</span><span class="n">e</span><span class="s1">&#39;WEBrick::HTTPServer.new(:Port =&gt; 3000, :DocumentRoot =&gt; Dir.pwd).start&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>Python</h1>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">SimpleHTTPServer</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SVN: Full text search for a specific string in a commit]]></title>
@@ -842,47 +865,6 @@ References:
 
 <a href="https://github.com/rails/rails/issues/4766" title="https://github.com/rails/rails/issues/4766">https://github.com/rails/rails/issues/4766</a>
 <a href="http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion" title="http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion">http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion</a>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Easter Egg? Cause git to say: "Already up-to-date. Yeeah!"]]></title>
-    <link href="http://galori.github.com/blog/2011/06/18/easter-egg-cause-git-to-say-already-up-to-date-yeeah/"/>
-    <updated>2011-06-18T00:00:00-07:00</updated>
-    <id>http://galori.github.com/blog/2011/06/18/easter-egg-cause-git-to-say-already-up-to-date-yeeah</id>
-    <content type="html"><![CDATA[<p>Git responses are usually very straightforward and to the point, but today I got git to say <strong>&#8220;Yeah!&#8221;</strong> by telling it to merge something it just merged. To get your git to be a little silly too:</p>
-
-<p>Immediately after doing a merge, look at that last merge commit</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git log -n1
-</span><span class='line'>
-</span><span class='line'>commit 76c4ac19c545fdc9d20c43beb358c47c0d84185a
-</span><span class='line'>Merge: 2619f49 0f71f1f
-</span><span class='line'>Author: someone@somewhere.com
-</span><span class='line'>Date:   Fri Jun 17 17:36:10 2011 -0700
-</span><span class='line'>
-</span><span class='line'><span class="o">[</span>master<span class="o">]</span> Merge branch <span class="s1">&#39;release&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then&#8230;tell git to merge the same two SHA&#8217;s again</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git merge 2619f49 0f71f1f
-</span><span class='line'>Already up-to-date. Yeeah!
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This is using git v1.7.5.4 command line, on OSX.</p>
 ]]></content>
   </entry>
   

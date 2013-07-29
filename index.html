@@ -9,7 +9,8 @@
   <meta name="author" content="Gal Steinitz">
 
   
-  <meta name="description" content="As a long time git user, I expected it to be easy to do a full text search in SVN for a specific string in all commits. Apparently, it is not! &hellip;">
+  <meta name="description" content="If you need to quickly spin up a web server to just serve static files from your file system, here are two ways to do it: Ruby 1
+ruby -rwebrick -e&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -51,7 +52,7 @@
   
     <h2>Yet another blog about Ruby, Rails, Javascript, Apple, Malteses and Shih-Tzus by Gal Steinitz</h2>
   
-  <h3>This site is completely static. It was last generated with Octopress and Jekyll on Jul 27, 2013 and hosted on github pages.</h3>
+  <h3>This site is completely static. It was last generated with Octopress and Jekyll on Jul 29, 2013 and hosted on github pages.</h3>
 </hgroup>
 
 </header>
@@ -77,6 +78,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/29/one-line-http-server-in-ruby-or-python/">One Line HTTP Server in Ruby or Python</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-29T16:53:00-07:00" pubdate data-updated="true">Jul 29<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you need to quickly spin up a web server to just serve static files from your file system, here are two ways to do it:</p>
+
+<h1>Ruby</h1>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ruby</span> <span class="o">-</span><span class="n">rwebrick</span> <span class="o">-</span><span class="n">e</span><span class="s1">&#39;WEBrick::HTTPServer.new(:Port =&gt; 3000, :DocumentRoot =&gt; Dir.pwd).start&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>Python</h1>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">SimpleHTTPServer</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -467,56 +518,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/14/google-strong-arms-acer-i-dont-buy-it/">Google Strong-arms Acer? - I Don&#8217;t Buy It</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-14T00:10:00-07:00" pubdate data-updated="true">Sep 14<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Google strong-arms Acer</p>
-
-<blockquote><p>Alibaba said that Acer “was notified by Google that if the product runs Aliyun OS,
-Google will terminate its Android- related cooperation and other technology
-licensing with our partner….We regret Google’s action.”</p>
-
-<p>Stay classy Google.</p></blockquote>
-
-<p>via <a href="http://www.loopinsight.com/2012/09/13/google-strong-arms-acer/">the loop</a>
-original article: <a href="http://www.nasdaq.com/article/acer-cancels-press-conference-to-launch-new-smartphone-on-alibaba-software-20120913-00197">Press release from Taipei</a></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/09/14/google-strong-arms-acer-i-dont-buy-it/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -542,6 +543,10 @@ original article: <a href="http://www.nasdaq.com/article/acer-cancels-press-conf
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/07/29/one-line-http-server-in-ruby-or-python/">One line HTTP server in Ruby or Python</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/07/27/svn-full-text-search-for-a-specific-string-in-a-commit/">SVN: Full text search for a specific string in a commit</a>
       </li>
     
@@ -555,10 +560,6 @@ original article: <a href="http://www.nasdaq.com/article/acer-cancels-press-conf
     
       <li class="post">
         <a href="/blog/2013/07/21/why-w3schools-is-bad-for-the-internet/">Why w3schools is bad for the internet</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/21/proceed-anyway-button-gone-from-chrome-for-certificate-errors/">Proceed Anyway button gone from chrome for certificate errors? (Easter Egg)</a>
       </li>
     
   </ul>
