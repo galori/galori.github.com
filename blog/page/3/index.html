@@ -9,7 +9,7 @@
   <meta name="author" content="Gal Steinitz">
 
   
-  <meta name="description" content="Git responses are usually very straightforward and to the point, but today I got git to say &#8220;Yeah!&#8221; by telling it to merge something it &hellip;">
+  <meta name="description" content="If you&#8217;re using Pivotal Labs&#8217; excellent Jasmine javascript BDD testing framework you may run into this. With Rails 3 Asset Pipeline, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -51,7 +51,7 @@
   
     <h2>Yet another blog about Ruby, Rails, Javascript, Apple, Malteses and Shih-Tzus by Gal Steinitz</h2>
   
-  <h3>This site is completely static. It was last generated with Octopress and Jekyll on Jul 29, 2013 and hosted on github pages.</h3>
+  <h3>This site is completely static. It was last generated with Octopress and Jekyll on Sep 02, 2013 and hosted on github pages.</h3>
 </hgroup>
 
 </header>
@@ -77,6 +77,126 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/01/jasmine-debugging-actual-line-numbers-in-error-messages/">Jasmine Debugging: Actual Line Numbers in Error Messages</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-01T00:00:00-07:00" pubdate data-updated="true">Jun 1<span>st</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you&#8217;re using Pivotal Labs&#8217; excellent <a href="http://pivotal.github.com/jasmine/">Jasmine</a> javascript BDD testing framework you may run into this. With Rails 3 Asset Pipeline, jasmine concatenates your js files into a single file - and therefore the line numbers on your stack traces are not useful (they will show the concatenated line numbers).</p>
+
+<p>For example, you may see an error from the concatenated application.js line #17,403 instead of home.js line #15.  To get jasmine to reference the javascript files individually and thereby provide more informative error messages, add this in config/initializers/jasmine.rb:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">Jasmine</span>
+</span><span class='line'>  <span class="k">class</span> <span class="nc">Config</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">src_files</span>
+</span><span class='line'>      <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">assets</span><span class="o">[</span><span class="s2">&quot;application&quot;</span><span class="o">].</span><span class="n">dependencies</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">asset</span><span class="o">|</span>
+</span><span class='line'>        <span class="s2">&quot;assets/&quot;</span> <span class="o">+</span> <span class="n">asset</span><span class="o">.</span><span class="n">logical_path</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>NOTE: This only works if your application.js requires all your javascript files and doesn&#8217;t include any javascript itself.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/17/ruby-1-9-3-segfault-on-lion/">&#8220;Rails New&#8221; Causes Segfault Using Ruby 1.9.3 on Lion</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-17T00:00:00-07:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">My setup: RVM, MacPorts, OSX Lion
+
+..and &#8220;rails new&#8221; causes a segfault! Stack trace seems to indicate its coming from the bundle install, specifically from net/http. Some googling suggests this is caused by https:// in the gemfile, and can be fixed by modifying it to http://. However since this is during the rails new - thats not possible.
+
+No one solution I found addressed my particular issue, so I&#8217;ll document what worked for me, it may help you!
+
+1. In xcode, Preferences &#8211;&gt; Downloads &#8211;&gt; Command Line Tools &#8211;&gt; Install
+
+2. Install openssl via RVM:
+
+[sourcecode]
+rvm pkg install openssl
+[/sourcecode]
+
+3. Reinstall ruby 1.9.3, forcing GCC and the newly downloaded OpenSSL. The -C just means &#8220;use these configuration options&#8221;
+
+[sourcecode]
+rvm reinstall 1.9.3 -C &#8211;with-gcc=gcc &#8211;with-openssl-dir=~/.rvm/usr
+[/sourcecode]
+
+References:
+
+<a href="https://github.com/rails/rails/issues/4766" title="https://github.com/rails/rails/issues/4766">https://github.com/rails/rails/issues/4766</a>
+<a href="http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion" title="http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion">http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion</a>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -706,111 +826,6 @@ Update:  Thanks to an anonymous commenter on <a href="http://www.rubyflow.com/it
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/11/06/fire-and-consume-custom-global-events-in-jquery/">Fire and Consume Custom Global Events in jQuery</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-11-06T00:00:00-08:00" pubdate data-updated="true">Nov 6<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><ul>
-<li>Update 3-4-2010: <a href="/blog/2010/03/25/update-to-fire-and-consume-custom-global-events-in-jquery/">jQuery 1.4 changed things a bit</a></li>
-<li>Update 9-8-2012: <a href="/blog/2012/09/08/global-javascript-events-with-backbone-js/">Global events with Backbone JS</a></li>
-</ul>
-
-
-<p>To bind something to a custom event:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">().</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;sneeze&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;bless you!&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>and to fire that event, from anywhere else?</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s2">&quot;sneeze&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>result in the console, is as expected:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">bless</span> <span class="nx">you</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/11/01/sql-injection-humor-love-it/">SQL Injection Humor, Love It</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-11-01T00:00:00-07:00" pubdate data-updated="true">Nov 1<span>st</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><a href="http://xkcd.com/327/"><img src="http://thespottyblog.files.wordpress.com/2009/11/exploits_of_a_mom.png" alt="exploits_of_a_mom" title="exploits_of_a_mom" width="499" height="153" class="alignnone size-full wp-image-10" /></a>
-
-Courtesy of <a href="http://xkcd.com/327/">xkcd</a>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -838,6 +853,14 @@ Courtesy of <a href="http://xkcd.com/327/">xkcd</a>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/09/02/free-ssl-on-heroku/">Free SSL on Heroku</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/ctrl-a-to-archive-in-outlook-for-mac-2011/">Ctrl-A to Archive in Outlook for Mac 2011</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/07/29/one-line-http-server-in-ruby-or-python/">One line HTTP server in Ruby or Python</a>
       </li>
     
@@ -847,14 +870,6 @@ Courtesy of <a href="http://xkcd.com/327/">xkcd</a>
     
       <li class="post">
         <a href="/blog/2013/07/27/git-tips-count-number-of-commits-between-two-commits/">Git tips: Count # of commits between two commits</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/22/firebug-lite-on-an-ipad/">Firebug Lite on an iPad</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/21/why-w3schools-is-bad-for-the-internet/">Why w3schools is bad for the internet</a>
       </li>
     
   </ul>

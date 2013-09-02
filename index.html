@@ -9,8 +9,7 @@
   <meta name="author" content="Gal Steinitz">
 
   
-  <meta name="description" content="If you need to quickly spin up a web server to just serve static files from your file system, here are two ways to do it: Ruby 1
-ruby -rwebrick -e&# &hellip;">
+  <meta name="description" content="This is probably old news to most readers, however it was news to me. You can get free SSL on heroku, by using whats known as &#8220;Piggyback SSL&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -52,7 +51,7 @@ ruby -rwebrick -e&# &hellip;">
   
     <h2>Yet another blog about Ruby, Rails, Javascript, Apple, Malteses and Shih-Tzus by Gal Steinitz</h2>
   
-  <h3>This site is completely static. It was last generated with Octopress and Jekyll on Jul 29, 2013 and hosted on github pages.</h3>
+  <h3>This site is completely static. It was last generated with Octopress and Jekyll on Sep 02, 2013 and hosted on github pages.</h3>
 </hgroup>
 
 </header>
@@ -78,6 +77,96 @@ ruby -rwebrick -e&# &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/09/02/free-ssl-on-heroku/">Free SSL on Heroku</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-02T14:21:00-07:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is probably old news to most readers, however it was news to me. You can get free SSL on heroku, by using whats known as &#8220;Piggyback SSL&#8221;. For your sensitive pages (Login, Credit Card, etc.) redirect from your regular hostname to</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://your-app.herokuapp.com</span></code></pre></td></tr></table></div></figure>
+
+
+<p>then redirect back to your normal hostname using http://.</p>
+
+<p>Of course, for only $20/mo you can use the SSL add-on and install your own certificate, and use</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://your-domain.com</span></code></pre></td></tr></table></div></figure>
+
+
+<p>&#8230;however for small and personal projects that really don&#8217;t justify any recurring monthly cost, there is this.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/21/ctrl-a-to-archive-in-outlook-for-mac-2011/">Ctrl-A to Archive in Outlook for Mac 2011</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-21T23:50:00-07:00" pubdate data-updated="true">Aug 21<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Productivity tip: timmorrow.com has a little &#8220;how to&#8221; to create a Ctrl-A to archive shortcut for Outlook for Mac 2011. If you&#8217;re used to the one click &#8220;Archive&#8221; button from Gmail but are stuck using Outlook for work - you&#8217;ll love this.</p>
+
+<p><a href="http://timmorrow.org/archive-feature-on-outlook-for-mac">http://timmorrow.org/archive-feature-on-outlook-for-mac</a></p>
+
+<p>One note: He leaves out the important detail that you need to use the Apple Script Editor to edit and save his script, not just any text editor. Otherwise, its flawless, and will improve your productivity by 250%, studies show.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -434,90 +523,6 @@ ruby -rwebrick -e&# &hellip;">
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/06/15/unsubscribe-all-the-things/">Unsubscribe - ALL the THINGS</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-15T10:14:00-07:00" pubdate data-updated="true">Jun 15<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>How Newsletters and Marketing emails have taken over our inboxes.</p>
-
-<p><a href="http://en.wikipedia.org/wiki/Getting_Things_Done">GTD</a> and <a href="http://inboxzero.com/">Inbox Zero</a> help keep me sane, with the enormous amount of <strong>input</strong> (in GTD parlance) that I receive via email.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/06/15/unsubscribe-all-the-things/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/24/absolutely-dead-simple-login-system-for-rails-with-omniauth-and-facebook/">Absolutely Dead Simple Login System for Rails With Omniauth and Facebook</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-24T23:54:00-07:00" pubdate data-updated="true">Oct 24<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In 6 steps&#8230;</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/10/24/absolutely-dead-simple-login-system-for-rails-with-omniauth-and-facebook/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -543,6 +548,14 @@ ruby -rwebrick -e&# &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/09/02/free-ssl-on-heroku/">Free SSL on Heroku</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/ctrl-a-to-archive-in-outlook-for-mac-2011/">Ctrl-A to Archive in Outlook for Mac 2011</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/07/29/one-line-http-server-in-ruby-or-python/">One line HTTP server in Ruby or Python</a>
       </li>
     
@@ -552,14 +565,6 @@ ruby -rwebrick -e&# &hellip;">
     
       <li class="post">
         <a href="/blog/2013/07/27/git-tips-count-number-of-commits-between-two-commits/">Git tips: Count # of commits between two commits</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/22/firebug-lite-on-an-ipad/">Firebug Lite on an iPad</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/21/why-w3schools-is-bad-for-the-internet/">Why w3schools is bad for the internet</a>
       </li>
     
   </ul>

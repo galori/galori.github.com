@@ -4,7 +4,7 @@
   <title><![CDATA[You've got a lot of Gal]]></title>
   <link href="http://galori.github.com/atom.xml" rel="self"/>
   <link href="http://galori.github.com/"/>
-  <updated>2013-07-29T16:57:08-07:00</updated>
+  <updated>2013-09-02T14:27:52-07:00</updated>
   <id>http://galori.github.com/</id>
   <author>
     <name><![CDATA[Gal Steinitz]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Free SSL on Heroku]]></title>
+    <link href="http://galori.github.com/blog/2013/09/02/free-ssl-on-heroku/"/>
+    <updated>2013-09-02T14:21:00-07:00</updated>
+    <id>http://galori.github.com/blog/2013/09/02/free-ssl-on-heroku</id>
+    <content type="html"><![CDATA[<p>This is probably old news to most readers, however it was news to me. You can get free SSL on heroku, by using whats known as &#8220;Piggyback SSL&#8221;. For your sensitive pages (Login, Credit Card, etc.) redirect from your regular hostname to</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://your-app.herokuapp.com</span></code></pre></td></tr></table></div></figure>
+
+
+<p>then redirect back to your normal hostname using http://.</p>
+
+<p>Of course, for only $20/mo you can use the SSL add-on and install your own certificate, and use</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://your-domain.com</span></code></pre></td></tr></table></div></figure>
+
+
+<p>&#8230;however for small and personal projects that really don&#8217;t justify any recurring monthly cost, there is this.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ctrl-A to Archive in Outlook for Mac 2011]]></title>
+    <link href="http://galori.github.com/blog/2013/08/21/ctrl-a-to-archive-in-outlook-for-mac-2011/"/>
+    <updated>2013-08-21T23:50:00-07:00</updated>
+    <id>http://galori.github.com/blog/2013/08/21/ctrl-a-to-archive-in-outlook-for-mac-2011</id>
+    <content type="html"><![CDATA[<p>Productivity tip: timmorrow.com has a little &#8220;how to&#8221; to create a Ctrl-A to archive shortcut for Outlook for Mac 2011. If you&#8217;re used to the one click &#8220;Archive&#8221; button from Gmail but are stuck using Outlook for work - you&#8217;ll love this.</p>
+
+<p><a href="http://timmorrow.org/archive-feature-on-outlook-for-mac">http://timmorrow.org/archive-feature-on-outlook-for-mac</a></p>
+
+<p>One note: He leaves out the important detail that you need to use the Apple Script Editor to edit and save his script, not just any text editor. Otherwise, its flawless, and will improve your productivity by 250%, studies show.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[One line HTTP server in Ruby or Python]]></title>
@@ -799,72 +835,6 @@ if you don&#8217;t want to do this, just use <%=variableName%> instead of
 
 </ol>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Jasmine Debugging: Actual line numbers in error messages]]></title>
-    <link href="http://galori.github.com/blog/2012/06/01/jasmine-debugging-actual-line-numbers-in-error-messages/"/>
-    <updated>2012-06-01T00:00:00-07:00</updated>
-    <id>http://galori.github.com/blog/2012/06/01/jasmine-debugging-actual-line-numbers-in-error-messages</id>
-    <content type="html"><![CDATA[<p>If you&#8217;re using Pivotal Labs&#8217; excellent <a href="http://pivotal.github.com/jasmine/">Jasmine</a> javascript BDD testing framework you may run into this. With Rails 3 Asset Pipeline, jasmine concatenates your js files into a single file - and therefore the line numbers on your stack traces are not useful (they will show the concatenated line numbers).</p>
-
-<p>For example, you may see an error from the concatenated application.js line #17,403 instead of home.js line #15.  To get jasmine to reference the javascript files individually and thereby provide more informative error messages, add this in config/initializers/jasmine.rb:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">Jasmine</span>
-</span><span class='line'>  <span class="k">class</span> <span class="nc">Config</span>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">src_files</span>
-</span><span class='line'>      <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">assets</span><span class="o">[</span><span class="s2">&quot;application&quot;</span><span class="o">].</span><span class="n">dependencies</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">asset</span><span class="o">|</span>
-</span><span class='line'>        <span class="s2">&quot;assets/&quot;</span> <span class="o">+</span> <span class="n">asset</span><span class="o">.</span><span class="n">logical_path</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>NOTE: This only works if your application.js requires all your javascript files and doesn&#8217;t include any javascript itself.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA["rails new" causes segfault using ruby 1.9.3 on Lion]]></title>
-    <link href="http://galori.github.com/blog/2012/05/17/ruby-1-9-3-segfault-on-lion/"/>
-    <updated>2012-05-17T00:00:00-07:00</updated>
-    <id>http://galori.github.com/blog/2012/05/17/ruby-1-9-3-segfault-on-lion</id>
-    <content type="html"><![CDATA[My setup: RVM, MacPorts, OSX Lion
-
-..and &#8220;rails new&#8221; causes a segfault! Stack trace seems to indicate its coming from the bundle install, specifically from net/http. Some googling suggests this is caused by https:// in the gemfile, and can be fixed by modifying it to http://. However since this is during the rails new - thats not possible.
-
-No one solution I found addressed my particular issue, so I&#8217;ll document what worked for me, it may help you!
-
-1. In xcode, Preferences &#8211;&gt; Downloads &#8211;&gt; Command Line Tools &#8211;&gt; Install
-
-2. Install openssl via RVM:
-
-[sourcecode]
-rvm pkg install openssl
-[/sourcecode]
-
-3. Reinstall ruby 1.9.3, forcing GCC and the newly downloaded OpenSSL. The -C just means &#8220;use these configuration options&#8221;
-
-[sourcecode]
-rvm reinstall 1.9.3 -C &#8211;with-gcc=gcc &#8211;with-openssl-dir=~/.rvm/usr
-[/sourcecode]
-
-References:
-
-<a href="https://github.com/rails/rails/issues/4766" title="https://github.com/rails/rails/issues/4766">https://github.com/rails/rails/issues/4766</a>
-<a href="http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion" title="http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion">http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion</a>
 ]]></content>
   </entry>
   

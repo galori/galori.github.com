@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mac | You've got a lot of Gal]]></title>
+  <link href="http://galori.github.com/blog/categories/mac/atom.xml" rel="self"/>
+  <link href="http://galori.github.com/"/>
+  <updated>2013-09-02T14:27:52-07:00</updated>
+  <id>http://galori.github.com/</id>
+  <author>
+    <name><![CDATA[Gal Steinitz]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ctrl-A to Archive in Outlook for Mac 2011]]></title>
+    <link href="http://galori.github.com/blog/2013/08/21/ctrl-a-to-archive-in-outlook-for-mac-2011/"/>
+    <updated>2013-08-21T23:50:00-07:00</updated>
+    <id>http://galori.github.com/blog/2013/08/21/ctrl-a-to-archive-in-outlook-for-mac-2011</id>
+    <content type="html"><![CDATA[<p>Productivity tip: timmorrow.com has a little "how to" to create a Ctrl-A to archive shortcut for Outlook for Mac 2011. If you're used to the one click "Archive" button from Gmail but are stuck using Outlook for work - you'll love this.</p>
+
+<p><a href="http://timmorrow.org/archive-feature-on-outlook-for-mac">http://timmorrow.org/archive-feature-on-outlook-for-mac</a></p>
+
+<p>One note: He leaves out the important detail that you need to use the Apple Script Editor to edit and save his script, not just any text editor. Otherwise, its flawless, and will improve your productivity by 250%, studies show.</p>
+]]></content>
+  </entry>
+  
+</feed>

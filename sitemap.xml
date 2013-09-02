@@ -159,11 +159,21 @@
         <lastmod>2013-07-29T16:56:03-07:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://galori.github.com/blog/2013/08/21/ctrl-a-to-archive-in-outlook-for-mac-2011/
+        </loc>
+        <lastmod>2013-08-21T23:55:19-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://galori.github.com/blog/2013/09/02/free-ssl-on-heroku/</loc>
+        <lastmod>2013-09-02T14:26:32-07:00</lastmod>
+    </url>
+    <url>
         <loc>http://galori.github.com/blog/archives/</loc>
-        <lastmod>2013-07-29T16:56:03-07:00</lastmod>
+        <lastmod>2013-09-02T14:26:32-07:00</lastmod>
     </url>
     <url>
         <loc>http://galori.github.com/</loc>
-        <lastmod>2013-07-29T16:56:03-07:00</lastmod>
+        <lastmod>2013-09-02T14:26:32-07:00</lastmod>
     </url>
 </urlset>

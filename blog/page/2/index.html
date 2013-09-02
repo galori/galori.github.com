@@ -9,8 +9,7 @@
   <meta name="author" content="Gal Steinitz">
 
   
-  <meta name="description" content="Google strong-arms Acer Alibaba said that Acer “was notified by Google that if the product runs Aliyun OS,
-Google will terminate its Android- related &hellip;">
+  <meta name="description" content="How Newsletters and Marketing emails have taken over our inboxes. GTD and Inbox Zero help keep me sane, with the enormous amount of input (in GTD &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -52,7 +51,7 @@ Google will terminate its Android- related &hellip;">
   
     <h2>Yet another blog about Ruby, Rails, Javascript, Apple, Malteses and Shih-Tzus by Gal Steinitz</h2>
   
-  <h3>This site is completely static. It was last generated with Octopress and Jekyll on Jul 29, 2013 and hosted on github pages.</h3>
+  <h3>This site is completely static. It was last generated with Octopress and Jekyll on Sep 02, 2013 and hosted on github pages.</h3>
 </hgroup>
 
 </header>
@@ -78,6 +77,90 @@ Google will terminate its Android- related &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/15/unsubscribe-all-the-things/">Unsubscribe - ALL the THINGS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-15T10:14:00-07:00" pubdate data-updated="true">Jun 15<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>How Newsletters and Marketing emails have taken over our inboxes.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Getting_Things_Done">GTD</a> and <a href="http://inboxzero.com/">Inbox Zero</a> help keep me sane, with the enormous amount of <strong>input</strong> (in GTD parlance) that I receive via email.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/06/15/unsubscribe-all-the-things/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/24/absolutely-dead-simple-login-system-for-rails-with-omniauth-and-facebook/">Absolutely Dead Simple Login System for Rails With Omniauth and Facebook</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-24T23:54:00-07:00" pubdate data-updated="true">Oct 24<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In 6 steps&#8230;</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/10/24/absolutely-dead-simple-login-system-for-rails-with-omniauth-and-facebook/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -441,126 +524,6 @@ original article: <a href="http://www.nasdaq.com/article/acer-cancels-press-conf
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/01/jasmine-debugging-actual-line-numbers-in-error-messages/">Jasmine Debugging: Actual Line Numbers in Error Messages</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-01T00:00:00-07:00" pubdate data-updated="true">Jun 1<span>st</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>If you&#8217;re using Pivotal Labs&#8217; excellent <a href="http://pivotal.github.com/jasmine/">Jasmine</a> javascript BDD testing framework you may run into this. With Rails 3 Asset Pipeline, jasmine concatenates your js files into a single file - and therefore the line numbers on your stack traces are not useful (they will show the concatenated line numbers).</p>
-
-<p>For example, you may see an error from the concatenated application.js line #17,403 instead of home.js line #15.  To get jasmine to reference the javascript files individually and thereby provide more informative error messages, add this in config/initializers/jasmine.rb:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">Jasmine</span>
-</span><span class='line'>  <span class="k">class</span> <span class="nc">Config</span>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">src_files</span>
-</span><span class='line'>      <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">assets</span><span class="o">[</span><span class="s2">&quot;application&quot;</span><span class="o">].</span><span class="n">dependencies</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">asset</span><span class="o">|</span>
-</span><span class='line'>        <span class="s2">&quot;assets/&quot;</span> <span class="o">+</span> <span class="n">asset</span><span class="o">.</span><span class="n">logical_path</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>NOTE: This only works if your application.js requires all your javascript files and doesn&#8217;t include any javascript itself.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/17/ruby-1-9-3-segfault-on-lion/">&#8220;Rails New&#8221; Causes Segfault Using Ruby 1.9.3 on Lion</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-17T00:00:00-07:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">My setup: RVM, MacPorts, OSX Lion
-
-..and &#8220;rails new&#8221; causes a segfault! Stack trace seems to indicate its coming from the bundle install, specifically from net/http. Some googling suggests this is caused by https:// in the gemfile, and can be fixed by modifying it to http://. However since this is during the rails new - thats not possible.
-
-No one solution I found addressed my particular issue, so I&#8217;ll document what worked for me, it may help you!
-
-1. In xcode, Preferences &#8211;&gt; Downloads &#8211;&gt; Command Line Tools &#8211;&gt; Install
-
-2. Install openssl via RVM:
-
-[sourcecode]
-rvm pkg install openssl
-[/sourcecode]
-
-3. Reinstall ruby 1.9.3, forcing GCC and the newly downloaded OpenSSL. The -C just means &#8220;use these configuration options&#8221;
-
-[sourcecode]
-rvm reinstall 1.9.3 -C &#8211;with-gcc=gcc &#8211;with-openssl-dir=~/.rvm/usr
-[/sourcecode]
-
-References:
-
-<a href="https://github.com/rails/rails/issues/4766" title="https://github.com/rails/rails/issues/4766">https://github.com/rails/rails/issues/4766</a>
-<a href="http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion" title="http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion">http://stackoverflow.com/questions/9626729/how-do-you-install-build-ruby-1-9-3-on-osx-lion</a>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -588,6 +551,14 @@ References:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/09/02/free-ssl-on-heroku/">Free SSL on Heroku</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/ctrl-a-to-archive-in-outlook-for-mac-2011/">Ctrl-A to Archive in Outlook for Mac 2011</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/07/29/one-line-http-server-in-ruby-or-python/">One line HTTP server in Ruby or Python</a>
       </li>
     
@@ -597,14 +568,6 @@ References:
     
       <li class="post">
         <a href="/blog/2013/07/27/git-tips-count-number-of-commits-between-two-commits/">Git tips: Count # of commits between two commits</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/22/firebug-lite-on-an-ipad/">Firebug Lite on an iPad</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/21/why-w3schools-is-bad-for-the-internet/">Why w3schools is bad for the internet</a>
       </li>
     
   </ul>
