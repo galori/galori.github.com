@@ -22,7 +22,7 @@ If you add this somewhere in lib/initializiers, you get the .only method
 ``` ruby
 class Array
   def only
-    raise &quot;called Array#only with array of length #{self.length}&quot; if self.length&gt;1
+    raise "called Array only with array of length #{self.length}" if self.length > 1
     self.first
   end
 end
@@ -30,11 +30,13 @@ end
 
 which provides a more semantic description of what you're trying to do:
 
-``` ruby
-&gt;&gt; [].only
-=&gt; nil
-&gt;&gt; [1].only
-=&gt; 1
-&gt;&gt; [1,2,3].only
+``` irb
+> [].only
+ => nil
+> [1].only
+ => 1
+> [1,2,3].only
 RuntimeError: called Array#only with array of length 3
 ```
+
+**Update 4/15/2014**: As pointed out by [@adamwong246](https://twitter.com/adamwong246/status/430754524559462400) - "only" is already [in use by ActiveRecord](http://api.rubyonrails.org/classes/ActiveRecord/SpawnMethods.html#method-i-only). He suggests "onely!" which has a nice ring to it.
