@@ -19,22 +19,22 @@ It always bugged me that this can be error prone - if the array has more than on
 
 If you add this somewhere in lib/initializiers, you get the .only method
 
-[sourcecode language="ruby"]
+``` ruby
 class Array
   def only
     raise &quot;called Array#only with array of length #{self.length}&quot; if self.length&gt;1
     self.first
   end
 end
-[/sourcecode]
+```
 
 which provides a more semantic description of what you're trying to do:
 
-[sourcecode language="ruby"]
+``` ruby
 &gt;&gt; [].only
 =&gt; nil
 &gt;&gt; [1].only
 =&gt; 1
 &gt;&gt; [1,2,3].only
 RuntimeError: called Array#only with array of length 3
-[/sourcecode]
+```
