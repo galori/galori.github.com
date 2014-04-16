@@ -17,12 +17,12 @@ How many times do you use <strong>some_array.first</strong> as a way to get at t
 
 It always bugged me that this can be error prone - if the array has more than one component you'll never know about it, and the .first method isn't semantically describing what you are doing - grabbing the one and only member.
 
-If you add this somewhere in lib/initializiers, you get the .only method
+If you add this somewhere in lib/initializiers, you get the #onely! method
 
 ``` ruby
 class Array
-  def only
-    raise "called Array only with array of length #{self.length}" if self.length > 1
+  def only!
+    raise "called Array onely! with array of length #{self.length}" if self.length > 1
     self.first
   end
 end
@@ -31,12 +31,12 @@ end
 which provides a more semantic description of what you're trying to do:
 
 ``` irb
-> [].only
+> [].onely!
  => nil
-> [1].only
+> [1].onely
  => 1
-> [1,2,3].only
-RuntimeError: called Array#only with array of length 3
+> [1,2,3].onely
+RuntimeError: called Array#onely! with array of length 3
 ```
 
-**Update 4/15/2014**: As pointed out by [@adamwong246](https://twitter.com/adamwong246/status/430754524559462400) - "only" is already [in use by ActiveRecord](http://api.rubyonrails.org/classes/ActiveRecord/SpawnMethods.html#method-i-only). He suggests "onely!" which has a nice ring to it.
+**Update 4/15/2014**: As pointed out by [@adamwong246](https://twitter.com/adamwong246/status/430754524559462400) - "only" (the original method name I used) is already [in use by ActiveRecord](http://api.rubyonrails.org/classes/ActiveRecord/SpawnMethods.html#method-i-only). He suggests "onely!" which has a nice ring to it.
