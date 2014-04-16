@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>array#only for ruby - You've got a lot of Gal</title>
+  <title>array#onely for ruby - You've got a lot of Gal</title>
   <meta name="author" content="Gal Steinitz">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://galori.github.com/blog/2010/06/07/array-only-for-ruby/">
+  <link rel="canonical" href="http://galori.github.com/blog/2010/06/07/array-onely-for-ruby/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -51,7 +51,7 @@
   
     <h2>Yet another blog about Ruby, Rails, Javascript, Apple, Malteses and Shih-Tzus by Gal Steinitz</h2>
   
-  <h3>This site is completely static. It was last generated with Octopress and Jekyll on Sep 02, 2013 and hosted on github pages.</h3>
+  <h3>This site is completely static. It was last generated with Octopress and Jekyll on Apr 15, 2014 and hosted on github pages.</h3>
 </hgroup>
 
 </header>
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">Array#only for Ruby</h1>
+      <h1 class="entry-title">Array#onely for Ruby</h1>
     
     
       <p class="meta">
@@ -103,31 +103,45 @@
   </header>
 
 
-<div class="entry-content">How many times do you use <strong>some_array.first</strong> as a way to get at the one and only member of that array?
+<div class="entry-content"><p>How many times do you use <strong>some_array.first</strong> as a way to get at the one and only member of that array?</p>
 
-It always bugged me that this can be error prone - if the array has more than one component you&#8217;ll never know about it, and the .first method isn&#8217;t semantically describing what you are doing - grabbing the one and only member.
+<p>It always bugged me that this can be error prone - if the array has more than one component you&#8217;ll never know about it, and the .first method isn&#8217;t semantically describing what you are doing - grabbing the one and only member.</p>
 
-If you add this somewhere in lib/initializiers, you get the .only method
+<p>If you add this somewhere in lib/initializiers, you get the #onely! method</p>
 
-[sourcecode language=&#8221;ruby&#8221;]
-class Array
-  def only
-    raise &quot;called Array#only with array of length #{self.length}&quot; if self.length&gt;1
-    self.first
-  end
-end
-[/sourcecode]
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Array</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">only!</span>
+</span><span class='line'>    <span class="k">raise</span> <span class="s2">&quot;called Array onely! with array of length </span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">length</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="nb">self</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">1</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">first</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
-which provides a more semantic description of what you&#8217;re trying to do:
 
-[sourcecode language=&#8221;ruby&#8221;]
-&gt;&gt; [].only
-=&gt; nil
-&gt;&gt; [1].only
-=&gt; 1
-&gt;&gt; [1,2,3].only
-RuntimeError: called Array#only with array of length 3
-[/sourcecode]
+<p>which provides a more semantic description of what you&#8217;re trying to do:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='irb'><span class='line'><span class="go">&gt; [].onely!</span>
+</span><span class='line'><span class="go"> =&gt; nil</span>
+</span><span class='line'><span class="go">&gt; [1].onely</span>
+</span><span class='line'><span class="go"> =&gt; 1</span>
+</span><span class='line'><span class="go">&gt; [1,2,3].onely</span>
+</span><span class='line'><span class="go">RuntimeError: called Array#onely! with array of length 3</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Update 4/15/2014</strong>: As pointed out by <a href="https://twitter.com/adamwong246/status/430754524559462400">@adamwong246</a> - &#8220;only&#8221; (the original method name I used) is already <a href="http://api.rubyonrails.org/classes/ActiveRecord/SpawnMethods.html#method-i-only">in use by ActiveRecord</a>. He suggests &#8220;onely!&#8221; which has a nice ring to it.</p>
 </div>
 
 
@@ -158,7 +172,7 @@ RuntimeError: called Array#only with array of length 3
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://galori.github.com/blog/2010/06/07/array-only-for-ruby/" data-via="galori" data-counturl="http://galori.github.com/blog/2010/06/07/array-only-for-ruby/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://galori.github.com/blog/2010/06/07/array-onely-for-ruby/" data-via="galori" data-counturl="http://galori.github.com/blog/2010/06/07/array-onely-for-ruby/" >Tweet</a>
   
   
   
@@ -281,7 +295,7 @@ RuntimeError: called Array#only with array of length 3
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Gal Steinitz -
+  Copyright &copy; 2014 - Gal Steinitz -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
