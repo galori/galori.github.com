@@ -1,6 +1,6 @@
 ---
 layout: post
-title: array#only for ruby
+title: array#onely for ruby
 tags:
 - ruby
 status: publish
