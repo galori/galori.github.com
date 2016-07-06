@@ -21,7 +21,7 @@ If you add this somewhere in lib/initializiers, you get the #onely! method
 
 ``` ruby
 class Array
-  def only!
+  def onely!
     raise "called Array onely! with array of length #{self.length}" if self.length > 1
     self.first
   end
