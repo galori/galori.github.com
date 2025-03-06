@@ -4,6 +4,9 @@
 
 @import "minima";
 
+// import the scss file from assets/prism-atom-dark.scss
+@import "prism-atom-dark";
+
 a.post-link {
   color: #333;
   margin-bottom: 1em;
@@ -11,4 +14,26 @@ a.post-link {
 
 .post-title {
   font-size: 5em;
+}
+
+pre.code-block-copyable {
+  max-height: 150px;
+  overflow-y: scroll;
+}
+
+div.code-toolbar>.toolbar {
+  right: 2em;
+}
+
+.wrapper {
+  max-width: 80%;
+}
+
+.post-meta {
+  font-size: 2em;
+  color: #666;
+}
+
+.post-list > li {
+  margin-bottom: 8em;
 }

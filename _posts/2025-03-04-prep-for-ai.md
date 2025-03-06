@@ -10,15 +10,13 @@ I use this `prep_prompt.sh` script to prepare my code for pasting into the promp
 
 ## Usage:
 
-```shell
-$ prep_prompt README.md app/controllers/application_controller.rb
+<pre class="language-bash"><code>$ prep_prompt README.md app/controllers/application_controller.rb
 Copied into clipboard.
-```
+</code></pre>
 
 The `--verbose` option shows you what is being copied:
 
-~~~shell
-$ prep_prompt README.md app/controllers/application_controller.rb --verbose
+<pre class="language-ruby"><code>$ prep_prompt README.md app/controllers/application_controller.rb --verbose
 Included files:
 
 * README.md
@@ -42,4 +40,49 @@ end
 ```
 
 Copied into clipboard.
-~~~
+</code></pre>
+
+To use, place this script anywhere in your path:
+
+<pre class="language-bash code-block-copyable"><code>#!/bin/bash
+
+verbose=false
+files=()
+
+# Process command-line arguments to separate files from options
+for arg in "$@"; do
+  if [ "$arg" = "--verbose" ]; then
+    verbose=true
+  else
+    files+=("$arg")
+  fi
+done
+
+if [ "${#files[@]}" -eq 0 ]; then
+  echo "Please provide at least one file as an argument."
+  exit 1
+fi
+
+included_git files=""
+source=""
+
+for file in "${files[@]}"; do
+  if [ -f "$file" ]; then
+    included_files+="* $file"$'\n'
+    if file --mime "$file" | grep -q 'text\|json\|xml'; then
+      source+=$'\n'"\`$file\`:"$'\n'
+      source+=$'```\n'
+      source+="$(cat "$file")"$'\n'
+      source+=$'```\n'
+    fi
+  fi
+done
+
+prompt="Included files:\n\n$included_files\n$source"
+
+if [ "$verbose" = true ]; then
+  echo -e "$prompt"
+fi
+echo -e "$prompt" | pbcopy
+echo "Copied into clipboard."
+</code></pre>

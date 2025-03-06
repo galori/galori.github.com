@@ -25,3 +25,9 @@ div.code-toolbar > .toolbar > .toolbar-item > button:hover {
   background: #eee;
   color: #333;
 }
+
+pre.code-block-copyable {
+  background-color: blue !important;
+  max-height: 300px !important;
+  overflow-y: scroll !important;
+}
