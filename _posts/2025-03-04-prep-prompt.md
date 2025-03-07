@@ -1,20 +1,35 @@
 ---
 layout: post
-title: Prep code for AI Prompt
+title: "prep_prompt.sh"
 date: 2025-03-04 19:05 -0800
 ---
 
-While Github Copilot and Cline are integrated into the IDE are are excellent, sometimes I want a 3rd or 4th opinion.
+While Github Copilot and Cline are integrated into the IDE and are excellent, sometimes I want a 3rd or 4th opinion.
 
-I use this `prep_prompt.sh` script to prepare my code for pasting into the prompt. 
+My `prep_prompt.sh` prepares my code for pasting into the prompt. It doesn't do much but it's very helpful:
+
+* It adds the name of the file before each file
+* It adds code fence blocks (```) before and after the code
+* It concatenates all the source files passed into it
+* It copies it to the (macos) clipboard
 
 ## Usage:
+
+* Basic usage:
 
 <pre class="language-bash"><code>$ prep_prompt README.md app/controllers/application_controller.rb
 Copied into clipboard.
 </code></pre>
 
-The `--verbose` option shows you what is being copied:
+* The larger context sizes all the LLMs have been rolling out have been game changers, and this make sharing your entire app possible:
+
+<pre class="language-bash"><code>$ prep_prompt $(find * | grep rb$)
+Copied into clipboard.
+</code></pre>
+
+Now you can ask questions that require broader visibility of your entire app, instead of about individual files or snippets.
+
+* The `--verbose` option shows what is being copied:
 
 <pre class="language-ruby"><code>$ prep_prompt README.md app/controllers/application_controller.rb --verbose
 Included files:
