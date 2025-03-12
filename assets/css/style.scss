@@ -28,6 +28,10 @@ div.code-toolbar > .toolbar > .toolbar-item > button:hover {
 
 pre.code-block-copyable {
   background-color: blue !important;
-  max-height: 300px !important;
+  // max-height: 300px !important;
   overflow-y: scroll !important;
+}
+
+pre.no-height-limit {
+  max-height: inherit !important;
 }

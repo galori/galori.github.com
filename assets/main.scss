@@ -18,6 +18,10 @@ pre.code-block-copyable {
   overflow-y: scroll;
 }
 
+pre.no-height-limit {
+  max-height: inherit;
+}
+
 div.code-toolbar>.toolbar {
   right: 2em;
 }
