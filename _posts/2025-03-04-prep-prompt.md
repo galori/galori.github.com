@@ -59,6 +59,8 @@ Copied into clipboard.
 
 To use, place this script anywhere in your path:
 
+<!--more-->
+
 <pre class="language-bash code-block-copyable"><code>#!/bin/bash
 
 verbose=false

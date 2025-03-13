@@ -26,10 +26,16 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: galori
 github_username:  galori
 
+show_excerpts: true
+excerpt_separator: <!--more-->
+
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+
+sass:
+  quiet_deps: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
