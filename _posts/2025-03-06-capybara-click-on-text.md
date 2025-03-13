@@ -8,22 +8,27 @@ date: 2025-03-06 21:38 -0800
 
 Usage:
 
-<pre><code>click_on_text 'More details'</code></pre>
+```ruby
+click_on_text 'More details'
+```
 
 It uses xpath to find the text on the page and click on it. 
 
 Include it in `spec/rails_helper.rb`:
 
-<pre><code>require Rails.root.join('spec/support/click_on_text.rb')
+```ruby
+require Rails.root.join('spec/support/click_on_text.rb')
 
 RSpec.configure do |config|
   config.include ClickOnText, type: :system
 end
-</code></pre>
+```
 
 And drop this in `spec/support/click_on_text.rb`:
 
-<pre><code class="language-ruby code-block-copyable">module ClickOnText
+
+```ruby
+module ClickOnText
 
   def click_on_text(text)
     element = find_by_text(text)
@@ -49,4 +54,5 @@ And drop this in `spec/support/click_on_text.rb`:
     end
   end
 
-end</code></pre>
+end
+```

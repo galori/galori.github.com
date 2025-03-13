@@ -4,16 +4,17 @@
   {%- include head.html -%}
 
   <body>
-
     {%- include header.html -%}
 
     <main class="page-content" aria-label="Content">
-      <div class="wrapper">
+      <div class="wrapper line-numbers">
         {{ content }}
       </div>
     </main>
 
     {%- include footer.html -%}
+
+    <script src="/assets/javascript/prism.js"></script>
 
   </body>
 

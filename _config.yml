@@ -23,7 +23,6 @@ email: gall at steinitz dot com
 description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: galori
 github_username:  galori
 
 show_excerpts: true
@@ -56,3 +55,9 @@ sass:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+kramdown:
+    syntax_highlighter_opts:
+        disable : true
+
+markdown: redcarpet

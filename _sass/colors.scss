@@ -1,0 +1,28 @@
+// https://colorhunt.co/palette/7d0a0abf3131ead196eeeeee
+
+:root {
+  --primary-dark: #7D0A0A;
+  --primary: #BF3131;
+  --accent: #EAD196;
+  --light: #EEEEEE;
+
+  --primary-dark-rgb: 125, 10, 10;
+  --primary-rgb: 191, 49, 49;
+  --accent-rgb: 234, 209, 150;
+  --light-rgb: 238, 238, 238;
+}
+
+// usage:
+// body {
+//   background-color: var(--light);
+//   color: var(--primary-dark);
+// }
+
+// .button {
+//   background-color: var(--primary);
+//   color: var(--light);
+// }
+
+// .button:hover {
+//   background-color: rgba(var(--primary-dark-rgb), 0.8);
+// }
