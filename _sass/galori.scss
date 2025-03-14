@@ -9,9 +9,9 @@
 
 body { 
   font-family: 'Cormorant', serif;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.6;
-  color: #333;
+  color: #222;
 }
 
 // post dates
@@ -33,4 +33,9 @@ code {
   color: var(--primary);
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 70%
+}
+
+.post-link {
+  font-weight: bolder;
+  font-size: 26px;
 }
