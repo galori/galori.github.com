@@ -17,6 +17,7 @@ Common root casues:
 A good simple first step when attempting to troubleshoot a flaky spec is to see if it's flaky in isolation:
 
 ```bash
-for _ in $(seq 1 to 100); do bundle exec rspec spec/system/login_spec.rb; end
+for _ in $(seq 1 to 100); do bundle exec rspec spec/system/login_spec.rb || break; end
 ```
 
+The above runs the spec 100 times until it fails, and then stops.
