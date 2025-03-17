@@ -18,7 +18,7 @@ To debug these effectively:
 
 The above was setup using [my "ci_vnc" scripts](https://github.com/galori/ci_vnc/tree/main/scripts) that are designed to setup SSH+VNC on a Github Action on EC2.  I'm hoping to iterate on them and turn them into a reusable Github Actions Marketplace action.
 
-That is the most secure way since it is not relying on any 3rd party service proxies like `upterm` or `ngrok`. 
+That is the most secure method as it does not rely on any 3rd party service proxies like `upterm` or `ngrok`. 
 
 If you are OK with relying on such services, [there is a more drop-in github action approach that relies on `ngrok`](https://github.com/airsquared/reverse-linux-vnc-github-actions).
 
