@@ -6,7 +6,7 @@ date: 2025-03-17 12:53 -0700
 
 ## Run your spec directly in CI / Github Action
 
-If you are unable to reproduce the error locall - try running your spec directly in CI.  Github Actions and CI in general aren't designed to allow you to SSH into them, but you can still do that with a couple of changes:
+If you are unable to reproduce the error locally - try running your spec directly in CI.  Github Actions and CI in general aren't designed to allow you to SSH into them, but you can still do that with a couple of changes:
 
 1. Force it to stay "alive" 
 2. Allow it to accept incoming connection with [upterm](https://upterm.dev/) or [ngrok](https://ngrok.com/). 
