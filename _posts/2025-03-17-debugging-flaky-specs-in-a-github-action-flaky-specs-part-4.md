@@ -9,7 +9,7 @@ date: 2025-03-17 12:53 -0700
 If you are unable to reproduce the error locally - try running your spec directly in CI.  Github Actions and CI in general aren't designed to allow you to SSH into them, but you can still do that with a couple of changes:
 
 1. Force it to stay "alive" 
-2. Allow it to accept incoming connection with [upterm](https://upterm.dev/) or [ngrok](https://ngrok.com/). 
+2. Allow it to accept incoming connection with [upterm](https://upterm.dev/) or [ngrok](https://ngrok.com/) [^1]
 
 ### Upterm Github Action 
 
@@ -37,7 +37,7 @@ Then you can connect by copying the `ssh` connection string, and run your tests 
 
 ![upterm](assets/images/upterm.gif)
 
-Note:  Upterm requires proxying an [uptermd](https://github.com/owenthereal/upterm/tree/master/cmd/uptermd) server that is provided for free. However if this is unacceptable, you have other options:
+[^1]: Upterm & ngrok require proxying through an [uptermd](https://github.com/owenthereal/upterm/tree/master/cmd/uptermd) server or the ngrok equivalent, which is available for free. However if this is unacceptable you have other options:
 
-1. Run your own uptermd
-2. Configure Github Actions to run on your own containers (via AWS or other), then connect directly 
+1. For upterm, you can run your own uptermd
+2. Configure Github Actions to run on your own containers (via AWS/EC2 or similar), then connect directly 
