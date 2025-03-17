@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to deal with Flaky rspec tests (flaky specs, part 2)
+title: How to deal with flaky rspec tests (flaky specs, part 2)
 date: 2025-03-17 00:43 -0700
 ---
 

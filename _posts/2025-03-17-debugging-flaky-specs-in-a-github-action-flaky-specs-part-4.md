@@ -1,25 +1,15 @@
 ---
 layout: post
 title: Debugging flaky specs in a Github Action (Flaky Specs, Part 3)
-date: 2025-03-17 09:23 -0700
+date: 2025-03-17 12:53 -0700
 ---
-
-## Rerun specs in the same order
-
-Sometimes specs only fail on CI, and pass locally.  The first thing to try is running the test suite locally in the same order locally:
-
-Look for `Randomized with seed 14427` in your CI test run output. Grab the seed and then run the test suite locally with it:
-
-```shell
-bundle exec rspec --seed 14427
-```
 
 ## Run your spec directly in CI / Github Action
 
-If that doesn't reproduce the problem, try running your spec directly in CI.  Github Actions and CI in general aren't designed to allow you to SSH into them, but you can still do that with a couple of changes:
+If you are unable to reproduce the error locall - try running your spec directly in CI.  Github Actions and CI in general aren't designed to allow you to SSH into them, but you can still do that with a couple of changes:
 
 1. Force it to stay "alive" 
-2. Allow it to accept incoming connection with services like [upterm](https://upterm.dev/) or [ngrok](https://ngrok.com/). 
+2. Allow it to accept incoming connection with [upterm](https://upterm.dev/) or [ngrok](https://ngrok.com/). 
 
 ### Upterm Github Action 
 
@@ -33,7 +23,7 @@ The [Upterm Github Action](https://github.com/marketplace/actions/debugging-with
     wait-timeout-minutes: 30
 ```
 
-If your specs fail, this sets up upterm + tmux and provides an SSH connection string. To connect, watch your the build log untill you see:
+If your specs fail, this sets up upterm + tmux and provides an SSH connection string and force the container to stay alive for 30 minutes. To connect, watch your the build log untill you see:
 
 ```shell
 === F8S2LCNHYCL8S3WGMW72                                                                                                 
