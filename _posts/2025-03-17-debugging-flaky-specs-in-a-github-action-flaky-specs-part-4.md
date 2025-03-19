@@ -35,7 +35,7 @@ SSH Session:            ssh F8S2LCn..........<REDACTED>...............FsOjIyMjI=
 
 Then you can connect by copying the `ssh` connection string, and run your tests directly on the Github Action container:
 
-![upterm](assets/images/upterm.gif)
+![upterm](/assets/images/upterm.gif)
 
 [^1]: Upterm & ngrok require proxying through an [uptermd](https://github.com/owenthereal/upterm/tree/master/cmd/uptermd) server or the ngrok equivalent, which is available for free. However if this is unacceptable you have other options:
 

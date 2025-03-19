@@ -1,0 +1,14 @@
+div#sidebar {
+  position: sticky;
+  right: 0;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(236, 233, 233);
+  padding: 5px;
+  max-width: 225px;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-right: 12px;
+  // padding-bottom: 24px;
+}

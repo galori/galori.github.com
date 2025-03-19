@@ -4,7 +4,7 @@ title: Flaky browser specs in a Github Action (Flaky Specs part 5)
 date: 2025-03-17 12:57 -0700
 ---
 
-The most "fun" flaky spec to debug is a flaky browser Spec that only fails intermittently in CI. What now?
+The most "fun" flaky spec to debug is a flaky browser spec that only fails intermittently in CI. What now?
 
 To debug these effectively:
 
